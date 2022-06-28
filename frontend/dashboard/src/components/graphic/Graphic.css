@@ -1,0 +1,25 @@
+.graph__container {
+    box-sizing: border-box;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 80%;
+    padding: 50px;
+}
+
+.meses {
+    margin-top: 10px;
+}
+
+.meses, .columns {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.mes {
+    text-align: center;
+    width: 60px;
+}

@@ -1,0 +1,28 @@
+.graph__container {
+    align-items: center;
+    background-color: lightgray;
+    display: flex;
+    justify-content: space-evenly;
+    height: 400px;
+    width: 600px;
+}
+
+.valor {
+    font-size: 13px;
+    text-align: center;
+}
+
+.graph__column {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 60px;
+}
+
+.column {
+    background-color: green;
+    width: 100%;
+}
+

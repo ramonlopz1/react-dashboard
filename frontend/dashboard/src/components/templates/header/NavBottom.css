@@ -1,0 +1,33 @@
+.nav__bottom {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 100%
+}
+
+.painels {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+
+.nav__bottom .link {
+    align-items: center;
+    background-color: var(--cor1);
+    border-radius: 6px;
+    display: flex;
+    height: 20px;
+    justify-content: center;
+    margin: 0px 15px;
+    width: 200px;
+}
+
+.filter__options {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    width: 70%;
+}

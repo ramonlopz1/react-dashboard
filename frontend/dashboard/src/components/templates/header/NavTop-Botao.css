@@ -1,0 +1,7 @@
+a {
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    padding: 5px 25px;
+    background-color: var(--cor1);
+}

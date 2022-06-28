@@ -1,0 +1,31 @@
+:root {
+    --cor1: rgb(15, 15, 15);
+}
+
+.app {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr 30px;
+    grid-template-areas: 
+    "header header"
+    "nav-aside main-section"
+    "footer footer";
+
+    height: 100vh;
+}
+
+header.header {
+    grid-area: header;
+}
+
+.nav.nav__aside {
+    grid-area: nav-side;
+}
+
+.main__section {
+    grid-area: main-section;
+}
+
+footer.footer {
+    grid-area: footer;
+}
