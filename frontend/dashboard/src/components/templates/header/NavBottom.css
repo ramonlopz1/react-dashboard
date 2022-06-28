@@ -1,5 +1,5 @@
 .nav__bottom {
-    align-items: center;
+    align-items: flex-start;
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
@@ -8,11 +8,16 @@
 
 .painels {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: left;
     align-items: center;
 }
 
-
+.filter__options {
+    align-items: center;
+    display: flex;
+    justify-content: left;
+    width: 70%;
+}
 
 .nav__bottom .link {
     align-items: center;
@@ -21,13 +26,7 @@
     display: flex;
     height: 20px;
     justify-content: center;
-    margin: 0px 15px;
-    width: 200px;
+    width: 130px;
+    margin-left: 15px;
 }
 
-.filter__options {
-    align-items: center;
-    display: flex;
-    justify-content: space-evenly;
-    width: 70%;
-}

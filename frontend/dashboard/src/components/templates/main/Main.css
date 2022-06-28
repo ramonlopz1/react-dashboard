@@ -1,0 +1,58 @@
+.main__section {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "aside__content graphic__section";
+    flex-direction: row;
+    padding: 0px 50px;
+}
+
+.aside__content {
+    grid-area: aside__content;
+}
+
+.aside__content .container {
+    align-items: center;
+    background-color: var(--cor2);
+    display: flex;
+    height: 400px;
+    justify-content: space-evenly;
+
+    flex-direction: column;
+    
+}
+
+.aside__content .container .container__infos {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    
+}
+
+.container__infos .info, .infos__data {
+    align-items: center;
+    display: flex;
+    font-size: 19px;
+    height: 50px;
+    justify-content: left;
+    padding-left: 15px;
+    
+}
+
+.container__infos .info {
+    background-color: white;
+    border-radius: 4px 0px 0px 4px;
+    width: 130px;
+}
+
+.container__infos .infos__data {
+    background-color: rgba(255, 255, 255, 0.376);
+    border-radius: 0px 4px 4px 0px;
+    color: white;
+    width: 180px;
+    
+}
+
+.graphic__section {
+    grid-area: graphic__section;
+}

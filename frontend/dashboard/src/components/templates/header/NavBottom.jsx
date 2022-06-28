@@ -17,8 +17,8 @@ const NavBottom = props =>
             </div>
 
             <div className="filter__options">
-                <a href="/revenue">Faturamento</a>
-                <a href="/devolution">Devolução</a>
+                <a className='link' href="/revenue">Faturamento</a>
+                <a className='link' href="/devolution">Devolução</a>
             </div>
     </nav>
 

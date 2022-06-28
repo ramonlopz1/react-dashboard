@@ -1,14 +1,15 @@
 :root {
-    --cor1: rgb(15, 15, 15);
+    --cor1: rgb(11, 88, 220);
+    --cor2: #0138c3;
 }
 
 .app {
     display: grid;
-    grid-template-columns: 200px 1fr;
-    grid-template-rows: auto 1fr 30px;
+    grid-template-columns: 400px 1fr;
+    grid-template-rows: auto 1fr 50px;
     grid-template-areas: 
     "header header"
-    "nav-aside main-section"
+    "main__section main__section"
     "footer footer";
 
     height: 100vh;
@@ -18,14 +19,15 @@ header.header {
     grid-area: header;
 }
 
-.nav.nav__aside {
-    grid-area: nav-side;
-}
 
 .main__section {
-    grid-area: main-section;
+    grid-area: main__section;
 }
 
 footer.footer {
     grid-area: footer;
+}
+
+.aside__content {
+    grid-area: aside__content;
 }

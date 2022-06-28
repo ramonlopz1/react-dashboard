@@ -3,7 +3,7 @@ header.header {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    background-color: gray;
+    background-color: var(--cor2);
 }
 
 .header__top, 
@@ -16,7 +16,7 @@ header.header {
 }
 
 .header__top {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.36);
 }
 
 .header__bottom {
