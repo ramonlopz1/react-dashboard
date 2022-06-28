@@ -1,14 +1,5 @@
-.graph__container {
-    align-items: center;
-    background-color: lightgray;
-    display: flex;
-    justify-content: space-evenly;
-    height: 400px;
-    width: 600px;
-}
-
 .valor {
-    font-size: 13px;
+    font-size: 12px;
     text-align: center;
 }
 
@@ -17,12 +8,13 @@
     justify-content: flex-end;
     flex-direction: column;
     align-items: center;
-    height: 100%;
+    height: 80%;
     width: 60px;
 }
 
 .column {
-    background-color: green;
-    width: 100%;
+    background-color: var(--cor3);
+    height: 70%;
+    width: 60%;
 }
 

@@ -20,5 +20,6 @@ header.header {
 }
 
 .header__bottom {
-    height: 100px;
+    height: auto;
+    padding: 15px 0px;
 }

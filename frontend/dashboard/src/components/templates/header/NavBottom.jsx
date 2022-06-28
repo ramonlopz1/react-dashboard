@@ -6,19 +6,15 @@ const NavBottom = props =>
     <nav className='nav__bottom'>
             <div className="painels">
                 <Link to="/rca" className='link'>
-                    <i className="fa fa-home"></i> RCA
+                    <i className="fa fa-folder"></i> RCA
                 </Link>
                 <Link to="/" className='link'>
-                    <i className="fa fa-home"></i> Cliente
+                    <i className="fa fa-user"></i> Cliente
                 </Link>
                 <Link to="/" className='link'>
-                    <i className="fa fa-home"></i> Produtos
+                    <i className="fa fa-boxes"></i> Produtos
                 </Link>
-            </div>
-
-            <div className="filter__options">
-                <a className='link' href="/revenue">Faturamento</a>
-                <a className='link' href="/devolution">Devolução</a>
+                <a className='link' href="/revenue">Gráficos</a>
             </div>
     </nav>
 

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Main from '../templates/main/Main'
+
+import AsideResume from './AsideResume';
 import GraphColumn from './GraphColumn';
 import './Graphic.css'
 
@@ -36,8 +38,18 @@ export default class Graphic extends Component {
 
     renderGraphic() {
         return (
-            <div className='graph__container'>
 
+            <div className="wrapper__container">
+                <div className="buttons___filter">
+                    <Link to="/revenue" onClick={() => this.load('revenue')}>
+                    Faturamento
+                    </Link>
+                    <Link to="/devolution" onClick={() => this.load('devolution')}>
+                        Devolução
+                    </Link>
+                </div>
+            <div className='graph__container'>
+                
                 <div className='columns'>
                     {this.renderGraphicColumn()}
                 </div>
@@ -57,6 +69,7 @@ export default class Graphic extends Component {
                     <span className="mes">Dez</span>
                 </div>
             </div>
+            </div>
         )
     }
 
@@ -68,7 +81,7 @@ export default class Graphic extends Component {
         if (!objectWithYears?.['2020']) return
 
         const arrayValuesOfRevenue = Object.values(objectWithYears['2020'])
-
+        
         let id = 0
 
         if (arrayValuesOfRevenue) {
@@ -83,13 +96,9 @@ export default class Graphic extends Component {
     render() {
         return (
             <Main title={this.props.title}>
+                <AsideResume/>
                 {this.renderGraphic()}
-                <Link to="/revenue" onClick={() => this.load('revenue')}>
-                    Faturamento
-                </Link>
-                <Link to="/devolution" onClick={() => this.load('devolution')}>
-                    Devolução
-                </Link>
+               
             </Main>
         )
     }
