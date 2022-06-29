@@ -37,7 +37,6 @@ export default class Graphic extends Component {
 
     renderGraphic() {
         return (
-
             <div className="wrapper__container">
                 <div className="buttons___filter">
                     <Link to="/revenue" onClick={() => this.load('revenue')}>
@@ -45,6 +44,12 @@ export default class Graphic extends Component {
                     </Link>
                     <Link to="/devolution" onClick={() => this.load('devolution')}>
                         Devolução
+                    </Link>
+                    <Link to="/positivation" onClick={() => this.load('positivation')}>
+                        Positivação
+                    </Link>
+                    <Link to="/mix" onClick={() => this.load('mix')}>
+                        Mix
                     </Link>
                 </div>
                 <div className='graph__container'>
@@ -78,11 +83,21 @@ export default class Graphic extends Component {
         const arrayValues = this.getUpdateList(2020);
 
         let id = 0
-
+        let columnSize = 0
         if (arrayValues) {
             return arrayValues.map(mounthValue => {
+
+                // define o tamanho da coluna do gráfico
+                if(mounthValue >= 10000) {
+                    columnSize = mounthValue / 10000
+                } else if (mounthValue >= 1000 && mounthValue < 10000) {
+                    columnSize = mounthValue / 100
+                } else if (mounthValue > 100 && mounthValue < 2000) {
+                    columnSize = mounthValue / 10
+                }
+
                 return (
-                    <GraphColumn key={id++} value={mounthValue}></GraphColumn>
+                    <GraphColumn key={id++} columnsize={columnSize} value={this.formatNumbers(mounthValue)}></GraphColumn>
                 )
             })
         }
@@ -122,6 +137,7 @@ export default class Graphic extends Component {
         )
     }
 
+    // calcula o crescimento total anual
     calcYearRevenue() {
         if (!this.state.list) return
 
@@ -141,14 +157,13 @@ export default class Graphic extends Component {
         }
     }
 
+    // calcula a taxa de crescimento total anual
     calcYearGrowthly() {
         if (!this.state.list) return
 
         let monthlyGrowthlyAverage = 0
         let totalTaxAvarege = 0
-
-        // array com faturamento mensal, que servirá de base para comparar os valores
-        // e obter as taxas percentuais de crescimento, mês a mês.
+        
         const MonthlyAverage = this.getUpdateList(2020)
 
         let monthlyGrowthlyArray = []
@@ -173,32 +188,35 @@ export default class Graphic extends Component {
         return totalTaxAvarege;
     }
 
+    // calcula o melhor mês
     calcGreaterMonthly() {
         const MonthlyAverage = this.getUpdateList(2020)
 
-        if (!MonthlyAverage) return
+        if(!MonthlyAverage) return
 
         const greater = MonthlyAverage.reduce((prev, current) => {
             return prev > current ? prev : current
         })
-
+        
         return greater;
     }
 
+    // calcula o pior mês
     calcWorstMonthly() {
         const MonthlyAverage = this.getUpdateList(2020)
 
-        if (!MonthlyAverage) return
+        if(!MonthlyAverage) return
 
         const worst = MonthlyAverage.reduce((prev, current) => {
             return prev < current ? prev : current
         })
-
+        
         return worst;
     }
 
+    // formata números para renderização
     formatNumbers(number) {
-        const formattedNumber =
+        const formattedNumber = 
             parseFloat(number)
                 .toFixed(2)
                 .toString()
@@ -207,6 +225,7 @@ export default class Graphic extends Component {
         return formattedNumber;
     }
 
+    // retorna lista atualizada
     getUpdateList(year) {
         if (!this.state.list) return
         // objectJSON[0] contém o array de anos 

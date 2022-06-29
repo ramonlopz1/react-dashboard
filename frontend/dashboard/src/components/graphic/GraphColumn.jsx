@@ -5,9 +5,10 @@ const GraphColumn = props =>
 
         <div className="graph__column">
             <span className='valor'>
-                R$ {parseFloat(props.value).toFixed(2).replace(".", ",")}
+                {props.value}
             </span>
-            <div value={props.value} className='column' style={{ height: props.value / 1000 }}>
+          
+            <div columnsize={props.columnsize} className='column' style={{ height: props.columnsize }}>
             </div>
         </div>
 
