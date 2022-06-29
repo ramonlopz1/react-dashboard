@@ -1,8 +1,8 @@
 import React from 'react';
-import './AsideResume.css'
+import './LeftResume.css'
 
 const AsideResume = props => 
-<aside className='aside__content'>
+<aside className='aside__content left'>
             <div className="container">
                 <div className="container__infos">
                     <span className='info'>Faturamento</span>
