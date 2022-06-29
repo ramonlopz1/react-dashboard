@@ -6,7 +6,7 @@ const AsideResume = props =>
             <div className="container">
                 <div className="container__infos">
                     <span className='info'>Faturamento</span>
-                    <div className='infos__data'>R$ 9.238.232,89</div>
+                    <div className='infos__data'>R$ {props.totalYearRevenue}</div>
                 </div>
                 <div className="container__infos">
                     <span className='info'>Devolução</span>

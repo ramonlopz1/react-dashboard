@@ -73,17 +73,7 @@ export default class Graphic extends Component {
         )
     }
 
-
-    getUpdateList(year) {
-        if (!this.state.list) return
-        // objectJSON[0] contém o array de anos 
-        const objectWithYears = this.state.list[0]
-        if (!objectWithYears?.[year.toString()]) return
-
-        const arrayValues = Object.values(objectWithYears[year.toString()])
-
-        return arrayValues
-    }
+    
 
     renderGraphicColumn() {
 
@@ -101,70 +91,106 @@ export default class Graphic extends Component {
     }
 
     renderLeftResume() {
+
+        const formatYearRevenue = (parseFloat(this.calcYearRevenue()).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+
         return (
-            <LeftResume totalRevenue={'0232'}/>
+            <LeftResume totalYearRevenue={formatYearRevenue} />
         )
     }
 
     renderRightResume() {
+
+        // variável temporária: calcula a média mensal de faturamento
+        let monthlyRevenueAverage = 0
+
+        // variável temporária: calcula a média mensal taxa de crescimento
+        let taxAvarege = 0 //
+
+        const MonthlyAverage = this.getUpdateList(2020)
+
+        if (MonthlyAverage) {
+
+            // calcula a média de faturamento mensal e formata dezenas, centenas e milhares
+            monthlyRevenueAverage = ((this.calcYearRevenue() / 12).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+
+            // finalmente define a taxa média de crescimento
+            taxAvarege = (this.calcYearGrowthly() / 12).toFixed(2)
+        }
+
+        return (
+            <RightResume title={this.props.title} revenueMonthlyAverage={monthlyRevenueAverage} growthMonthlyAverage={taxAvarege} />
+        )
+    }
+
+    calcYearRevenue() {
         if (!this.state.list) return
 
         // array com faturamento mensal, que servirá de base para comparar os valores
         // e obter as taxas percentuais de crescimento, mês a mês.
         const MonthlyAverage = this.getUpdateList(2020)
 
-        // variáveis temporária do faturamento total anual e da venda (média) mensal
+        // variáveis temporária do faturamento total anual
         let totalRevenue = 0 //
-        let monthlyRevenueAverage = 0
-
-        // variáveis temporária do crescimento total anual e da venda (média) mensal
-        let taxAvarege = 0 //
-        let monthlyGrowthlyAverage = 0
-        let totalTaxAvarege = 0
 
         if (MonthlyAverage) {
             MonthlyAverage.forEach(avarege => {
                 totalRevenue += avarege
             })
 
-            // calcula a média de faturamento mensal
-            monthlyRevenueAverage = totalRevenue / 12
-
-            // calcula a média de crescimento mensal
-
-            // cria array com taxa média de crescimento mensal
-            let monthlyGrowthlyArray = []
-            MonthlyAverage.reduce((previous, current, index) => {
-                // calcula a taxa de crescimento entre o mês anterior e o atual
-                monthlyGrowthlyAverage = ((current / previous) * 100) - 100
-                
-                // cria Array com todas as taxas de crescimento mensais
-                monthlyGrowthlyArray.push(monthlyGrowthlyAverage)
-
-                // retorna o valor atual do Array, para o reduce
-                const lastValueOperated = MonthlyAverage[index]
-
-                return lastValueOperated
-            })
-
-            // soma todos os valores do Array de taxas de crescimento mensais
-            monthlyGrowthlyArray.forEach(avarege => {
-                totalTaxAvarege += avarege
-            })
-
-            // finalmente define a taxa média de crescimento
-            taxAvarege = (totalTaxAvarege / 12).toFixed(2)
+            return totalRevenue;
         }
-
-        return (
-            <RightResume revenueMonthlyAverage={monthlyRevenueAverage} growthMonthlyAverage={taxAvarege} />
-        )
     }
+
+    calcYearGrowthly() {
+        if (!this.state.list) return
+
+        let monthlyGrowthlyAverage = 0
+        let totalTaxAvarege = 0
+
+        // array com faturamento mensal, que servirá de base para comparar os valores
+        // e obter as taxas percentuais de crescimento, mês a mês.
+        const MonthlyAverage = this.getUpdateList(2020)
+
+        let monthlyGrowthlyArray = []
+        MonthlyAverage.reduce((previous, current, index) => {
+            // calcula a taxa de crescimento entre o mês anterior e o atual
+            monthlyGrowthlyAverage = ((current / previous) * 100) - 100
+
+            // cria Array com todas as taxas de crescimento mensais
+            monthlyGrowthlyArray.push(monthlyGrowthlyAverage)
+
+            // retorna o valor atual do Array, para o reduce
+            const lastValueOperated = MonthlyAverage[index]
+
+            return lastValueOperated
+        })
+
+        // soma todos os valores do Array de taxas de crescimento mensais
+        monthlyGrowthlyArray.forEach(avarege => {
+            totalTaxAvarege += avarege
+        })
+
+        return totalTaxAvarege
+    }
+
+    getUpdateList(year) {
+        if (!this.state.list) return
+        // objectJSON[0] contém o array de anos 
+        const objectWithYears = this.state.list[0]
+        if (!objectWithYears?.[year.toString()]) return
+
+        const arrayValues = Object.values(objectWithYears[year.toString()])
+
+        return arrayValues
+    }
+
+
 
     render() {
         return (
             <Main title={this.props.title}>
-                <LeftResume />
+                {this.renderLeftResume()}
                 {this.renderGraphic()}
                 {this.renderRightResume()}
             </Main>

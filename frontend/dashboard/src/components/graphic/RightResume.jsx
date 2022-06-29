@@ -5,14 +5,14 @@ const RightResume = props =>
         <div className="container">
             <h3>Média mensal</h3>
             <div className="container__infos">
-                <h5>Faturamento médio mensal</h5>
+                <h5>{props.title} - média mensal</h5>
                 <span className='info__data'>
                     R$ {props.revenueMonthlyAverage}
                 </span>
                 <p className='info__data__sugestion'>Média ideal é de <strong>R$ 1.593.932,89</strong></p>
             </div>
             <div className="container__infos">
-            <h5>Crescimento médio mensal</h5>
+            <h5>Crescimento - média mensal</h5>
                 <span className='info__data'>
                     % {props.growthMonthlyAverage}
                 </span>
