@@ -33,7 +33,6 @@ export default class Graphic extends Component {
         this.setState({
             list: data
         })
-
     }
 
     renderGraphic() {
@@ -73,7 +72,6 @@ export default class Graphic extends Component {
         )
     }
 
-    
 
     renderGraphicColumn() {
 
@@ -91,11 +89,12 @@ export default class Graphic extends Component {
     }
 
     renderLeftResume() {
-
-        const formatYearRevenue = (parseFloat(this.calcYearRevenue()).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+        const formatTotal = this.formatNumbers(this.calcYearRevenue());
+        const formatGreater = this.formatNumbers(this.calcGreaterMonthly());
+        const formatWorst = this.formatNumbers(this.calcWorstMonthly());
 
         return (
-            <LeftResume totalYearRevenue={formatYearRevenue} />
+            <LeftResume total={formatTotal} greater={formatGreater} worst={formatWorst} />
         )
     }
 
@@ -112,7 +111,7 @@ export default class Graphic extends Component {
         if (MonthlyAverage) {
 
             // calcula a média de faturamento mensal e formata dezenas, centenas e milhares
-            monthlyRevenueAverage = ((this.calcYearRevenue() / 12).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+            monthlyRevenueAverage = this.formatNumbers((this.calcYearRevenue() / 12))
 
             // finalmente define a taxa média de crescimento
             taxAvarege = (this.calcYearGrowthly() / 12).toFixed(2)
@@ -168,24 +167,56 @@ export default class Graphic extends Component {
 
         // soma todos os valores do Array de taxas de crescimento mensais
         monthlyGrowthlyArray.forEach(avarege => {
-            totalTaxAvarege += avarege
+            totalTaxAvarege += avarege;
         })
 
-        return totalTaxAvarege
+        return totalTaxAvarege;
+    }
+
+    calcGreaterMonthly() {
+        const MonthlyAverage = this.getUpdateList(2020)
+
+        if (!MonthlyAverage) return
+
+        const greater = MonthlyAverage.reduce((prev, current) => {
+            return prev > current ? prev : current
+        })
+
+        return greater;
+    }
+
+    calcWorstMonthly() {
+        const MonthlyAverage = this.getUpdateList(2020)
+
+        if (!MonthlyAverage) return
+
+        const worst = MonthlyAverage.reduce((prev, current) => {
+            return prev < current ? prev : current
+        })
+
+        return worst;
+    }
+
+    formatNumbers(number) {
+        const formattedNumber =
+            parseFloat(number)
+                .toFixed(2)
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+
+        return formattedNumber;
     }
 
     getUpdateList(year) {
         if (!this.state.list) return
         // objectJSON[0] contém o array de anos 
-        const objectWithYears = this.state.list[0]
+        const objectWithYears = this.state.list[0];
         if (!objectWithYears?.[year.toString()]) return
 
-        const arrayValues = Object.values(objectWithYears[year.toString()])
+        const arrayValues = Object.values(objectWithYears[year.toString()]);
 
-        return arrayValues
+        return arrayValues;
     }
-
-
 
     render() {
         return (

@@ -5,16 +5,16 @@ const AsideResume = props =>
 <aside className='aside__content left'>
             <div className="container">
                 <div className="container__infos">
-                    <span className='info'>Faturamento</span>
-                    <div className='infos__data'>R$ {props.totalYearRevenue}</div>
+                    <span className='info'>Total</span>
+                    <div className='infos__data'>R$ {props.total}</div>
                 </div>
                 <div className="container__infos">
-                    <span className='info'>Devolução</span>
-                    <div className='infos__data'>R$ 8.232,89</div>
+                    <span className='info'>Maior mês</span>
+                    <div className='infos__data'>R$ {props.greater}</div>
                 </div>
                 <div className="container__infos">
-                    <span className='info'>Positivação</span>
-                    <div className='infos__data'>232</div>
+                    <span className='info'>Menor mês</span>
+                    <div className='infos__data'>R$ {props.worst}</div>
                 </div>
                 <div className="container__infos">
                     <span className='info'>Mix</span>
