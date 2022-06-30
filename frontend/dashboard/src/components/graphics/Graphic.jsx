@@ -72,6 +72,7 @@ export default class Graphic extends Component {
     changeYear() {
         const select = document.querySelector('.filter__by__year')
         const year = select.options[select.selectedIndex].value
+
         this.setState({
             year: year
         })
@@ -264,7 +265,16 @@ export default class Graphic extends Component {
         return arrayValues;
     }
 
+    renderPainel() {
+
+        
+        return (
+            <Painel state={this.state} />
+        )
+    }
+
     render() {
+        
         return (
             <Main title={this.props.title}>
                 <section className='content_children graphic'>
@@ -273,7 +283,7 @@ export default class Graphic extends Component {
                     {this.renderRightResume()}
                 </section>
 
-                <Painel />
+                {this.renderPainel()}
 
             </Main>
         )

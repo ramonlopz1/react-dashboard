@@ -1,13 +1,13 @@
 .content_children.painel {
     align-items: center;
     box-shadow: 0px 0px 15px 4px #00000040;
-    background-color: blue;
+    background-color: var(--cor2);
     border: 1px solid var(--cor2);
     border-radius: 7px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    height: 430px;
+    height: 390px;
     margin-top: 20px;
     width: 100%;
 }
@@ -27,22 +27,53 @@
 }
 
 .painel__btns__container .btn {
+    background-color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    outline: none;
     width: 80px;
+}
+
+.painel__btns__container .btn:hover {
+    background-color: var(--cor3);
 }
 
 .content_children.painel .container {
     display: grid;
     grid-template-columns: 4fr;
-    grid-template-rows: 160px 160px;
+    grid-template-rows: 130px 130px;
     grid-template-areas: 
     "boxes boxes boxes boxes"
     "boxes boxes boxes boxes";
     gap: 10px;
-    height: 85%;
+    height: 70%;
 }
 
 .content_children.painel .container .boxes {
-    background-color: lightblue;
+    align-items: center;
+    border-radius: 4px;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: var(--cor1);
     grid-area: "boxes";
     width: 300px;
+}
+
+.content_children.painel .container .boxes i {
+    font-size: 70px;
+}
+
+.content_children.painel .container .boxes .infos {
+
+}
+
+.content_children.painel .container .boxes .infos h3 {
+    font-size: 25px;
+    margin: 0;
+}
+
+.content_children.painel .container .boxes .infos span {
+    font-size: 22px;
 }
