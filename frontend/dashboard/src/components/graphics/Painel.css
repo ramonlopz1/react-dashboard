@@ -12,6 +12,24 @@
     width: 100%;
 }
 
+.content_children.painel .painel__btns {
+    align-items: center;
+    justify-content: space-evenly;
+    display: flex;
+    width: 100%;
+}
+
+.content_children.painel .painel__btns__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 90%;
+}
+
+.painel__btns__container .btn {
+    width: 80px;
+}
+
 .content_children.painel .container {
     display: grid;
     grid-template-columns: 4fr;
