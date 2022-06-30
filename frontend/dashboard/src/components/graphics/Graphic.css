@@ -1,3 +1,28 @@
+
+.content_children.graphic {
+    display: grid;
+    box-shadow: 0px 0px 15px 4px #00000040;
+    border: 1px solid var(--cor2);
+    border-radius: 7px;
+    grid-template-columns: 280px 1fr 280px;
+    grid-template-rows: 240px 1fr;
+    grid-template-areas: "aside__content__left graphic__section aside__content__right";
+}
+
+
+
+.aside__content.left {
+    grid-area: aside__content__left;
+}
+
+.aside__content.right {
+    grid-area: aside__content__right;
+}
+
+.graphic__section {
+    grid-area: graphic__section;
+}
+
 .wrapper__container {
     background-color: lightgray;
     box-sizing: border-box;
@@ -25,7 +50,6 @@
 }
 
 
-
 .meses, .columns {
     align-items: center;
     display: flex;
@@ -44,6 +68,11 @@
     width: 60px;
 }
 
-a.btns__graphic__data {
-    background-color: none;
+.buttons___filter .btns__graphic__data {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: var(--cor3);
+    width: 12%;
+    padding: 3px 20px
 }

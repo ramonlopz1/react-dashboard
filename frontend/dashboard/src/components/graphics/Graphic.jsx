@@ -5,6 +5,9 @@ import Main from '../templates/main/Main'
 import LeftResume from './LeftResume';
 import RightResume from './RightResume';
 import GraphColumn from './GraphColumn';
+
+import Painel from './Painel';
+
 import './Graphic.css'
 
 const initialState = {
@@ -35,10 +38,9 @@ export default class Graphic extends Component {
         })
     }
 
-    renderGraphic() {
+    renderButtons() {
         return (
-            <div className="wrapper__container">
-                <div className="buttons___filter">
+            <div className="buttons___filter">
                     <Link  className='btns__graphic__data' to="/revenue" onClick={() => this.load('revenue')}>
                         Faturamento
                     </Link>
@@ -51,7 +53,17 @@ export default class Graphic extends Component {
                     <Link className='btns__graphic__data' to="/mix" onClick={() => this.load('mix')}>
                         Mix
                     </Link>
+                    <Link className='btns__graphic__data' to="/order" onClick={() => this.load('mix')}>
+                        Pedidos
+                    </Link>
                 </div>
+        )
+    }
+
+    renderGraphic() {
+        return (
+            <div className="wrapper__container">
+                {this.renderButtons()}
                 <div className='graph__container'>
 
                     <div className='columns'>
@@ -88,7 +100,6 @@ export default class Graphic extends Component {
         let columnSize = 0
         if (arrayValues) {
             return arrayValues.map(mounthValue => {
-
                 
                 // define quanto o menor representa em porcentagem, rem relação
                 // ao maior
@@ -239,9 +250,14 @@ export default class Graphic extends Component {
     render() {
         return (
             <Main title={this.props.title}>
-                {this.renderLeftResume()}
-                {this.renderGraphic()}
-                {this.renderRightResume()}
+                <section className='content_children graphic'>
+                    {this.renderLeftResume()}
+                    {this.renderGraphic()}
+                    {this.renderRightResume()}
+                </section>
+
+                <Painel/>
+                
             </Main>
         )
     }
