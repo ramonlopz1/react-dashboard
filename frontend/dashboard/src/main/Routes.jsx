@@ -10,8 +10,8 @@ export default props => (
         <Route path="/revenue" element={<Graphic url="revenue" title="Faturamento" />} />
         <Route path="/devolution" element={<Graphic url="devolution" title="Devolução" />} />
         <Route path="/positivation" element={<Graphic url="positivation" title="Positivação" />} />
-        <Route path="/order" element={<Graphic url="order" title="Pedidos" />} />
         <Route path="/mix" element={<Graphic url="mix" title="Mix" />} />
+        <Route path="/order" element={<Graphic url="order" title="Pedidos" />} />
         <Route path="*" element={<Home/>} />
     </Routes>
 )

@@ -11,7 +11,8 @@ import Painel from './Painel';
 import './Graphic.css'
 
 const initialState = {
-    list: []
+    list: [],
+    year: 2021
 }
 
 export default class Graphic extends Component {
@@ -19,6 +20,8 @@ export default class Graphic extends Component {
     state = {
         ...initialState,
     }
+
+
 
     async componentDidMount() {
         fetch(`http://localhost:3000/${this.props.url}`)
@@ -39,25 +42,39 @@ export default class Graphic extends Component {
     }
 
     renderButtons() {
+
         return (
             <div className="buttons___filter">
-                    <Link  className='btns__graphic__data' to="/revenue" onClick={() => this.load('revenue')}>
-                        Faturamento
-                    </Link>
-                    <Link className='btns__graphic__data' to="/devolution" onClick={() => this.load('devolution')}>
-                        Devolução
-                    </Link>
-                    <Link className='btns__graphic__data' to="/positivation" onClick={() => this.load('positivation')}>
-                        Positivação
-                    </Link>
-                    <Link className='btns__graphic__data' to="/mix" onClick={() => this.load('mix')}>
-                        Mix
-                    </Link>
-                    <Link className='btns__graphic__data' to="/order" onClick={() => this.load('mix')}>
-                        Pedidos
-                    </Link>
-                </div>
+                <Link className='btns__graphic__data' to="/revenue" onClick={() => this.load('revenue')}>
+                    Faturamento
+                </Link>
+                <Link className='btns__graphic__data' to="/devolution" onClick={() => this.load('devolution')}>
+                    Devolução
+                </Link>
+                <Link className='btns__graphic__data' to="/positivation" onClick={() => this.load('positivation')}>
+                    Positivação
+                </Link>
+                <Link className='btns__graphic__data' to="/mix" onClick={() => this.load('mix')}>
+                    Mix
+                </Link>
+                <Link className='btns__graphic__data' to="/order" onClick={() => this.load('order')}>
+                    Pedidos
+                </Link>
+                <select onChange={() => {this.changeYear() }} className='filter__by__year'>
+                    <option className='year' value="2021">2021</option>
+                    <option className='year' value="2020">2020</option>
+                </select>
+            </div>
         )
+    }
+
+    // método para alterar o ano de filtro através do select
+    changeYear() {
+        const select = document.querySelector('.filter__by__year')
+        const year = select.options[select.selectedIndex].value
+        this.setState({
+            year: year
+        })
     }
 
     renderGraphic() {
@@ -92,20 +109,20 @@ export default class Graphic extends Component {
 
     renderGraphicColumn() {
 
-        const arrayValues = this.getUpdateList(2020);
-        
-        let  greaterColumn = this.calcGreaterMonthly();
-        
+        const arrayValues = this.getUpdateList(this.state.year);
+
+        let greaterColumn = this.calcGreaterMonthly();
+
         let id = 0
         let columnSize = 0
         if (arrayValues) {
             return arrayValues.map(mounthValue => {
-                
+
                 // define quanto o menor representa em porcentagem, rem relação
                 // ao maior
                 // p = menor * 100 / maior
                 columnSize = mounthValue * 100 / greaterColumn
-                
+
                 return (
                     <GraphColumn key={id++} columnsize={columnSize} value={this.formatNumbers(mounthValue)}></GraphColumn>
                 )
@@ -131,7 +148,7 @@ export default class Graphic extends Component {
         // variável temporária: calcula a média mensal taxa de crescimento
         let taxAvarege = 0 //
 
-        const MonthlyAverage = this.getUpdateList(2020)
+        const MonthlyAverage = this.getUpdateList(this.state.year)
 
         if (MonthlyAverage) {
 
@@ -153,7 +170,7 @@ export default class Graphic extends Component {
 
         // array com faturamento mensal, que servirá de base para comparar os valores
         // e obter as taxas percentuais de crescimento, mês a mês.
-        const MonthlyAverage = this.getUpdateList(2020)
+        const MonthlyAverage = this.getUpdateList(this.state.year)
 
         // variáveis temporária do faturamento total anual
         let totalRevenue = 0 //
@@ -173,8 +190,8 @@ export default class Graphic extends Component {
 
         let monthlyGrowthlyAverage = 0
         let totalTaxAvarege = 0
-        
-        const MonthlyAverage = this.getUpdateList(2020)
+
+        const MonthlyAverage = this.getUpdateList(this.state.year)
 
         let monthlyGrowthlyArray = []
         MonthlyAverage.reduce((previous, current, index) => {
@@ -200,33 +217,33 @@ export default class Graphic extends Component {
 
     // calcula o melhor mês
     calcGreaterMonthly() {
-        const MonthlyAverage = this.getUpdateList(2020)
+        const MonthlyAverage = this.getUpdateList(this.state.year)
 
-        if(!MonthlyAverage) return
+        if (!MonthlyAverage) return
 
         const greater = MonthlyAverage.reduce((prev, current) => {
             return prev > current ? prev : current
         })
-        
+
         return greater;
     }
 
     // calcula o pior mês
     calcWorstMonthly() {
-        const MonthlyAverage = this.getUpdateList(2020)
+        const MonthlyAverage = this.getUpdateList(this.state.year)
 
-        if(!MonthlyAverage) return
+        if (!MonthlyAverage) return
 
         const worst = MonthlyAverage.reduce((prev, current) => {
             return prev < current ? prev : current
         })
-        
+
         return worst;
     }
 
     // formata números para renderização
     formatNumbers(number) {
-        const formattedNumber = 
+        const formattedNumber =
             parseFloat(number)
                 .toFixed(2)
                 .toString()
@@ -256,8 +273,8 @@ export default class Graphic extends Component {
                     {this.renderRightResume()}
                 </section>
 
-                <Painel/>
-                
+                <Painel />
+
             </Main>
         )
     }
