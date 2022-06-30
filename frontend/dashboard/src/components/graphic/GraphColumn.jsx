@@ -8,7 +8,7 @@ const GraphColumn = props =>
                 {props.value}
             </span>
           
-            <div columnsize={props.columnsize} className='column' style={{ height: props.columnsize }}>
+            <div columnsize={props.columnsize} className='column' style={{ height: props.columnsize + "%" }}>
             </div>
         </div>
 

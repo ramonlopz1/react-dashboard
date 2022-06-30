@@ -39,16 +39,16 @@ export default class Graphic extends Component {
         return (
             <div className="wrapper__container">
                 <div className="buttons___filter">
-                    <Link to="/revenue" onClick={() => this.load('revenue')}>
+                    <Link  className='btns__graphic__data' to="/revenue" onClick={() => this.load('revenue')}>
                         Faturamento
                     </Link>
-                    <Link to="/devolution" onClick={() => this.load('devolution')}>
+                    <Link className='btns__graphic__data' to="/devolution" onClick={() => this.load('devolution')}>
                         Devolução
                     </Link>
-                    <Link to="/positivation" onClick={() => this.load('positivation')}>
+                    <Link className='btns__graphic__data' to="/positivation" onClick={() => this.load('positivation')}>
                         Positivação
                     </Link>
-                    <Link to="/mix" onClick={() => this.load('mix')}>
+                    <Link className='btns__graphic__data' to="/mix" onClick={() => this.load('mix')}>
                         Mix
                     </Link>
                 </div>
@@ -81,21 +81,20 @@ export default class Graphic extends Component {
     renderGraphicColumn() {
 
         const arrayValues = this.getUpdateList(2020);
-
+        
+        let  greaterColumn = this.calcGreaterMonthly();
+        
         let id = 0
         let columnSize = 0
         if (arrayValues) {
             return arrayValues.map(mounthValue => {
 
-                // define o tamanho da coluna do gráfico
-                if(mounthValue >= 10000) {
-                    columnSize = mounthValue / 10000
-                } else if (mounthValue >= 1000 && mounthValue < 10000) {
-                    columnSize = mounthValue / 100
-                } else if (mounthValue > 100 && mounthValue < 2000) {
-                    columnSize = mounthValue / 10
-                }
-
+                
+                // define quanto o menor representa em porcentagem, rem relação
+                // ao maior
+                // p = menor * 100 / maior
+                columnSize = mounthValue * 100 / greaterColumn
+                
                 return (
                     <GraphColumn key={id++} columnsize={columnSize} value={this.formatNumbers(mounthValue)}></GraphColumn>
                 )
