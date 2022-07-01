@@ -27,15 +27,20 @@
 }
 
 .painel__btns__container .btn {
-    background-color: white;
+    background-color: var(--cor1);;
     border: none;
     border-radius: 3px;
+    color: white;
     cursor: pointer;
     outline: none;
     width: 80px;
 }
 
 .painel__btns__container .btn:hover {
+    background-color: var(--cor3);
+}
+
+.painel__btns__container .btn:focus {
     background-color: var(--cor3);
 }
 

@@ -15,124 +15,115 @@ const initialState = {
 
 export default class Painel extends Component {
 
-    
-
     constructor(props) {
         super(props)
-        //this.funcao = this.funcao.bind(this)
+
         this.state = {
             ...initialState,
-            year: this.props.stateyear
+            year: this.props.year
         }
 
-       
     }
-   
 
+    // se a props for alterada, o elemento será rerenderizado
+    componentDidUpdate(prevProps) {
+        if (this.props.year !== prevProps.year) {
+            this.setState({
+                year: parseInt(this.props.year)
+            })
+
+            this.reload()
+        }
+    }
+
+    // renderiza o elemento quando for construído
     async componentDidMount() {
-
         fetch(`http://localhost:3000/revenue`)
             .then(data => data.json())
             .then(data => {
+                // setInterval(() => {
                 this.setState({
                     list: data,
-                    year: this.props.stateyear
+                    year: this.props.year
                 })
+                // }, 1000)
             })
-          
+
+        this.reload()
     }
-    
-    componentDidUpdate() {
-        if(this.state.year !== this.props.stateyear) {
-            this.setState({
-                year: this.props.stateyear
-            })
-        }
-    }
+
+
+   
 
     async getRevenue() {
-        let data = await fetch(`http://localhost:3000/revenue`)
-        data = await data.json()
-
-        const arr = utils.getUpdateList(data, this.props.stateyear)
-
+        const arr = await this.filterData('revenue')
         this.setState({
             valueRevenue: arr[this.state.mounth]
         })
     }
 
     async getDevolution() {
-        let data = await fetch(`http://localhost:3000/devolution`)
-        data = await data.json()
-
-        const arr = utils.getUpdateList(data, this.props.stateyear)
-
+        const arr = await this.filterData('devolution')
         this.setState({
             valueDevolution: arr[this.state.mounth]
         })
     }
 
     async getPositivation() {
-        let data = await fetch(`http://localhost:3000/positivation`)
-        data = await data.json()
-
-        const arr = utils.getUpdateList(data, this.props.stateyear)
-
+        const arr = await this.filterData('positivation')
         this.setState({
             valuePositivation: arr[this.state.mounth]
         })
     }
 
     async getMix() {
-        let data = await fetch(`http://localhost:3000/mix`)
-        data = await data.json()
-
-        const arr = utils.getUpdateList(data, this.props.stateyear)
-
+        const arr = await this.filterData('mix')
         this.setState({
             valueMix: arr[this.state.mounth]
         })
     }
 
-    setMounth(mounth) {
+    changeMouth(mounth) {
         this.setState({
-            mounth: mounth
+            mounth: mounth,
+            year: this.props.year
         })
 
+        this.reload()
+    }
+
+    reload() {
         this.getRevenue()
         this.getDevolution()
         this.getPositivation()
         this.getMix()
-
     }
 
-    // load(month) {
+    async filterData(url) {
+        let data = await fetch(`http://localhost:3000/${url}`)
+        data = await data.json()
 
+        const arr = utils.getUpdateList(data, this.props.year)
+        return arr
+    }
 
-    //     const lista = utils.getUpdateList(this.state.list, this.props.stateyear)
-
-    //     console.log(lista[month])
-    // }
-
-    render() {  
-        
-
+    render() {
         return (
             <section className='content_children painel'>
                 <div className='painel__btns'>
                     <div className="painel__btns__container">
-                        <button onClick={() => { this.setMounth(0) }} className="btn">Jan</button>
-                        <button onClick={() => { this.setMounth(1) }} className="btn">Fev</button>
-                        <button onClick={() => { this.setMounth(2) }} className="btn">Mar</button>
-                        <button onClick={() => { this.setMounth(3) }} className="btn">Abr</button>
-                        <button onClick={() => { this.setMounth(4) }} className="btn">Mai</button>
-                        <button onClick={() => { this.setMounth(5) }} className="btn">Jun</button>
-                        <button onClick={() => { this.setMounth(6) }} className="btn">Jul</button>
-                        <button onClick={() => { this.setMounth(7) }} className="btn">Ago</button>
-                        <button onClick={() => { this.setMounth(8) }} className="btn">Set</button>
-                        <button onClick={() => { this.setMounth(9) }} className="btn">Out</button>
-                        <button onClick={() => { this.setMounth(10) }} className="btn">Nov</button>
-                        <button onClick={() => { this.setMounth(11) }} className="btn">Dez</button>
+                        <button onClick={() => { this.changeMouth(0) }} className="btn">Jan</button>
+                        <button onClick={() => { this.changeMouth(1) }} className="btn">Fev</button>
+                        <button onClick={() => { this.changeMouth(2) }} className="btn">Mar</button>
+                        <button onClick={() => { this.changeMouth(3) }} className="btn">Abr</button>
+                        <button onClick={() => { this.changeMouth(4) }} className="btn">Mai</button>
+                        <button onClick={() => { this.changeMouth(5) }} className="btn">Jun</button>
+                        <button onClick={() => { this.changeMouth(6) }} className="btn">Jul</button>
+                        <button onClick={() => { this.changeMouth(7) }} className="btn">Ago</button>
+                        <button onClick={() => { this.changeMouth(8) }} className="btn">Set</button>
+                        <button onClick={() => { this.changeMouth(9) }} className="btn">Out</button>
+                        <button onClick={() => { this.changeMouth(10) }} className="btn">Nov</button>
+                        <button onClick={() => { this.changeMouth(11) }} className="btn">Dez</button>
                     </div>
                 </div>
                 <div className='container'>

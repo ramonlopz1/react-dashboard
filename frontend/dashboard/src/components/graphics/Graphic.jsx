@@ -165,8 +165,9 @@ export default class Graphic extends Component {
 
     renderPainel() {
         const year = this.state.year
+
         return (
-            <Painel stateyear={year} />
+            <Painel year={year} />
         )
     }
 
