@@ -5,12 +5,17 @@ import utils from './util/utils'
 
 const initialState = {
     list: [],
-    year: 2021
+    year: 2021,
+    mounth: 0,
+    valueRevenue: 0,
+    valueDevolution: 0,
+    valuePositivation: 0,
 }
 
 export default class Painel extends Component {
 
     state = {
+        year: this.props.stateyear,
         ...initialState
     }
 
@@ -24,36 +29,78 @@ export default class Painel extends Component {
             })
     }
 
+    async getRevenue() {
+        let data = await fetch(`http://localhost:3000/revenue`)
+        data = await data.json()
+
+        const arr = utils.getUpdateList(data, this.props.stateyear)
+
+        this.setState({
+            valueRevenue: arr[this.state.mounth]
+        })
+    }
+
+    async getDevolution() {
+        let data = await fetch(`http://localhost:3000/devolution`)
+        data = await data.json()
+
+        const arr = utils.getUpdateList(data, this.props.stateyear)
+
+        this.setState({
+            valueDevolution: arr[this.state.mounth]
+        })
+    }
+
+    async getPositivation() {
+        let data = await fetch(`http://localhost:3000/positivation`)
+        data = await data.json()
+
+        const arr = utils.getUpdateList(data, this.props.stateyear)
+
+        this.setState({
+            valuePositivation: arr[this.state.mounth]
+        })
+    }
+
+    setMounth(mounth) {
+        this.setState({
+            mounth: mounth
+        })
+
+        this.getRevenue()
+        this.getDevolution()
+        this.getPositivation()
+
+    }
+
+    // load(month) {
+
+
+    //     const lista = utils.getUpdateList(this.state.list, this.props.stateyear)
+
+    //     console.log(lista[month])
+    // }
 
     render() {
 
-        // mudar para setState e atribuir à uma função única
-        // pois o render vai setar o state repetidademnte, atualizando
-        // a página infinitamente
-        // this.state = {
-        //     ...this.props.state
-        // }
-        const lista = utils.getUpdateList(this.state.list, this.props.stateyear)
-
-        console.log(lista)
+       
         
-
         return (
             <section className='content_children painel'>
                 <div className='painel__btns'>
                     <div className="painel__btns__container">
-                        <button className="btn">Jan</button>
-                        <button className="btn">Fev</button>
-                        <button className="btn">Mar</button>
-                        <button className="btn">Abr</button>
-                        <button className="btn">Mai</button>
-                        <button className="btn">Jun</button>
-                        <button className="btn">Jul</button>
-                        <button className="btn">Ago</button>
-                        <button className="btn">Set</button>
-                        <button className="btn">Out</button>
-                        <button className="btn">Nov</button>
-                        <button className="btn">Dez</button>
+                        <button onClick={() => { this.setMounth(0) }} className="btn">Jan</button>
+                        <button onClick={() => { this.setMounth(1) }} className="btn">Fev</button>
+                        <button onClick={() => { this.setMounth(2) }} className="btn">Mar</button>
+                        <button onClick={() => { this.setMounth(3) }} className="btn">Abr</button>
+                        <button onClick={() => { this.setMounth(4) }} className="btn">Mai</button>
+                        <button onClick={() => { this.setMounth(5) }} className="btn">Jun</button>
+                        <button onClick={() => { this.setMounth(6) }} className="btn">Jul</button>
+                        <button onClick={() => { this.setMounth(7) }} className="btn">Ago</button>
+                        <button onClick={() => { this.setMounth(8) }} className="btn">Set</button>
+                        <button onClick={() => { this.setMounth(9) }} className="btn">Out</button>
+                        <button onClick={() => { this.setMounth(10) }} className="btn">Nov</button>
+                        <button onClick={() => { this.setMounth(11) }} className="btn">Dez</button>
                     </div>
                 </div>
                 <div className='container'>
@@ -61,21 +108,21 @@ export default class Painel extends Component {
                         <i className='fa fa-shopping-cart'></i>
                         <div className='infos'>
                             <h3>Faturamento</h3>
-                            <span>R$ 932.939,89</span>
+                            <span>R$ {this.state.valueRevenue}</span>
                         </div>
                     </div>
                     <div className="boxes">
                         <i className='fa fa-warning'></i>
                         <div className='infos'>
                             <h3>Devolução</h3>
-                            <span>R$ 32.939,89</span>
+                            <span>R$ {this.state.valueDevolution}</span>
                         </div>
                     </div>
                     <div className="boxes">
                         <i className='fa fa-address-book-o'></i>
                         <div className='infos'>
                             <h3>Positivação</h3>
-                            <span>932</span>
+                            <span>{this.state.valuePositivation}</span>
                         </div>
                     </div>
                     <div className="boxes">
