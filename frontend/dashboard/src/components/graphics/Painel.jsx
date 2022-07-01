@@ -10,24 +10,31 @@ const initialState = {
     valueRevenue: 0,
     valueDevolution: 0,
     valuePositivation: 0,
+    valueMix: 0,
 }
 
 export default class Painel extends Component {
 
-    state = {
-        year: this.props.stateyear,
-        ...initialState
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            year: this.props.stateyear,
+            ...initialState
+        }
     }
 
     async componentDidMount() {
         fetch(`http://localhost:3000/revenue`)
             .then(res => res.json()).then(res => {
-                this.setState({
+                this.setState((state, props) => ({
                     list: res,
-                    year: this.props.stateyear
-                })
+                    year: props.stateyear
+                }))
             })
+
     }
+
 
     async getRevenue() {
         let data = await fetch(`http://localhost:3000/revenue`)
@@ -62,6 +69,17 @@ export default class Painel extends Component {
         })
     }
 
+    async getMix() {
+        let data = await fetch(`http://localhost:3000/mix`)
+        data = await data.json()
+
+        const arr = utils.getUpdateList(data, this.props.stateyear)
+
+        this.setState({
+            valueMix: arr[this.state.mounth]
+        })
+    }
+
     setMounth(mounth) {
         this.setState({
             mounth: mounth
@@ -70,6 +88,7 @@ export default class Painel extends Component {
         this.getRevenue()
         this.getDevolution()
         this.getPositivation()
+        this.getMix()
 
     }
 
@@ -83,7 +102,6 @@ export default class Painel extends Component {
 
     render() {
 
-       
         
         return (
             <section className='content_children painel'>
@@ -129,7 +147,7 @@ export default class Painel extends Component {
                         <i className='fa fa-cube'></i>
                         <div className='infos'>
                             <h3>Mix</h3>
-                            <span>2939</span>
+                            <span>{this.state.valueMix}</span>
                         </div>
                     </div>
                     <div className="boxes">
