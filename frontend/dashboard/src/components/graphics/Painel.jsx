@@ -1,21 +1,28 @@
 import React, { Component } from 'react';
 import './Painel.css'
 
+import utils from './util/utils'
+
+const initialState = {
+    list: [],
+    year: 2021
+}
+
 export default class Painel extends Component {
 
     state = {
-        ...this.props.state
+        ...initialState
     }
 
     async componentDidMount() {
         fetch(`http://localhost:3000/revenue`)
             .then(res => res.json()).then(res => {
                 this.setState({
-                    list: res
+                    list: res,
+                    year: this.props.stateyear
                 })
             })
     }
-
 
 
     render() {
@@ -26,8 +33,10 @@ export default class Painel extends Component {
         // this.state = {
         //     ...this.props.state
         // }
+        const lista = utils.getUpdateList(this.state.list, this.props.stateyear)
 
-        console.log(this.state)
+        console.log(lista)
+        
 
         return (
             <section className='content_children painel'>

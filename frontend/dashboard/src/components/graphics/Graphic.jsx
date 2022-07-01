@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import utils from './util/utils.js';
+
 import Main from '../templates/main/Main'
 
 import LeftResume from './LeftResume';
@@ -7,8 +9,6 @@ import RightResume from './RightResume';
 import GraphColumn from './GraphColumn';
 
 import Painel from './Painel';
-
-import utils from './util/utils.js';
 
 import './Graphic.css'
 
@@ -22,8 +22,6 @@ export default class Graphic extends Component {
     state = {
         ...initialState,
     }
-
-
 
     async componentDidMount() {
         fetch(`http://localhost:3000/${this.props.url}`)
@@ -43,8 +41,44 @@ export default class Graphic extends Component {
         })
     }
 
-    renderButtons() {
+    // método para alterar o ano de filtro através do select
+    changeYear() {
+        const select = document.querySelector('.filter__by__year')
+        const year = select.options[select.selectedIndex].value
 
+        this.setState({
+            year: year
+        })
+    }
+
+    renderGraphic() {
+        return (
+            <div className="wrapper__container">
+                {this.renderButtons()}
+                <div className='graph__container'>
+                    <div className='columns'>
+                        {this.renderGraphicColumn()}
+                    </div>
+                    <div className="meses">
+                        <span className="mes">Jan</span>
+                        <span className="mes">Fev</span>
+                        <span className="mes">Mar</span>
+                        <span className="mes">Abr</span>
+                        <span className="mes">Mai</span>
+                        <span className="mes">Jun</span>
+                        <span className="mes">Jul</span>
+                        <span className="mes">Ago</span>
+                        <span className="mes">Set</span>
+                        <span className="mes">Out</span>
+                        <span className="mes">Nov</span>
+                        <span className="mes">Dez</span>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    renderButtons() {
         return (
             <div className="buttons___filter">
                 <Link className='btns__graphic__data' to="/revenue" onClick={() => this.load('revenue')}>
@@ -70,51 +104,12 @@ export default class Graphic extends Component {
         )
     }
 
-    // método para alterar o ano de filtro através do select
-    changeYear() {
-        const select = document.querySelector('.filter__by__year')
-        const year = select.options[select.selectedIndex].value
-
-        this.setState({
-            year: year
-        })
-    }
-
-    renderGraphic() {
-        return (
-            <div className="wrapper__container">
-                {this.renderButtons()}
-                <div className='graph__container'>
-
-                    <div className='columns'>
-                        {this.renderGraphicColumn()}
-                    </div>
-
-                    <div className="meses">
-                        <span className="mes">Jan</span>
-                        <span className="mes">Fev</span>
-                        <span className="mes">Mar</span>
-                        <span className="mes">Abr</span>
-                        <span className="mes">Mai</span>
-                        <span className="mes">Jun</span>
-                        <span className="mes">Jul</span>
-                        <span className="mes">Ago</span>
-                        <span className="mes">Set</span>
-                        <span className="mes">Out</span>
-                        <span className="mes">Nov</span>
-                        <span className="mes">Dez</span>
-                    </div>
-                </div>
-            </div>
-        )
-    }
-
-
     renderGraphicColumn() {
+        const [list, year] = [this.state.list, this.state.year]
 
-        const arrayValues = utils.getUpdateList(this.state.list, this.state.year);
+        const arrayValues = utils.getUpdateList(list, year);
 
-        let greaterColumn = this.calcGreaterMonthly();
+        let greaterColumn = utils.calcGreaterMonthly(list, year);
 
         let id = 0
         let columnSize = 0
@@ -134,9 +129,10 @@ export default class Graphic extends Component {
     }
 
     renderLeftResume() {
-        const formatTotal = utils.formatNumbers(utils.calcYearRevenue(this.state.list, this.state.year));
-        const formatGreater = utils.formatNumbers(this.calcGreaterMonthly());
-        const formatWorst = utils.formatNumbers(utils.calcWorstMonthly(this.state.list, this.state.year));
+        const [list, year] = [this.state.list, this.state.year]
+        const formatTotal = utils.formatNumbers(utils.calcYearRevenue(list, year));
+        const formatGreater = utils.formatNumbers(utils.calcGreaterMonthly(list, year));
+        const formatWorst = utils.formatNumbers(utils.calcWorstMonthly(list, year));
 
         return (
             <LeftResume total={formatTotal} greater={formatGreater} worst={formatWorst} />
@@ -144,22 +140,22 @@ export default class Graphic extends Component {
     }
 
     renderRightResume() {
+        const [list, year] = [this.state.list, this.state.year]
 
         // variável temporária: calcula a média mensal de faturamento
         let monthlyRevenueAverage = 0
 
         // variável temporária: calcula a média mensal taxa de crescimento
         let taxAvarege = 0 //
-
-        const MonthlyAverage = utils.getUpdateList(this.state.list, this.state.year)
+        const MonthlyAverage = utils.getUpdateList(list, year)
 
         if (MonthlyAverage) {
 
             // calcula a média de faturamento mensal e formata dezenas, centenas e milhares
-            monthlyRevenueAverage = utils.formatNumbers((utils.calcYearRevenue(this.state.list, this.state.year) / 12))
+            monthlyRevenueAverage = utils.formatNumbers((utils.calcYearRevenue(list, year) / 12))
 
             // finalmente define a taxa média de crescimento
-            taxAvarege = (utils.calcYearGrowthly(this.state.list, this.state.year) / 12).toFixed(2)
+            taxAvarege = (utils.calcYearGrowthly(list, year) / 12).toFixed(2)
         }
 
         return (
@@ -167,32 +163,13 @@ export default class Graphic extends Component {
         )
     }
 
-
-    // calcula o melhor mês
-    calcGreaterMonthly() {
-        const MonthlyAverage = utils.getUpdateList(this.state.list, this.state.year)
-
-        if (!MonthlyAverage) return
-
-        const greater = MonthlyAverage.reduce((prev, curr) => {
-            return prev > curr ? prev : curr
-        })
-
-        return greater;
-    }
-
-
-
     renderPainel() {
-
-
         return (
-            <Painel state={this.state} />
+            <Painel stateyear={this.state.year} />
         )
     }
 
     render() {
-
         return (
             <Main title={this.props.title}>
                 <section className='content_children graphic'>

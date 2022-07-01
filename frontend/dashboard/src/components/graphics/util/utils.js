@@ -49,7 +49,6 @@ const calcYearGrowthly = (list, year) => {
     let totalTaxAvarege = 0
 
     const MonthlyAverage = utils.getUpdateList(list, year)
-    console.log("lista: " + MonthlyAverage)
     let monthlyGrowthlyArray = []
     MonthlyAverage.reduce((prev, curr, index) => {
         // calcula a taxa de crescimento entre o mês anterior e o atual
@@ -72,6 +71,19 @@ const calcYearGrowthly = (list, year) => {
     return totalTaxAvarege;
 }
 
+// calcula o melhor mês
+const calcGreaterMonthly = (list, year) => {
+    const MonthlyAverage = utils.getUpdateList(list, year)
+
+    if (!MonthlyAverage) return
+
+    const greater = MonthlyAverage.reduce((prev, curr) => {
+        return prev > curr ? prev : curr
+    })
+
+    return greater;
+}
+
 // calcula o pior mês
 const calcWorstMonthly = (list, year) => {
     const MonthlyAverage = utils.getUpdateList(list, year)
@@ -90,6 +102,7 @@ const utils = {
     getUpdateList,
     calcYearRevenue,
     calcYearGrowthly,
+    calcGreaterMonthly,
     calcWorstMonthly
 }
 
