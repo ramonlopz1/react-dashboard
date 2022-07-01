@@ -15,26 +15,40 @@ const initialState = {
 
 export default class Painel extends Component {
 
+    
+
     constructor(props) {
         super(props)
         //this.funcao = this.funcao.bind(this)
         this.state = {
-            year: this.props.stateyear,
-            ...initialState
+            ...initialState,
+            year: this.props.stateyear
         }
+
+       
     }
+   
 
     async componentDidMount() {
+
         fetch(`http://localhost:3000/revenue`)
-            .then(res => res.json()).then(res => {
-                this.setState((state, props) => ({
-                    list: res,
-                    year: props.stateyear
-                }))
+            .then(data => data.json())
+            .then(data => {
+                this.setState({
+                    list: data,
+                    year: this.props.stateyear
+                })
             })
-
+          
     }
-
+    
+    componentDidUpdate() {
+        if(this.state.year !== this.props.stateyear) {
+            this.setState({
+                year: this.props.stateyear
+            })
+        }
+    }
 
     async getRevenue() {
         let data = await fetch(`http://localhost:3000/revenue`)
@@ -100,9 +114,9 @@ export default class Painel extends Component {
     //     console.log(lista[month])
     // }
 
-    render() {
-
+    render() {  
         
+
         return (
             <section className='content_children painel'>
                 <div className='painel__btns'>
@@ -126,14 +140,14 @@ export default class Painel extends Component {
                         <i className='fa fa-shopping-cart'></i>
                         <div className='infos'>
                             <h3>Faturamento</h3>
-                            <span>R$ {this.state.valueRevenue}</span>
+                            <span>R$ {utils.formatNumbers(this.state.valueRevenue)}</span>
                         </div>
                     </div>
                     <div className="boxes">
                         <i className='fa fa-warning'></i>
                         <div className='infos'>
                             <h3>Devolução</h3>
-                            <span>R$ {this.state.valueDevolution}</span>
+                            <span>R$ {utils.formatNumbers(this.state.valueDevolution)}</span>
                         </div>
                     </div>
                     <div className="boxes">
