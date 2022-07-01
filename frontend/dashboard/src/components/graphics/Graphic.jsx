@@ -8,6 +8,8 @@ import GraphColumn from './GraphColumn';
 
 import Painel from './Painel';
 
+import utils from './util/utils.js';
+
 import './Graphic.css'
 
 const initialState = {
@@ -60,7 +62,7 @@ export default class Graphic extends Component {
                 <Link className='btns__graphic__data' to="/order" onClick={() => this.load('order')}>
                     Pedidos
                 </Link>
-                <select onChange={() => {this.changeYear() }} className='filter__by__year'>
+                <select onChange={() => { this.changeYear() }} className='filter__by__year'>
                     <option className='year' value="2021">2021</option>
                     <option className='year' value="2020">2020</option>
                 </select>
@@ -110,7 +112,7 @@ export default class Graphic extends Component {
 
     renderGraphicColumn() {
 
-        const arrayValues = this.getUpdateList(this.state.year);
+        const arrayValues = utils.getUpdateList(this.state.list, this.state.year);
 
         let greaterColumn = this.calcGreaterMonthly();
 
@@ -125,16 +127,16 @@ export default class Graphic extends Component {
                 columnSize = mounthValue * 100 / greaterColumn
 
                 return (
-                    <GraphColumn key={id++} columnsize={columnSize} value={this.formatNumbers(mounthValue)}></GraphColumn>
+                    <GraphColumn key={id++} columnsize={columnSize} value={utils.formatNumbers(mounthValue)}></GraphColumn>
                 )
             })
         }
     }
 
     renderLeftResume() {
-        const formatTotal = this.formatNumbers(this.calcYearRevenue());
-        const formatGreater = this.formatNumbers(this.calcGreaterMonthly());
-        const formatWorst = this.formatNumbers(this.calcWorstMonthly());
+        const formatTotal = utils.formatNumbers(utils.calcYearRevenue(this.state.list, this.state.year));
+        const formatGreater = utils.formatNumbers(this.calcGreaterMonthly());
+        const formatWorst = utils.formatNumbers(utils.calcWorstMonthly(this.state.list, this.state.year));
 
         return (
             <LeftResume total={formatTotal} greater={formatGreater} worst={formatWorst} />
@@ -149,15 +151,15 @@ export default class Graphic extends Component {
         // variável temporária: calcula a média mensal taxa de crescimento
         let taxAvarege = 0 //
 
-        const MonthlyAverage = this.getUpdateList(this.state.year)
+        const MonthlyAverage = utils.getUpdateList(this.state.list, this.state.year)
 
         if (MonthlyAverage) {
 
             // calcula a média de faturamento mensal e formata dezenas, centenas e milhares
-            monthlyRevenueAverage = this.formatNumbers((this.calcYearRevenue() / 12))
+            monthlyRevenueAverage = utils.formatNumbers((utils.calcYearRevenue(this.state.list, this.state.year) / 12))
 
             // finalmente define a taxa média de crescimento
-            taxAvarege = (this.calcYearGrowthly() / 12).toFixed(2)
+            taxAvarege = (utils.calcYearGrowthly(this.state.list, this.state.year) / 12).toFixed(2)
         }
 
         return (
@@ -165,116 +167,32 @@ export default class Graphic extends Component {
         )
     }
 
-    // calcula o crescimento total anual
-    calcYearRevenue() {
-        if (!this.state.list) return
-
-        // array com faturamento mensal, que servirá de base para comparar os valores
-        // e obter as taxas percentuais de crescimento, mês a mês.
-        const MonthlyAverage = this.getUpdateList(this.state.year)
-
-        // variáveis temporária do faturamento total anual
-        let totalRevenue = 0 //
-
-        if (MonthlyAverage) {
-            MonthlyAverage.forEach(avarege => {
-                totalRevenue += avarege
-            })
-
-            return totalRevenue;
-        }
-    }
-
-    // calcula a taxa de crescimento total anual
-    calcYearGrowthly() {
-        if (!this.state.list) return
-
-        let monthlyGrowthlyAverage = 0
-        let totalTaxAvarege = 0
-
-        const MonthlyAverage = this.getUpdateList(this.state.year)
-
-        let monthlyGrowthlyArray = []
-        MonthlyAverage.reduce((previous, current, index) => {
-            // calcula a taxa de crescimento entre o mês anterior e o atual
-            monthlyGrowthlyAverage = ((current / previous) * 100) - 100
-
-            // cria Array com todas as taxas de crescimento mensais
-            monthlyGrowthlyArray.push(monthlyGrowthlyAverage)
-
-            // retorna o valor atual do Array, para o reduce
-            const lastValueOperated = MonthlyAverage[index]
-
-            return lastValueOperated
-        })
-
-        // soma todos os valores do Array de taxas de crescimento mensais
-        monthlyGrowthlyArray.forEach(avarege => {
-            totalTaxAvarege += avarege;
-        })
-
-        return totalTaxAvarege;
-    }
 
     // calcula o melhor mês
     calcGreaterMonthly() {
-        const MonthlyAverage = this.getUpdateList(this.state.year)
+        const MonthlyAverage = utils.getUpdateList(this.state.list, this.state.year)
 
         if (!MonthlyAverage) return
 
-        const greater = MonthlyAverage.reduce((prev, current) => {
-            return prev > current ? prev : current
+        const greater = MonthlyAverage.reduce((prev, curr) => {
+            return prev > curr ? prev : curr
         })
 
         return greater;
     }
 
-    // calcula o pior mês
-    calcWorstMonthly() {
-        const MonthlyAverage = this.getUpdateList(this.state.year)
 
-        if (!MonthlyAverage) return
-
-        const worst = MonthlyAverage.reduce((prev, current) => {
-            return prev < current ? prev : current
-        })
-
-        return worst;
-    }
-
-    // formata números para renderização
-    formatNumbers(number) {
-        const formattedNumber =
-            parseFloat(number)
-                .toFixed(2)
-                .toString()
-                .replace(/\B(?=(\d{3})+(?!\d))/g, ".")
-
-        return formattedNumber;
-    }
-
-    // retorna lista atualizada
-    getUpdateList(year) {
-        if (!this.state.list) return
-        // objectJSON[0] contém o array de anos 
-        const objectWithYears = this.state.list[0];
-        if (!objectWithYears?.[year.toString()]) return
-
-        const arrayValues = Object.values(objectWithYears[year.toString()]);
-
-        return arrayValues;
-    }
 
     renderPainel() {
 
-        
+
         return (
             <Painel state={this.state} />
         )
     }
 
     render() {
-        
+
         return (
             <Main title={this.props.title}>
                 <section className='content_children graphic'>
