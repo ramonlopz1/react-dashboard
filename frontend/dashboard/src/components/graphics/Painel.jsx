@@ -17,7 +17,7 @@ export default class Painel extends Component {
 
     constructor(props) {
         super(props)
-
+        //this.funcao = this.funcao.bind(this)
         this.state = {
             year: this.props.stateyear,
             ...initialState
