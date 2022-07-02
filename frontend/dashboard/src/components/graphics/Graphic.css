@@ -10,7 +10,6 @@
 }
 
 
-
 .aside__content.left {
     grid-area: aside__content__left;
 }
@@ -31,7 +30,7 @@
     width: 100%;
 }
 
-.buttons___filter {
+.buttons__filter {
     align-items: center;
     justify-content: space-evenly;
     display: flex;
@@ -68,11 +67,19 @@
     width: 60px;
 }
 
-.buttons___filter .btns__graphic__data {
+.buttons__filter .btns__graphic__data {
     align-items: center;
     display: flex;
     justify-content: center;
     background-color: var(--cor3);
     width: 12%;
     padding: 3px 20px
+}
+
+.buttons__filter .filter__by__year {
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    padding: 3px 0px;
+    width: 100px;
 }

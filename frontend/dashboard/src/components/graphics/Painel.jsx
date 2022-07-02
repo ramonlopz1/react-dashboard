@@ -52,9 +52,6 @@ export default class Painel extends Component {
         this.reload()
     }
 
-
-   
-
     async getRevenue() {
         const arr = await this.filterData('revenue')
         this.setState({

@@ -80,7 +80,7 @@ export default class Graphic extends Component {
 
     renderButtons() {
         return (
-            <div className="buttons___filter">
+            <div className="buttons__filter">
                 <Link className='btns__graphic__data' to="/revenue" onClick={() => this.load('revenue')}>
                     Faturamento
                 </Link>

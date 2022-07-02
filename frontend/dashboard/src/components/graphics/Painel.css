@@ -46,7 +46,7 @@
 
 .content_children.painel .container {
     display: grid;
-    grid-template-columns: 4fr;
+    grid-template-columns: repeat( 4, minmax(150px, 1fr) );
     grid-template-rows: 130px 130px;
     grid-template-areas: 
     "boxes boxes boxes boxes"
@@ -63,7 +63,7 @@
     justify-content: space-evenly;
     background-color: var(--cor1);
     grid-area: "boxes";
-    width: 300px;
+    width: 400px;
 }
 
 .content_children.painel .container .boxes i {
@@ -81,4 +81,10 @@
 
 .content_children.painel .container .boxes .infos span {
     font-size: 22px;
+}
+
+@media screen and (max-width: 1400px) {
+    .content_children.painel .container .boxes {
+        width: 300px;
+    }
 }
