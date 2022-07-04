@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 
 import Main from '../templates/main/Main';
 
+import Graphic from '../graphics/Graphic.jsx'
+
 export class Rca extends Component {
 
     renderMainSection() {
@@ -103,17 +105,22 @@ export class Rca extends Component {
                 </aside>
                 <aside className='aside__right'>
                     <nav className='nav__filters'>
-                        <Link to="/">Cidades</Link>
-                        <Link to="/">Clientes</Link>
-                        <Link to="/">Campanhas</Link>
+                        <Link className='btn' to="/">Faturamento</Link>
+                        <Link className='btn' to="/">Positivação</Link>
+                        <Link className='btn' to="/">Mix</Link>
+                        <Link className='btn' to="/">Devolução</Link>
+                        <Link className='btn' to="/">Ativos</Link>
+                        <Link className='btn' to="/">Cidades</Link>
+                        <Link className='btn' to="/">Clientes</Link>
+                        <Link className='btn' to="/">Campanhas</Link>
                     </nav>
 
                     <div className="data__containers">
                         <div className='container'>
-a
+                            
                         </div>
                         <div className='container'>
-a
+                            a
                         </div>
                     </div>
                 </aside>

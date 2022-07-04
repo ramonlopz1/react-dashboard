@@ -87,6 +87,8 @@ export default class Painel extends Component {
         })
 
         this.reload()
+
+        document.querySelector('.painel__btns__container .btn:nth-of-type(1)').classList.remove('focus')
     }
 
     reload() {
@@ -109,7 +111,7 @@ export default class Painel extends Component {
             <section className='content_children painel'>
                 <div className='painel__btns'>
                     <div className="painel__btns__container">
-                        <button onClick={() => { this.changeMouth(0) }} className="btn">Jan</button>
+                        <button onClick={() => { this.changeMouth(0) }} className="btn focus">Jan</button>
                         <button onClick={() => { this.changeMouth(1) }} className="btn">Fev</button>
                         <button onClick={() => { this.changeMouth(2) }} className="btn">Mar</button>
                         <button onClick={() => { this.changeMouth(3) }} className="btn">Abr</button>
