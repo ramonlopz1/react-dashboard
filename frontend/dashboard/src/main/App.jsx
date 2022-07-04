@@ -9,7 +9,7 @@ import Footer from '../components/templates/footer/Footer';
 
 // permite as rotas
 import { BrowserRouter } from 'react-router-dom'
-import Routes from './Routes';
+import Routes from '../routes/Routes';
 
 const App = props => 
 <BrowserRouter>

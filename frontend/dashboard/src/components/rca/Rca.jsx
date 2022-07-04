@@ -3,10 +3,10 @@ import './Rca.css';
 import { Link } from 'react-router-dom'
 
 import Main from '../templates/main/Main';
-
-import Graphic from '../graphics/Graphic.jsx'
-
+import Graphic from './Graphic';
 export class Rca extends Component {
+
+    
 
     renderMainSection() {
         return (
@@ -105,8 +105,8 @@ export class Rca extends Component {
                 </aside>
                 <aside className='aside__right'>
                     <nav className='nav__filters'>
-                        <Link className='btn' to="/">Faturamento</Link>
-                        <Link className='btn' to="/">Positivação</Link>
+                        <Link className='btn' to="/rca/revenue">Faturamento</Link>
+                        <Link className='btn' to="/rca/devolution">Positivação</Link>
                         <Link className='btn' to="/">Mix</Link>
                         <Link className='btn' to="/">Devolução</Link>
                         <Link className='btn' to="/">Ativos</Link>
@@ -117,10 +117,10 @@ export class Rca extends Component {
 
                     <div className="data__containers">
                         <div className='container'>
-                            
+
                         </div>
                         <div className='container'>
-                            a
+                            <Graphic url="revenue"/>
                         </div>
                     </div>
                 </aside>
@@ -130,7 +130,7 @@ export class Rca extends Component {
 
     render() {
         return (
-            <Main title={this.props.title} >
+            <Main title="Representante Comercial Autônomo" >
                 {this.renderMainSection()}
             </Main>
         )
