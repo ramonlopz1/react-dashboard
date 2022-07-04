@@ -6,7 +6,15 @@ import Main from '../templates/main/Main';
 import Graphic from './Graphic';
 export class Rca extends Component {
 
-    
+    state = {
+        url: "revenue"
+    }
+
+    async load(url) {
+        this.setState({
+            url: this.props.url
+        })
+    }
 
     renderMainSection() {
         return (
@@ -105,8 +113,8 @@ export class Rca extends Component {
                 </aside>
                 <aside className='aside__right'>
                     <nav className='nav__filters'>
-                        <Link className='btn' to="/rca/revenue">Faturamento</Link>
-                        <Link className='btn' to="/rca/devolution">Positivação</Link>
+                        <Link className='btn' to="/rca/revenue" onClick={() => this.load()}>Faturamento</Link>
+                        <Link className='btn' to="/rca/devolution" onClick={() => this.load()}>Positivação</Link>
                         <Link className='btn' to="/">Mix</Link>
                         <Link className='btn' to="/">Devolução</Link>
                         <Link className='btn' to="/">Ativos</Link>
@@ -120,7 +128,7 @@ export class Rca extends Component {
 
                         </div>
                         <div className='container'>
-                            <Graphic url="revenue"/>
+                            <Graphic url={this.props.url}/>
                         </div>
                     </div>
                 </aside>

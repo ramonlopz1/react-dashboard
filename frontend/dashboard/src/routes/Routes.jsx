@@ -36,11 +36,11 @@ export default props => (
 
         //rca
 
-        <Route path="/rca/revenue" url="revenue" element={
+        <Route path="/rca/revenue" element={
             <Rca url="revenue" />
         } />
 
-        <Route path="/rca/devolution" url="devolution" element={
+        <Route path="/rca/devolution"  element={
             <Rca url="devolution" />
         } />
 

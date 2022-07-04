@@ -10,31 +10,41 @@ import './Graphic.css'
 
 const initialState = {
     list: [],
-    year: 2021
+    year: 2021,
+    url: ""
 }
 
 export default class Graphic extends Component {
 
-    state = {
-        ...initialState,
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            ...initialState,
+            url: this.props.url
+        }
     }
 
     async componentDidMount() {
-        fetch(`http://localhost:3000/${this.props.url}`)
-            .then(res => res.json()).then(res => {
+        await fetch(`http://localhost:3000/${this.props.url}`)
+            .then(res => res.json())
+            .then(res => {
                 this.setState({
-                    list: res
+                    list: res,
+                    url: this.props.url
                 })
             })
     }
 
-    async load(url) {
-        let data = await fetch(`http://localhost:3000/${url}`)
-        data = await data.json()
+    // se a props for alterada, o elemento será rerenderizado
+    componentDidUpdate(prevProps) {
+        if (this.props.url !== prevProps.url) {
 
-        this.setState({
-            list: data
-        })
+            this.setState({
+                url: this.props.url
+            })
+
+        }
     }
 
     // método para alterar o ano de filtro através do select
@@ -51,7 +61,6 @@ export default class Graphic extends Component {
         return (
             <div className="wrapper__container">
                 <div className='graph__container'>
-                    {this.renderButtons()}
                     <div className='columns'>
                         {this.renderGraphicColumn()}
                     </div>
@@ -74,31 +83,7 @@ export default class Graphic extends Component {
         )
     }
 
-    renderButtons() {
-        return (
-            <div className="buttons__filter">
-                <Link className='btns__graphic__data' to="/rca/revenue" onClick={() => this.load('revenue')}>
-                    Faturamento
-                </Link>
-                <Link className='btns__graphic__data' to="/rca/devolution" onClick={() => this.load('devolution')}>
-                    Devolução
-                </Link>
-                <Link className='btns__graphic__data' to="/positivation" onClick={() => this.load('positivation')}>
-                    Positivação
-                </Link>
-                <Link className='btns__graphic__data' to="/mix" onClick={() => this.load('mix')}>
-                    Mix
-                </Link>
-                <Link className='btns__graphic__data' to="/order" onClick={() => this.load('order')}>
-                    Pedidos
-                </Link>
-                <select onChange={() => { this.changeYear() }} className='filter__by__year'>
-                    <option className='year' value="2021">2021</option>
-                    <option className='year' value="2020">2020</option>
-                </select>
-            </div>
-        )
-    }
+
 
     renderGraphicColumn() {
         const [list, year] = [this.state.list, this.state.year]
@@ -124,7 +109,6 @@ export default class Graphic extends Component {
         }
     }
 
- 
 
     render() {
         return (
