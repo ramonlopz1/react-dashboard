@@ -25,25 +25,30 @@ export default class Graphic extends Component {
         }
     }
 
+
     async componentDidMount() {
-        await fetch(`http://localhost:3000/${this.props.url}`)
-            .then(res => res.json())
-            .then(res => {
-                this.setState({
-                    list: res,
-                    url: this.props.url
-                })
-            })
+        const res = await fetch(`http://localhost:3000/${this.state.url}`)
+        const data = await res.json()
+
+        this.setState({
+            list: data,
+            url: this.props.url
+        })
+
+
     }
 
     // se a props for alterada, o elemento será rerenderizado
-    componentDidUpdate(prevProps) {
+    async componentDidUpdate(prevProps) {
         if (this.props.url !== prevProps.url) {
+            const res = await fetch(`http://localhost:3000/${this.props.url}`)
+            const data = await res.json()
+
 
             this.setState({
+                list: data,
                 url: this.props.url
             })
-
         }
     }
 
@@ -58,6 +63,7 @@ export default class Graphic extends Component {
     }
 
     renderGraphic() {
+
         return (
             <div className="wrapper__container">
                 <div className='graph__container'>
@@ -112,11 +118,9 @@ export default class Graphic extends Component {
 
     render() {
         return (
-            <Main title={this.props.title}>
-                <section className='content_children rca__graphic'>
-                    {this.renderGraphic()}
-                </section>
-            </Main>
+            <section className='content_children rca__graphic'>
+                {this.renderGraphic()}
+            </section>
         )
     }
 }

@@ -24,17 +24,17 @@ export default class Graphic extends Component {
     }
 
     async componentDidMount() {
-        fetch(`http://localhost:3000/${this.props.url}`)
-            .then(res => res.json()).then(res => {
-                this.setState({
-                    list: res
-                })
-            })
+        const res = await fetch(`http://localhost:3000/${this.props.url}`)
+        const data = await res.json()
+
+        this.setState({
+            list: data
+        })
     }
 
     async load(url) {
-        let data = await fetch(`http://localhost:3000/${url}`)
-        data = await data.json()
+        const res = await fetch(`http://localhost:3000/${url}`)
+        const data = await res.json()
 
         this.setState({
             list: data

@@ -4,19 +4,21 @@ import { Link } from 'react-router-dom'
 
 import Main from '../templates/main/Main';
 import Graphic from './Graphic';
+
 export class Rca extends Component {
 
     state = {
-        url: "revenue"
+        url: this.props.url
     }
 
-    async load(url) {
+    load(url) {
         this.setState({
             url: this.props.url
         })
     }
 
     renderMainSection() {
+        
         return (
             <section className="section__rca">
                 <aside className='aside__left'>

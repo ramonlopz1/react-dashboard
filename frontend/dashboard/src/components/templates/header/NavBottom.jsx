@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const NavBottom = props =>
     <nav className='nav__bottom'>
             <div className="painels">
-                <Link to="/rca" className='link'>
+                <Link to="/rca/revenue" className='link'>
                     <i className="fa fa-folder"></i> RCA
                 </Link>
                 <Link to="/" className='link'>

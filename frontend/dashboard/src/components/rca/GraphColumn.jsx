@@ -1,15 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './GraphColumn.css'
 
-const GraphColumn = props =>
+export default class GraphColumn extends Component {
 
-        <div className="graph__column">
-            <span className='valor'>
-                {props.value}
-            </span>
-          
-            <div columnsize={props.columnsize} className='column' style={{ height: props.columnsize + "%" }}>
+    state = {
+        value: this.props.value,
+        columnsize: this.props.columnsize,
+    }
+
+    render() {
+
+        return (
+
+            <div className="graph__column">
+                <span className='valor'>
+                    {this.props.value}
+                </span>
+
+                <div columnsize={this.props.columnsize} className='column' style={{ height: this.props.columnsize + "%" }}>
+                </div>
             </div>
-        </div>
+        )
+    }
+}
 
-export default GraphColumn;
+
