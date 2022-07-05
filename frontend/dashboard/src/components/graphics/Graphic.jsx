@@ -39,6 +39,8 @@ export default class Graphic extends Component {
         this.setState({
             list: data
         })
+
+        document.querySelector('.buttons__filter .btns__graphic__data:nth-of-type(1)').classList.remove('focus')
     }
 
     // método para alterar o ano de filtro através do select
@@ -81,7 +83,7 @@ export default class Graphic extends Component {
     renderButtons() {
         return (
             <div className="buttons__filter">
-                <Link className='btns__graphic__data' to="/revenue" onClick={() => this.load('revenue')}>
+                <Link className='btns__graphic__data focus' to="/revenue" onClick={() => this.load('revenue')}>
                     Faturamento
                 </Link>
                 <Link className='btns__graphic__data' to="/devolution" onClick={() => this.load('devolution')}>

@@ -76,6 +76,14 @@
     padding: 3px 15px
 }
 
+.buttons__filter .btns__graphic__data:focus {
+    background-color: var(--cor2);
+}
+
+.buttons__filter .btns__graphic__data:nth-of-type(1).focus {
+    background-color: var(--cor2);
+}
+
 .buttons__filter .filter__by__year {
     outline: none;
     border: none;

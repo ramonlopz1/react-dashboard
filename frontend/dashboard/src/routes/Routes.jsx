@@ -4,6 +4,7 @@ import Home from '../components/home/Home';
 import Graphic from '../components/graphics/Graphic';
 import { Rca } from '../components/rca/Rca';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default props => (
     <Routes>
         <Route exact path="/" element={<Home />} />

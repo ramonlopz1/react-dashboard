@@ -21,7 +21,7 @@ const getUpdateList = (list, year) => {
 }
 
 
-// calcula o crescimento total anual
+// calcula o faturamento total anual
 const calcYearRevenue = (list, year) => {
     if (!list) return
 
