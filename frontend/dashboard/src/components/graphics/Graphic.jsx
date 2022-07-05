@@ -26,7 +26,7 @@ export default class Graphic extends Component {
     async componentDidMount() {
         const res = await fetch(`http://localhost:3000/${this.props.url}`)
         const data = await res.json()
-
+        
         this.setState({
             list: data
         })

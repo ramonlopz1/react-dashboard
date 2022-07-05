@@ -11,7 +11,8 @@ import './Graphic.css'
 const initialState = {
     list: [],
     year: 2021,
-    url: ""
+    url: "",
+    rca: "elias"
 }
 
 export default class Graphic extends Component {
@@ -26,13 +27,32 @@ export default class Graphic extends Component {
     }
 
     async componentDidMount() {
-        const res = await fetch(`http://localhost:3000/${this.state.url}`)
-        const data = await res.json()
+        const res = await fetch(`http://localhost:3000/rca`)
+        let data = await res.json()
+        
+        const rca = data?.[this.state.rca]
+        
+        data = rca?.['revenue']
+        
+        console.log(data)        
+        // criar uma rota que receba
+        // um option do select
 
         this.setState({
             list: data,
             url: this.props.url
         })
+    }
+
+  
+    changeYear() {
+        const select = document.querySelector('.rca__name')
+        const rca = select.options[select.selectedIndex].value
+        
+        this.setState({
+            rca: rca
+        })
+        console.log(this.state.rca)
     }
 
 
@@ -42,6 +62,7 @@ export default class Graphic extends Component {
             const res = await fetch(`http://localhost:3000/${this.props.url}`)
             const data = await res.json()
 
+            console.log()
 
             this.setState({
                 list: data,
@@ -50,15 +71,6 @@ export default class Graphic extends Component {
         }
     }
 
-    // método para alterar o ano de filtro através do select
-    changeYear() {
-        const select = document.querySelector('.filter__by__year')
-        const year = select.options[select.selectedIndex].value
-
-        this.setState({
-            year: year
-        })
-    }
 
     renderGraphic() {
 
@@ -117,6 +129,10 @@ export default class Graphic extends Component {
     render() {
         return (
             <section className='content_children rca__graphic'>
+                 <select onChange={() => { this.changeYear() }} className='rca__name'>
+                    <option className='year' value="elias">elias</option>
+                    <option className='year' value="dina">2020</option>
+                </select>
                 {this.renderGraphic()}
             </section>
         )
