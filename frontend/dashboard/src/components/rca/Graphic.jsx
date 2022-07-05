@@ -17,26 +17,20 @@ const initialState = {
 
 export default class Graphic extends Component {
 
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            ...initialState,
-            url: this.props.url
-        }
+    state = {
+        ...initialState,
+        url: this.props.url
     }
 
     async componentDidMount() {
         const res = await fetch(`http://localhost:3000/rca`)
         let data = await res.json()
-        
-        const rca = data?.[this.state.rca]
-        
-        data = rca?.['revenue']
-        
-        console.log(data)        
-        // criar uma rota que receba
-        // um option do select
+
+        // dina, elias, joao...
+        const rca = data?.[this.props.rca]
+
+        // revenue, devolution, positivation...
+        data = rca?.[this.props.url]
 
         this.setState({
             list: data,
@@ -44,25 +38,17 @@ export default class Graphic extends Component {
         })
     }
 
-  
-    changeYear() {
-        const select = document.querySelector('.rca__name')
-        const rca = select.options[select.selectedIndex].value
-        
-        this.setState({
-            rca: rca
-        })
-        console.log(this.state.rca)
-    }
-
-
     // se a props for alterada, o elemento será rerenderizado
-    async componentDidUpdate(prevProps) {
-        if (this.props.url !== prevProps.url) {
-            const res = await fetch(`http://localhost:3000/${this.props.url}`)
-            const data = await res.json()
+    async componentDidUpdate(prevProps, prevState) {
+        if (this.props.url !== prevProps.url
+            || this.props.rca !== prevProps.rca) {
 
-            console.log()
+            const res = await fetch(`http://localhost:3000/rca`)
+            let data = await res.json()
+
+            const rca = data?.[this.props.rca]
+
+            data = rca?.[this.props.url]
 
             this.setState({
                 list: data,
@@ -70,7 +56,6 @@ export default class Graphic extends Component {
             })
         }
     }
-
 
     renderGraphic() {
 
@@ -98,8 +83,6 @@ export default class Graphic extends Component {
             </div>
         )
     }
-
-
 
     renderGraphicColumn() {
         const [list, year] = [this.state.list, this.state.year]
@@ -129,10 +112,6 @@ export default class Graphic extends Component {
     render() {
         return (
             <section className='content_children rca__graphic'>
-                 <select onChange={() => { this.changeYear() }} className='rca__name'>
-                    <option className='year' value="elias">elias</option>
-                    <option className='year' value="dina">2020</option>
-                </select>
                 {this.renderGraphic()}
             </section>
         )

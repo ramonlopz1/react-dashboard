@@ -8,7 +8,8 @@ import Graphic from './Graphic';
 export class Rca extends Component {
 
     state = {
-        url: this.props.url
+        url: this.props.url,
+        rca: "elias"
     }
 
     load(url) {
@@ -17,15 +18,27 @@ export class Rca extends Component {
         })
     }
 
+    changeRCA() {
+        const select = document.querySelector('.rca__name')
+        const rca = select.options[select.selectedIndex].value
+
+        this.setState({
+            rca: rca
+        })
+    }
+
+
     renderMainSection() {
-        
+
         return (
             <section className="section__rca">
                 <aside className='aside__left'>
                     <div className="container__top">
                         <div className="search__rca">
-                            <input className='input__search' type="text" name="name" id="" placeholder='Digite o código ou o nome' />
-                            <button>Pesquisar</button>
+                            <select onChange={() => { this.changeRCA() }} className='rca__name'>
+                                <option className='rca' value="elias">elias</option>
+                                <option className='rca' value="dina">dina</option>
+                            </select>
                         </div>
 
                         <div className='circle'>
@@ -130,7 +143,7 @@ export class Rca extends Component {
 
                         </div>
                         <div className='container'>
-                            <Graphic url={this.props.url}/>
+                            <Graphic url={this.props.url} rca={this.state.rca} />
                         </div>
                     </div>
                 </aside>

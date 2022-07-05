@@ -34,25 +34,17 @@
     margin: 10px;
 }
 
-.aside__left .container__top .search__rca .input__search {
+.aside__left .container__top .search__rca .rca__name {
     height: 20px;
     background-color: lightgray;
     border-radius: 5px 0px 0px 5px;
     border: none;
     outline: none;
     text-indent: 5px;
+    height: 25px;
     width: 200px;
 }
 
-.aside__left .container__top .search__rca button {
-    background-color: var(--cor2);
-    border-radius: 0px 5px 5px 0px;
-    color: white;
-    cursor: pointer;
-    height: 21px;
-    border: none;
-    outline: none;
-}
 
 .aside__left .container__top .circle {
     background: url('../../assets/imgs/rca__perfil/profile_pic.jpg');
