@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import utils from '../../components/graphics/util/utils';
-
-import Main from '../templates/main/Main'
 
 import GraphColumn from './GraphColumn';
 
@@ -108,10 +105,10 @@ export default class Graphic extends Component {
         }
     }
 
-
     render() {
         return (
             <section className='content_children rca__graphic'>
+                <h1>{this.props.title}</h1>
                 {this.renderGraphic()}
             </section>
         )

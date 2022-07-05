@@ -12,7 +12,7 @@ export class Rca extends Component {
         rca: "elias"
     }
 
-    load(url) {
+    load() {
         this.setState({
             url: this.props.url
         })
@@ -130,7 +130,8 @@ export class Rca extends Component {
                     <nav className='nav__filters'>
                         <Link className='btn' to="/rca/revenue" onClick={() => this.load()}>Faturamento</Link>
                         <Link className='btn' to="/rca/positivation" onClick={() => this.load()}>Positivação</Link>
-                        <Link className='btn' to="/">Mix</Link>
+                        <Link className='btn' to="/rca/mix" onClick={() => this.load()}>Mix</Link>
+
                         <Link className='btn' to="/">Devolução</Link>
                         <Link className='btn' to="/">Ativos</Link>
                         <Link className='btn' to="/">Cidades</Link>
@@ -143,7 +144,7 @@ export class Rca extends Component {
 
                         </div>
                         <div className='container'>
-                            <Graphic url={this.props.url} rca={this.state.rca} />
+                            <Graphic url={this.props.url} rca={this.state.rca} title={this.props.title} />
                         </div>
                     </div>
                 </aside>

@@ -4,7 +4,6 @@ import Home from '../components/home/Home';
 import Graphic from '../components/graphics/Graphic';
 import { Rca } from '../components/rca/Rca';
 
-
 export default props => (
     <Routes>
         <Route exact path="/" element={<Home />} />
@@ -36,11 +35,15 @@ export default props => (
 
 
         <Route path="/rca/revenue" element={
-            <Rca url="revenue" />
+            <Rca url="revenue" title="Faturamento" />
         } />
 
-        <Route path="/rca/positivation"  element={
-            <Rca url="positivation" />
+        <Route path="/rca/positivation" element={
+            <Rca url="positivation" title="Positivação" />
+        } />
+
+        <Route path="/rca/mix" element={
+            <Rca url="mix" title="Mix" />
         } />
 
         <Route path="*" element={<Home />} />

@@ -3,12 +3,16 @@
     align-items: center;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     border: 1px solid var(--cor2);
     border-radius: 7px;
 
 }
 
-
+.content_children.rca__graphic h1 {
+    margin: 0px;
+    margin-top: 15px;
+}
 .graphic__section {
     grid-area: graphic__section;
 }
