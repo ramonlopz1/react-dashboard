@@ -116,7 +116,7 @@ export class Rca extends Component {
                 <aside className='aside__right'>
                     <nav className='nav__filters'>
                         <Link className='btn' to="/rca/revenue" onClick={() => this.load()}>Faturamento</Link>
-                        <Link className='btn' to="/rca/devolution" onClick={() => this.load()}>Positivação</Link>
+                        <Link className='btn' to="/rca/positivation" onClick={() => this.load()}>Positivação</Link>
                         <Link className='btn' to="/">Mix</Link>
                         <Link className='btn' to="/">Devolução</Link>
                         <Link className='btn' to="/">Ativos</Link>

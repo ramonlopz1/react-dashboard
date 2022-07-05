@@ -25,7 +25,6 @@ export default class Graphic extends Component {
         }
     }
 
-
     async componentDidMount() {
         const res = await fetch(`http://localhost:3000/${this.state.url}`)
         const data = await res.json()
@@ -34,9 +33,8 @@ export default class Graphic extends Component {
             list: data,
             url: this.props.url
         })
-
-
     }
+
 
     // se a props for alterada, o elemento será rerenderizado
     async componentDidUpdate(prevProps) {

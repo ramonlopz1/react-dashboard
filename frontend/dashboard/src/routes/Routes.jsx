@@ -4,7 +4,7 @@ import Home from '../components/home/Home';
 import Graphic from '../components/graphics/Graphic';
 import { Rca } from '../components/rca/Rca';
 
-// eslint-disable-next-line import/no-anonymous-default-export
+
 export default props => (
     <Routes>
         <Route exact path="/" element={<Home />} />
@@ -34,14 +34,13 @@ export default props => (
             <Rca title="Representante Comercial Autônomo" />
         } />
 
-        //rca
 
         <Route path="/rca/revenue" element={
             <Rca url="revenue" />
         } />
 
-        <Route path="/rca/devolution"  element={
-            <Rca url="devolution" />
+        <Route path="/rca/positivation"  element={
+            <Rca url="positivation" />
         } />
 
         <Route path="*" element={<Home />} />
