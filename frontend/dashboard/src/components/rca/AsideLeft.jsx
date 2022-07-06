@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
 import './AsideLeft.css'
+import utils from '../graphics/util/utils'
+
+const initialState = {
+    revenue: 0
+}
 
 export default class AsideLeft extends Component {
 
@@ -9,7 +14,25 @@ export default class AsideLeft extends Component {
         super(props)
         const { changeRCA } = props
         this.changeRCA = changeRCA
+        this.state = {
+            list: this.props.list,
+            url: this.props.url,
+            rca: this.props.rca,
+            ...initialState
+        }
 
+       
+    }
+
+
+    componentDidUpdate(prevProps) {
+        if(this.props.list !== prevProps.list) {
+            const revenue = utils.calcYearRevenue(this.props.list, 2021)
+
+            this.setState({
+                revenue: revenue
+            })
+        }
     }
 
     render() {
@@ -61,7 +84,7 @@ export default class AsideLeft extends Component {
                                 Faturamento
                             </span>
                             <div className="data">
-                                939232
+                                {utils.formatNumbers(this.state.revenue)}
                             </div>
                         </div>
                         <div className="info">

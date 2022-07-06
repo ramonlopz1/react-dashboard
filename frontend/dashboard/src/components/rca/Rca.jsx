@@ -62,12 +62,18 @@ export class Rca extends Component {
 
         return (
             <section className="section__rca">
-                <LeftAside changeRCA={this.changeRCA} />
+                <LeftAside 
+                    changeRCA={this.changeRCA} 
+                    list={this.state.list}
+                    url={this.props.url} 
+                    rca={this.state.rca} 
+                />
                 <AsideRight
                     list={this.state.list}
                     url={this.props.url} 
                     rca={this.state.rca} 
-                    title={this.props.title}/>
+                    title={this.props.title}
+                />
             </section>
         )
     }
