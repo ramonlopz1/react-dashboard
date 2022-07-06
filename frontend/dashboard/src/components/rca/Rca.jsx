@@ -58,7 +58,6 @@ export class Rca extends Component {
     load() {
         this.setState({
             url: this.props.url,
-            rcaAllData: this.state.rcaAllData
         })
 
     }

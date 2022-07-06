@@ -57,8 +57,8 @@ export default class AsideLeft extends Component {
                 <div className="container__top">
                     <div className="search__rca">
                         <select onChange={this.changeRCA} className='rca__name'>
-                            <option className='rca' value="260">Eliais Vieira Sobral</option>
-                            <option className='rca' value="249">Diná Maranhão</option>
+                            <option className='rca' value="elias">Eliais Vieira Sobral</option>
+                            <option className='rca' value="dina">Diná Maranhão</option>
                         </select>
                     </div>
 
