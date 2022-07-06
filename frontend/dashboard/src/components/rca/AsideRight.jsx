@@ -13,7 +13,7 @@ export default class AsideRight extends Component {
         const { load } = this.props
         this.load = load
         this.state = {
-            list: this.props.list,
+            filteredData: this.props.filteredData,
             url: this.props.url
         }
         
@@ -23,7 +23,7 @@ export default class AsideRight extends Component {
      async componentDidUpdate(prevProps, prevState) {
         if (this.props.url !== prevProps.url
             || this.props.rca !== prevProps.rca
-            || this.props.list !== prevProps.list) {
+            || this.props.filteredData !== prevProps.filteredData) {
 
             const res = await fetch(`http://localhost:3000/rca`)
             let data = await res.json()
@@ -33,7 +33,7 @@ export default class AsideRight extends Component {
             data = rca?.[this.props.url]
 
             this.setState({
-                list: data,
+                filteredData: data,
                 url: this.props.url
             })
         }
@@ -57,7 +57,7 @@ export default class AsideRight extends Component {
                     <div className="data__containers">
                         <div className='container'>
                             <Graphic 
-                                list={this.state.list}
+                                filteredData={this.state.filteredData}
                                 url={this.state.url} 
                                 rca={this.props.rca} 
                                 title={this.props.title} 

@@ -1,52 +1,51 @@
 import React, { Component } from 'react';
 import './Rca.css';
 
-
 import Main from '../templates/main/Main';
-import LeftAside from './AsideLeft';
+import AsideLeft from './AsideLeft';
 import AsideRight from './AsideRight';
 export class Rca extends Component {
-
-    a
 
     constructor(props) {
         super(props)
 
         this.state = {
-            list: [],
+            filteredData: [],
             url: this.props.url,
-            rca: "elias"
+            rca: "elias",
+            rcaAllData: ""
         }
 
-    
+
         // permite que ao chamado o método changeRCA no componentChild
         // ele garantirá que será executado exatamente no componentFather
         this.changeRCA = this.changeRCA.bind(this)
         this.load = this.load.bind(this)
     }
-    
-    async componentDidMount() {
-        const res = await fetch(`http://localhost:3000/rca`)
-        let data = await res.json()
 
-        // dina, elias, joao...
-        const rca = data?.[this.state.rca]
-        
-        // revenue, devolution, positivation...
-        data = rca?.[this.props.url]
-        
+    async componentDidMount() {
+        let res = await fetch(`http://localhost:3000/rca`)
+        res = await res.json()
+
+        // retorna todos os dados do rca escolhido (this.state.rca)
+        const rcaAllData = res?.[this.state.rca]
+
+        // retorna os dados filtrados do rca escolhido (revenue, positivation...)
+        let filteredData = rcaAllData?.[this.props.url]
+
         this.setState({
-            list: data,
-            url: this.props.url
+            filteredData: filteredData,
+            url: this.props.url,
+            rcaAllData: rcaAllData
         })
     }
 
-    
+
     load() {
         this.setState({
             url: this.props.url
         })
-        
+
     }
 
     changeRCA() {
@@ -62,16 +61,17 @@ export class Rca extends Component {
 
         return (
             <section className="section__rca">
-                <LeftAside 
-                    changeRCA={this.changeRCA} 
-                    list={this.state.list}
-                    url={this.props.url} 
-                    rca={this.state.rca} 
+                <AsideLeft
+                    changeRCA={this.changeRCA}
+                    rcaAllData={this.state.rcaAllData}
+                    filteredData={this.state.filteredData}
+                    url={this.props.url}
+                    rca={this.state.rca}
                 />
                 <AsideRight
-                    list={this.state.list}
-                    url={this.props.url} 
-                    rca={this.state.rca} 
+                    filteredData={this.state.filteredData}
+                    url={this.props.url}
+                    rca={this.state.rca}
                     title={this.props.title}
                 />
             </section>

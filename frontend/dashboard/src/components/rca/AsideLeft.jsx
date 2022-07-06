@@ -3,7 +3,12 @@ import './AsideLeft.css'
 import utils from '../graphics/util/utils'
 
 const initialState = {
-    revenue: 0
+    revenue: 0,
+    positivation: 0,
+    mix: 0,
+    devolution: 0,
+    actives: 0,
+    ticket: 0
 }
 
 export default class AsideLeft extends Component {
@@ -18,23 +23,35 @@ export default class AsideLeft extends Component {
             list: this.props.list,
             url: this.props.url,
             rca: this.props.rca,
+            rcaAllData: this.props.rcaAllData,
+            revenue: this.calcTotal('revenue'),
+            positivation: this.calcTotal('positivation'),
+
             ...initialState
         }
-
        
     }
 
 
-    componentDidUpdate(prevProps) {
-        if(this.props.list !== prevProps.list) {
-            const revenue = utils.calcYearRevenue(this.props.list, 2021)
+  
 
+    componentDidUpdate(prevProps) {
+        if(this.props.rcaAllData !== prevProps.rcaAllData) {
+            
+            const revenue = this.calcTotal('revenue')
+            const positivation = this.calcTotal('positivation')
+            
             this.setState({
-                revenue: revenue
+                revenue: revenue,
+                positivation: positivation,
+
             })
         }
     }
-
+    calcTotal(type) {
+        return utils.calcYearRevenue(this.props.rcaAllData[type], 2021)
+    }
+    
     render() {
         return (
             <aside className='aside__left'>
@@ -92,7 +109,7 @@ export default class AsideLeft extends Component {
                                 Positivação
                             </span>
                             <div className="data">
-                                939232
+                                {utils.formatNumbers(this.state.positivation)}
                             </div>
                         </div>
                         <div className="info">

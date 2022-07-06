@@ -34,7 +34,7 @@ const calcYearRevenue = (list, year) => {
 
     if (MonthlyAverage) {
         MonthlyAverage.forEach(avarege => {
-            totalRevenue += avarege
+            totalRevenue += +avarege
         })
 
         return totalRevenue;

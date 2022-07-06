@@ -6,7 +6,7 @@ import GraphColumn from './GraphColumn';
 import './Graphic.css'
 
 const initialState = {
-    list: [],
+    filteredData: [],
     year: 2021,
     url: "",
     rca: "elias"
@@ -16,7 +16,7 @@ export default class Graphic extends Component {
 
     state = {
         ...initialState,
-        list: this.props.list,
+        filteredData: this.props.filteredData,
         url: this.props.url
     }
 
@@ -49,11 +49,11 @@ export default class Graphic extends Component {
     }
 
     renderGraphicColumn() {
-        const [list, year] = [this.props.list, this.state.year]
+        const [filteredData, year] = [this.props.filteredData, this.state.year]
 
-        const arrayValues = utils.getUpdateList(list, year);
+        const arrayValues = utils.getUpdateList(filteredData, year);
 
-        let greaterColumn = utils.calcGreaterMonthly(list, year);
+        let greaterColumn = utils.calcGreaterMonthly(filteredData, year);
 
         let id = 0
         let columnSize = 0
