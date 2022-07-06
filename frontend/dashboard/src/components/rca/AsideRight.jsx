@@ -12,6 +12,31 @@ export default class AsideRight extends Component {
 
         const { load } = this.props
         this.load = load
+        this.state = {
+            list: this.props.list,
+            url: this.props.url
+        }
+        
+    }
+
+     // se a props for alterada, o elemento será rerenderizado
+     async componentDidUpdate(prevProps, prevState) {
+        if (this.props.url !== prevProps.url
+            || this.props.rca !== prevProps.rca
+            || this.props.list !== prevProps.list) {
+
+            const res = await fetch(`http://localhost:3000/rca`)
+            let data = await res.json()
+
+            const rca = data?.[this.props.rca]
+
+            data = rca?.[this.props.url]
+
+            this.setState({
+                list: data,
+                url: this.props.url
+            })
+        }
     }
 
     render() {
@@ -31,7 +56,12 @@ export default class AsideRight extends Component {
         
                     <div className="data__containers">
                         <div className='container'>
-                            <Graphic url={this.props.url} rca={this.props.rca} title={this.props.title} />
+                            <Graphic 
+                                list={this.state.list}
+                                url={this.state.url} 
+                                rca={this.props.rca} 
+                                title={this.props.title} 
+                            />
                         </div>
                         <div className='container'>
                         </div>

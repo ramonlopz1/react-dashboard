@@ -16,44 +16,11 @@ export default class Graphic extends Component {
 
     state = {
         ...initialState,
+        list: this.props.list,
         url: this.props.url
     }
 
-    async componentDidMount() {
-        const res = await fetch(`http://localhost:3000/rca`)
-        let data = await res.json()
-
-        // dina, elias, joao...
-        const rca = data?.[this.props.rca]
-
-        // revenue, devolution, positivation...
-        data = rca?.[this.props.url]
-
-        this.setState({
-            list: data,
-            url: this.props.url
-        })
-    }
-
-    // se a props for alterada, o elemento será rerenderizado
-    async componentDidUpdate(prevProps, prevState) {
-        if (this.props.url !== prevProps.url
-            || this.props.rca !== prevProps.rca) {
-
-            const res = await fetch(`http://localhost:3000/rca`)
-            let data = await res.json()
-
-            const rca = data?.[this.props.rca]
-
-            data = rca?.[this.props.url]
-
-            this.setState({
-                list: data,
-                url: this.props.url
-            })
-        }
-    }
-
+  
     renderGraphic() {
 
         return (
@@ -82,7 +49,7 @@ export default class Graphic extends Component {
     }
 
     renderGraphicColumn() {
-        const [list, year] = [this.state.list, this.state.year]
+        const [list, year] = [this.props.list, this.state.year]
 
         const arrayValues = utils.getUpdateList(list, year);
 

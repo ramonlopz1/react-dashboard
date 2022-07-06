@@ -13,11 +13,11 @@ export class Rca extends Component {
         super(props)
 
         this.state = {
+            list: [],
             url: this.props.url,
             rca: "elias"
         }
 
-       
     
         // permite que ao chamado o método changeRCA no componentChild
         // ele garantirá que será executado exatamente no componentFather
@@ -25,7 +25,23 @@ export class Rca extends Component {
         this.load = this.load.bind(this)
     }
     
+    async componentDidMount() {
+        const res = await fetch(`http://localhost:3000/rca`)
+        let data = await res.json()
 
+        // dina, elias, joao...
+        const rca = data?.[this.state.rca]
+        
+        // revenue, devolution, positivation...
+        data = rca?.[this.props.url]
+        
+        this.setState({
+            list: data,
+            url: this.props.url
+        })
+    }
+
+    
     load() {
         this.setState({
             url: this.props.url
@@ -43,10 +59,15 @@ export class Rca extends Component {
     }
 
     renderMainSection() {
+
         return (
             <section className="section__rca">
                 <LeftAside changeRCA={this.changeRCA} />
-                <AsideRight url={this.props.url} rca={this.state.rca} title={this.props.title}/>
+                <AsideRight
+                    list={this.state.list}
+                    url={this.props.url} 
+                    rca={this.state.rca} 
+                    title={this.props.title}/>
             </section>
         )
     }
