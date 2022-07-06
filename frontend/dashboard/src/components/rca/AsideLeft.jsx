@@ -18,6 +18,7 @@ export default class AsideLeft extends Component {
     constructor(props) {
         super(props)
         const { changeRCA } = props
+
         this.changeRCA = changeRCA
         this.state = {
             list: this.props.list,
@@ -32,8 +33,6 @@ export default class AsideLeft extends Component {
        
     }
 
-
-  
 
     componentDidUpdate(prevProps) {
         if(this.props.rcaAllData !== prevProps.rcaAllData) {
@@ -58,8 +57,8 @@ export default class AsideLeft extends Component {
                 <div className="container__top">
                     <div className="search__rca">
                         <select onChange={this.changeRCA} className='rca__name'>
-                            <option className='rca' value="elias">elias</option>
-                            <option className='rca' value="dina">dina</option>
+                            <option className='rca' value="260">Eliais Vieira Sobral</option>
+                            <option className='rca' value="249">Diná Maranhão</option>
                         </select>
                     </div>
 

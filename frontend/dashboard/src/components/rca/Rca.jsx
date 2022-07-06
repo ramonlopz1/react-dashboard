@@ -16,7 +16,6 @@ export class Rca extends Component {
             rcaAllData: ""
         }
 
-
         // permite que ao chamado o método changeRCA no componentChild
         // ele garantirá que será executado exatamente no componentFather
         this.changeRCA = this.changeRCA.bind(this)
@@ -29,7 +28,7 @@ export class Rca extends Component {
 
         // retorna todos os dados do rca escolhido (this.state.rca)
         const rcaAllData = res?.[this.state.rca]
-
+        
         // retorna os dados filtrados do rca escolhido (revenue, positivation...)
         let filteredData = rcaAllData?.[this.props.url]
 
@@ -40,10 +39,26 @@ export class Rca extends Component {
         })
     }
 
+    async componentDidUpdate(prevProps, prevState) {
+
+        let res = await fetch(`http://localhost:3000/rca`)
+        res = await res.json()
+
+        // retorna todos os dados do rca escolhido (this.state.rca)
+        const rcaAllData = res?.[this.state.rca]
+
+        if(this.state.rca !== prevState.rca) {
+
+            this.setState({
+                rcaAllData: rcaAllData
+            })
+        }
+    }
 
     load() {
         this.setState({
-            url: this.props.url
+            url: this.props.url,
+            rcaAllData: this.state.rcaAllData
         })
 
     }
