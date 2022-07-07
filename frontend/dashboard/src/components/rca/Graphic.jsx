@@ -13,11 +13,17 @@ const initialState = {
 }
 
 export default class Graphic extends Component {
+    
+    constructor(props) {
+        super(props)
 
-    state = {
-        ...initialState,
-        filteredData: this.props.filteredData,
-        url: this.props.url
+        this.state = {
+            ...initialState,
+            filteredData: this.props.filteredData,
+            url: this.props.url
+        }
+
+        this.getMonthID = this.getMonthID.bind(this)
     }
 
   
@@ -48,6 +54,8 @@ export default class Graphic extends Component {
         )
     }
 
+
+    monthID = "1"
     renderGraphicColumn() {
         const [filteredData, year] = [this.props.filteredData, this.state.year]
 
@@ -55,21 +63,33 @@ export default class Graphic extends Component {
 
         let greaterColumn = utils.calcGreaterMonthly(filteredData, year);
 
-        let id = 0
+        
+        let k = 0
         let columnSize = 0
         if (arrayValues) {
-            return arrayValues.map(mounthValue => {
-
+            return arrayValues.map((monthValue, idx) => {
+                
                 // define quanto o menor representa em porcentagem, rem relação
                 // ao maior
                 // p = menor * 100 / maior
-                columnSize = mounthValue * 100 / greaterColumn
+                columnSize = monthValue * 100 / greaterColumn
 
                 return (
-                    <GraphColumn key={id++} columnsize={columnSize} value={utils.formatNumbers(mounthValue)}></GraphColumn>
+                    <GraphColumn 
+                        getMonthID={this.getMonthID} 
+                        key={k++} 
+                        columnsize={columnSize} 
+                        value={utils.formatNumbers(monthValue)}>
+                        getMonthID={this.getMonthID}
+                    </GraphColumn>
                 )
             })
         }
+    }
+
+    getMonthID() {
+        console.log(this.monthID)
+        return this.monthID
     }
 
     render() {

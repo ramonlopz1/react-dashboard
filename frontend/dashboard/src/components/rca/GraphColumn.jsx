@@ -3,10 +3,22 @@ import './GraphColumn.css'
 
 export default class GraphColumn extends Component {
 
-    state = {
-        value: this.props.value,
-        columnsize: this.props.columnsize,
+    getMonthID = ""
+
+    constructor(props) {
+        super(props)
+
+        const { getMonthID } = props
+
+        this.getMonthID = getMonthID
+
+        this.state = {
+            value: this.props.value,
+            columnsize: this.props.columnsize,
+        }
     }
+
+   
 
     render() {
 
@@ -17,7 +29,11 @@ export default class GraphColumn extends Component {
                     {this.props.value}
                 </span>
 
-                <div columnsize={this.props.columnsize} className='column' style={{ height: this.props.columnsize + "%" }}>
+                <div 
+                    onClick={this.getMonthID}
+                    columnsize={this.props.columnsize} 
+                    className='column' 
+                    style={{ height: this.props.columnsize + "%" }}>
                 </div>
             </div>
         )
