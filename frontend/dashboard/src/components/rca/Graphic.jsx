@@ -55,7 +55,6 @@ export default class Graphic extends Component {
     }
 
 
-    monthID = "1"
     renderGraphicColumn() {
         const [filteredData, year] = [this.props.filteredData, this.state.year]
 
@@ -65,6 +64,7 @@ export default class Graphic extends Component {
 
         
         let k = 0
+        let id = 1
         let columnSize = 0
         if (arrayValues) {
             return arrayValues.map((monthValue, idx) => {
@@ -76,20 +76,20 @@ export default class Graphic extends Component {
 
                 return (
                     <GraphColumn 
-                        getMonthID={this.getMonthID} 
+                        getMonthID={this.getMonthID}
+                        id={id++} 
                         key={k++} 
                         columnsize={columnSize} 
                         value={utils.formatNumbers(monthValue)}>
-                        getMonthID={this.getMonthID}
                     </GraphColumn>
                 )
             })
         }
     }
 
-    getMonthID() {
-        console.log(this.monthID)
-        return this.monthID
+    getMonthID(monthID) {
+        console.log(monthID)
+        return monthID
     }
 
     render() {

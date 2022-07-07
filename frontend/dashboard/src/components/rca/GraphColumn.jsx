@@ -18,8 +18,6 @@ export default class GraphColumn extends Component {
         }
     }
 
-   
-
     render() {
 
         return (
@@ -30,7 +28,9 @@ export default class GraphColumn extends Component {
                 </span>
 
                 <div 
-                    onClick={this.getMonthID}
+                    onClick={() => {
+                            this.getMonthID(this.props.id)
+                        }}
                     columnsize={this.props.columnsize} 
                     className='column' 
                     style={{ height: this.props.columnsize + "%" }}>
