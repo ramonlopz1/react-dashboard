@@ -13,12 +13,14 @@ export class Rca extends Component {
             filteredData: [],
             url: this.props.url,
             rca: "elias",
-            rcaAllData: ""
+            rcaAllData: "",
+            monthID: ""
         }
 
         // permite que ao chamado o método changeRCA no componentChild
         // ele garantirá que será executado exatamente no componentFather
         this.changeRCA = this.changeRCA.bind(this)
+        this.getMonthID = this.getMonthID.bind(this)
         this.load = this.load.bind(this)
     }
 
@@ -62,6 +64,15 @@ export class Rca extends Component {
 
     }
 
+    getMonthID(monthID) {
+        console.log(monthID)
+
+        this.setState({
+            monthID: monthID
+        })
+
+    }
+
     changeRCA() {
         const select = document.querySelector('.rca__name')
         const rca = select.options[select.selectedIndex].value
@@ -77,12 +88,14 @@ export class Rca extends Component {
             <section className="section__rca">
                 <AsideLeft
                     changeRCA={this.changeRCA}
+                    
                     rcaAllData={this.state.rcaAllData}
                     filteredData={this.state.filteredData}
                     url={this.props.url}
                     rca={this.state.rca}
                 />
                 <AsideRight
+                    getMonthID={this.getMonthID}
                     filteredData={this.state.filteredData}
                     url={this.props.url}
                     rca={this.state.rca}
@@ -91,6 +104,8 @@ export class Rca extends Component {
             </section>
         )
     }
+
+    
 
     render() {
         return (

@@ -6,12 +6,15 @@ import './AsideRight.css'
 export default class AsideRight extends Component {
 
     load = ""
+    getMonthID = ""
         
     constructor(props) {
         super(props)
 
-        const { load } = this.props
+        const { load, getMonthID } = this.props
         this.load = load
+        this.getMonthID = getMonthID
+
         this.state = {
             filteredData: this.props.filteredData,
             url: this.props.url
@@ -57,6 +60,7 @@ export default class AsideRight extends Component {
                     <div className="data__containers">
                         <div className='container'>
                             <Graphic 
+                                getMonthID={this.getMonthID}
                                 filteredData={this.state.filteredData}
                                 url={this.state.url} 
                                 rca={this.props.rca} 

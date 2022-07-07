@@ -14,16 +14,20 @@ const initialState = {
 
 export default class Graphic extends Component {
     
+    getMonthID = ""
+
+
     constructor(props) {
         super(props)
+
+        const { getMonthID } = props
+        this.getMonthID = getMonthID
 
         this.state = {
             ...initialState,
             filteredData: this.props.filteredData,
             url: this.props.url
         }
-
-        this.getMonthID = this.getMonthID.bind(this)
     }
 
   
@@ -87,10 +91,7 @@ export default class Graphic extends Component {
         }
     }
 
-    getMonthID(monthID) {
-        console.log(monthID)
-        return monthID
-    }
+  
 
     render() {
         return (
