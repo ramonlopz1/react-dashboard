@@ -4,6 +4,7 @@ import './Rca.css';
 import Main from '../templates/main/Main';
 import AsideLeft from './AsideLeft';
 import AsideRight from './AsideRight';
+
 export class Rca extends Component {
 
     constructor(props) {
@@ -74,13 +75,17 @@ export class Rca extends Component {
     changeRCA() {
         const select = document.querySelector('.rca__name')
         const rca = select.options[select.selectedIndex].value
-        console.log(rca)
+        const fullName = select.options[select.selectedIndex].innerHTML
+
         this.setState({
             rca: rca
         })
 
         document.querySelector('.section__rca .circle')
-            .style.background = `url('../../assets/imgs/rca__perfil/profile_pic__${rca}.jpg')`
+            .style.backgroundImage = `url('http://localhost:3001/rca__perfil/profile_pic__${rca}.jpg')`
+
+            document.querySelector('.section__rca h4')
+                .innerHTML = fullName
     }
 
     renderMainSection() {
