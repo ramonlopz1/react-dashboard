@@ -74,10 +74,13 @@ export class Rca extends Component {
     changeRCA() {
         const select = document.querySelector('.rca__name')
         const rca = select.options[select.selectedIndex].value
-
+        console.log(rca)
         this.setState({
             rca: rca
         })
+
+        document.querySelector('.section__rca .circle')
+            .style.background = `url('../../assets/imgs/rca__perfil/profile_pic__${rca}.jpg')`
     }
 
     renderMainSection() {
