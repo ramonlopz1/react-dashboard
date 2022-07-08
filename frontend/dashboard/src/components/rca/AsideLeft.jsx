@@ -27,6 +27,7 @@ export default class AsideLeft extends Component {
             rcaAllData: this.props.rcaAllData,
             revenue: this.calcTotal('revenue'),
             positivation: this.calcTotal('positivation'),
+            monthID: this.props.monthID,
 
             ...initialState
         }
@@ -35,7 +36,8 @@ export default class AsideLeft extends Component {
 
 
     componentDidUpdate(prevProps) {
-        if(this.props.rcaAllData !== prevProps.rcaAllData) {
+        if(this.props.rcaAllData !== prevProps.rcaAllData
+            || this.props.monthID !== prevProps.monthID) {
             
             const revenue = this.calcTotal('revenue')
             const positivation = this.calcTotal('positivation')
@@ -43,12 +45,29 @@ export default class AsideLeft extends Component {
             this.setState({
                 revenue: revenue,
                 positivation: positivation,
-
+                
             })
         }
     }
-    calcTotal(type) {
-        return utils.calcYearRevenue(this.props.rcaAllData[type], 2021)
+    calcTotal(filter) {
+
+        // cria array de [revenue, positivation, mix...]
+        const filtered = this.props.rcaAllData[filter]
+
+        // filtra por ano [revenue, positivation, mix]
+        const allMonths = utils.getUpdateList(filtered, 2021)
+        if(!allMonths) return
+        
+        // filtra por mês
+        const filterByMonth = allMonths[this.props.monthID]
+
+       
+        // valor inicial (total do ano inteiro)
+        const totalYear = utils.calcYearRevenue(filtered, 2021)
+
+        if(filterByMonth) return filterByMonth
+
+        return totalYear
     }
     
     render() {

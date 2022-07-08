@@ -68,7 +68,7 @@ export default class Graphic extends Component {
 
         
         let k = 0
-        let id = 1
+        let id = 0
         let columnSize = 0
         if (arrayValues) {
             return arrayValues.map((monthValue, idx) => {

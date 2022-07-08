@@ -65,8 +65,6 @@ export class Rca extends Component {
     }
 
     getMonthID(monthID) {
-        console.log(monthID)
-
         this.setState({
             monthID: monthID
         })
@@ -88,7 +86,7 @@ export class Rca extends Component {
             <section className="section__rca">
                 <AsideLeft
                     changeRCA={this.changeRCA}
-                    
+                    monthID={this.state.monthID}
                     rcaAllData={this.state.rcaAllData}
                     filteredData={this.state.filteredData}
                     url={this.props.url}
