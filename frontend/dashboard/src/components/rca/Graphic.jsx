@@ -30,7 +30,6 @@ export default class Graphic extends Component {
         }
     }
 
-  
     renderGraphic() {
 
         return (
@@ -57,7 +56,6 @@ export default class Graphic extends Component {
             </div>
         )
     }
-
 
     renderGraphicColumn() {
         const [filteredData, year] = [this.props.filteredData, this.state.year]
