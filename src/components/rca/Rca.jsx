@@ -14,7 +14,7 @@ export class Rca extends Component {
             filteredData: [],
             url: this.props.url,
             rca: "elias",
-            rcaAllData: "",
+            unfilteredData: "",
             monthID: ""
         }
 
@@ -25,20 +25,21 @@ export class Rca extends Component {
         this.load = this.load.bind(this)
     }
 
+    // https://ramonlopz1.github.io/react-dashboard/db.json
     async componentDidMount() {
         let res = await fetch(`http://localhost:3000/rca`)
         res = await res.json()
 
         // retorna todos os dados do rca escolhido (this.state.rca)
-        const rcaAllData = res?.[this.state.rca]
+        const unfilteredData = res?.[this.state.rca]
         
         // retorna os dados filtrados do rca escolhido (revenue, positivation...)
-        let filteredData = rcaAllData?.[this.props.url]
+        let filteredData = unfilteredData?.[this.props.url]
 
         this.setState({
             filteredData: filteredData,
             url: this.props.url,
-            rcaAllData: rcaAllData
+            unfilteredData: unfilteredData
         })
     }
 
@@ -48,15 +49,17 @@ export class Rca extends Component {
         res = await res.json()
 
         // retorna todos os dados do rca escolhido (this.state.rca)
-        const rcaAllData = res?.[this.state.rca]
+        const unfilteredData = res?.[this.state.rca]
 
         if(this.state.rca !== prevState.rca) {
 
             this.setState({
-                rcaAllData: rcaAllData
+                unfilteredData: unfilteredData
             })
         }
     }
+
+   
 
     load() {
         this.setState({
@@ -95,17 +98,17 @@ export class Rca extends Component {
                 <AsideLeft
                     changeRCA={this.changeRCA}
                     monthID={this.state.monthID}
-                    rcaAllData={this.state.rcaAllData}
+                    unfilteredData={this.state.unfilteredData}
                     filteredData={this.state.filteredData}
-                    url={this.props.url}
-                    rca={this.state.rca}
                 />
                 <AsideRight
                     getMonthID={this.getMonthID}
-                    filteredData={this.state.filteredData}
                     url={this.props.url}
                     rca={this.state.rca}
                     title={this.props.title}
+                    monthID={this.state.monthID}
+                    unfilteredData={this.state.unfilteredData}
+                    filteredData={this.state.filteredData}
                 />
             </section>
         )

@@ -20,56 +20,51 @@ export default class AsideLeft extends Component {
         const { changeRCA } = props
 
         this.changeRCA = changeRCA
+
         this.state = {
-            list: this.props.list,
-            url: this.props.url,
-            rca: this.props.rca,
-            rcaAllData: this.props.rcaAllData,
-            revenue: this.calcTotal('revenue'),
-            positivation: this.calcTotal('positivation'),
-            monthID: this.props.monthID,
+            revenue: this.calcAvarege('revenue'),
+            positivation: this.calcAvarege('positivation'),
+            mix: this.calcAvarege('mix'),
+            devolution: this.calcAvarege('devolution'),
 
             ...initialState
         }
-       
     }
 
-
     componentDidUpdate(prevProps) {
-        if(this.props.rcaAllData !== prevProps.rcaAllData
-            || this.props.monthID !== prevProps.monthID) {
-            
-            const revenue = this.calcTotal('revenue')
-            const positivation = this.calcTotal('positivation')
-            
+        if (this.props.unfilteredData !== prevProps.unfilteredData) {
+
+            const revenue = this.calcAvarege('revenue')
+            const positivation = this.calcAvarege('positivation')
+            const mix = this.calcAvarege('mix')
+            const devolution = this.calcAvarege('devolution')
+
             this.setState({
                 revenue: revenue,
                 positivation: positivation,
-                
+                mix: mix,
+                devolution: devolution
             })
         }
     }
-    calcTotal(filter) {
+
+    calcAvarege(filter) {
 
         // cria array de [revenue, positivation, mix...]
-        const filtered = this.props.rcaAllData[filter]
+        const filtered = this.props.unfilteredData[filter]
 
         // filtra por ano [revenue, positivation, mix]
         const allMonths = utils.getUpdateList(filtered, 2021)
-        if(!allMonths) return
-        
-        // filtra por mês
-        const filterByMonth = allMonths[this.props.monthID]
+        if (!allMonths) return
 
-       
+
         // valor inicial (total do ano inteiro)
         const totalYear = utils.calcYearRevenue(filtered, 2021)
 
-        if(filterByMonth) return filterByMonth
 
-        return totalYear
+        return totalYear / 12
     }
-    
+
     render() {
         return (
             <aside className='aside__left'>
@@ -135,7 +130,7 @@ export default class AsideLeft extends Component {
                                 Mix
                             </span>
                             <div className="data">
-                                939232
+                            {utils.formatNumbers(this.state.mix)}
                             </div>
                         </div>
                         <div className="info">
@@ -143,7 +138,7 @@ export default class AsideLeft extends Component {
                                 Devolução
                             </span>
                             <div className="data">
-                                939232
+                            {utils.formatNumbers(this.state.devolution)}
                             </div>
                         </div>
                         <div className="info">

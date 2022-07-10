@@ -1,4 +1,3 @@
-
 .section__rca .aside__right {
     align-items: center;
     box-sizing: border-box;
@@ -9,7 +8,7 @@
     height: 100%;
     justify-content: space-between;
     padding: 10px;
-    width: 65%;
+    width: 69%;
 }
 
 .section__rca .aside__right .nav__filters {
@@ -23,17 +22,96 @@
 }
 
 .section__rca .aside__right .nav__filters .btn {
+    align-items: center;
+    display: flex;
+    height: 15%;
+    justify-content: center;
     margin: 5px 0px;
-    text-align: center;
     padding: 5px 5px;
+    text-align: center;
     width: 115px;
 }
 
-.section__rca .aside__right .nav__filters .btn:nth-of-type(1) {
-    margin: 0px;
+.section__rca .aside__right .nav__filters .btn:hover {
+    background-color: var(--cor3);
 }
 
 .section__rca .aside__right .data__containers {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
     height: 100%;
     width: calc(100% - 132px);
+}
+
+.section__rca .aside__right .data__containers .container {
+    border: 1px solid var(--cor2);
+    border-radius: 7px;
+    height: 49%;
+    width: 100%;
+}
+
+.section__rca .aside__right .data__containers .container:nth-of-type(2) {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.data__containers .container:nth-of-type(2) .aside__infos {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 95%;
+    justify-content: space-between;
+    width: 28%;
+}
+
+.data__containers .container:nth-of-type(2) h5 {
+    font-size: 18px;
+}
+
+.data__containers .container:nth-of-type(2) span {
+    color: white;
+    font-size: 23px;
+}
+
+.data__containers .container:nth-of-type(2) .aside__infos 
+.minibox,
+.circle__graphic {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 49%;
+    background-color: var(--cor2);
+    border-radius: 7px;
+    box-shadow: 0px 0px 3px 1px #0000002b;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+}
+
+
+.data__containers .container:nth-of-type(2) 
+.circle__graphic {
+    height: 95%;
+    width: 40%;
+}
+
+.data__containers .container:nth-of-type(2) 
+.circle__graphic .graphic {
+    height: 80%;
+    width: 80%;
+    background-color: white;
+}
+
+.data__containers .container:nth-of-type(2) 
+.circle__graphic .graphic .circle {
+    align-items: ;
+    display: flex;
+    border-radius: 100px;
+    background-color: yellow;
+    height: 180px;
+    width: 180px;
 }

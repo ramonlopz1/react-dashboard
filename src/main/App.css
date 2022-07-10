@@ -1,9 +1,10 @@
 :root {
     --cor0: #f1b244;
     --cor1: rgb(11, 88, 220);
-    --cor2: #0138c3;
+    --cor2: rgb(0 34 93);
     --cor3: rgb(21 157 210);
     --cor4: #2ad52a;
+    --cor5: rgb(0 34 93)
 }
 
 .app {

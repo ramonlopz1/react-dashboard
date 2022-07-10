@@ -4,9 +4,6 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    border: 1px solid var(--cor2);
-    border-radius: 7px;
-
 }
 
 .content_children.rca__graphic h1 {
@@ -38,7 +35,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 215px;
+    height: 204px;
     width: 100%;
     
 }
