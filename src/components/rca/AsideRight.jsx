@@ -52,7 +52,7 @@ export default class AsideRight extends Component {
                 devolution: devolution
             })
 
-
+            this.calcProfit()
         }
     }
 
@@ -77,6 +77,24 @@ export default class AsideRight extends Component {
         return totalYear
     }
 
+    calcProfit() {
+        const totRevenue = this.calcTotal('revenue')
+        const totProfit = this.calcTotal('profit')
+
+        // p = menor * 100 / maior
+        const profitPercent = (((totProfit * 100) / totRevenue) * 10).toFixed(2)
+
+        let hundredPercent = 100
+        let realPercent = (hundredPercent - profitPercent).toFixed(2)
+
+
+        this.setState({
+            realPercent: realPercent,
+            profitPercent: profitPercent
+        })
+
+    }
+
     render() {
         return (
             <aside className='aside__right'>
@@ -85,8 +103,8 @@ export default class AsideRight extends Component {
                     <Link className='btn' to="/rca/positivation" onClick={this.load}>Positivação</Link>
                     <Link className='btn' to="/rca/mix" onClick={this.load}>Mix</Link>
 
-                    <Link className='btn' to="/">Devolução</Link>
-                    <Link className='btn' to="/">Ativos</Link>
+                    <Link className='btn' to="/rca/devolution">Devolução</Link>
+                    <Link className='btn' to="/rca/profit">Lucro</Link>
                     <Link className='btn' to="/">Cidades</Link>
                     <Link className='btn' to="/">Clientes</Link>
                 </nav>
@@ -119,22 +137,30 @@ export default class AsideRight extends Component {
                         <div className="circle__graphic">
                             <h5>Média</h5>
                             <div className='graphic'>
-                                <div className="circle">
+                                <div 
+                                    style={{
+                                        backgroundImage: `conic-gradient(yellow ${this.state.realPercent}%, crimson ${this.state.profitPercent}%)`
+                                    }}
+                                    className="circle"
+                                >
 
                                 </div>
                                 <div className='circle_percents'>
-                                    <div className='percent'>
-                                        <div className='square'>
-
-                                        </div>
-                                        <span>64%</span>
-                                    </div>
-                                    <div className='percent'>
+                                <div className='percent'>
+                                        <span>Faturamento</span>
+                                        <span>{this.state.realPercent}%</span>
                                         <div className='square' style={{backgroundColor: 'yellow'}}>
 
                                         </div>
-                                        <span>36%</span>
                                     </div>
+                                    <div className='percent'>
+                                        <span>Lucro</span>
+                                        <span>{this.state.profitPercent}%</span>
+                                        <div className='square'>
+
+                                        </div>
+                                    </div>
+                                  
                                 </div>
                             </div>
                         </div>

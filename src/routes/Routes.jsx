@@ -47,6 +47,14 @@ export default props => (
             <Rca url="mix" title="Mix" />
         } />
 
+        <Route path="/rca/devolution" element={
+            <Rca url="devolution" title="Devolução" />
+        } />
+
+        <Route path="/rca/profit" element={
+            <Rca url="profit" title="Lucro" />
+        } />
+
         <Route path="*" element={<Home />} />
     </Routes>
 )

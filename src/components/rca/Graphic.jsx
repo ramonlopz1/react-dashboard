@@ -15,8 +15,7 @@ const initialState = {
 export default class Graphic extends Component {
     
     getMonthID = ""
-
-
+    
     constructor(props) {
         super(props)
 
