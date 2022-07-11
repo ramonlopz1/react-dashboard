@@ -18,7 +18,8 @@ export default class AsideRight extends Component {
 
         this.state = {
             filteredData: this.props.filteredData,
-            url: this.props.url
+            url: this.props.url,
+            year: this.props.year
         }
 
     }
@@ -29,7 +30,8 @@ export default class AsideRight extends Component {
             || this.props.rca !== prevProps.rca
             || this.props.filteredData !== prevProps.filteredData
             || this.props.unfilteredData !== prevProps.unfilteredData
-            || this.props.monthID !== prevProps.monthID) {
+            || this.props.monthID !== prevProps.monthID
+            || this.props.year !== prevProps.year) {
 
             const revenue = this.calcTotal('revenue')
             const positivation = this.calcTotal('positivation')
@@ -49,7 +51,8 @@ export default class AsideRight extends Component {
                 revenue: revenue,
                 positivation: positivation,
                 mix: mix,
-                devolution: devolution
+                devolution: devolution,
+                year: this.props.year
             })
 
             this.calcProfit()
@@ -62,7 +65,7 @@ export default class AsideRight extends Component {
         const filtered = this.props.unfilteredData[filter]
 
         // filtra por ano [revenue, positivation, mix]
-        const allMonths = utils.getUpdateList(filtered, 2021)
+        const allMonths = utils.getUpdateList(filtered, this.props.year)
         if (!allMonths) return
 
         // filtra por mês
@@ -70,7 +73,7 @@ export default class AsideRight extends Component {
 
 
         // valor inicial (total do ano inteiro)
-        const totalYear = utils.calcYearRevenue(filtered, 2021)
+        const totalYear = utils.calcYearRevenue(filtered, this.props.year)
 
         if (filterByMonth) return filterByMonth
 
@@ -86,7 +89,6 @@ export default class AsideRight extends Component {
 
         let hundredPercent = 100
         let realPercent = (hundredPercent - profitPercent).toFixed(2)
-
 
         this.setState({
             realPercent: realPercent,
@@ -116,6 +118,7 @@ export default class AsideRight extends Component {
                             filteredData={this.state.filteredData}
                             url={this.state.url}
                             rca={this.props.rca}
+                            year={this.props.year}
                             title={this.props.title}
                         />
                     </div>
@@ -130,7 +133,7 @@ export default class AsideRight extends Component {
                             <div className="minibox">
                                 <h5>Positivação</h5>
                                 <span>
-                                    R$ {utils.formatNumbers(this.state.positivation)}
+                                    {utils.formatNumbers(this.state.positivation)}
                                 </span>
                             </div>
                         </div>
@@ -168,7 +171,7 @@ export default class AsideRight extends Component {
                             <div className="minibox">
                                 <h5>Mix</h5>
                                 <span>
-                                    R$ {utils.formatNumbers(this.state.mix)}
+                                    {utils.formatNumbers(this.state.mix)}
                                 </span>
                             </div>
                             <div className="minibox">

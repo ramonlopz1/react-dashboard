@@ -14,25 +14,29 @@ const initialState = {
 export default class AsideLeft extends Component {
 
     changeRCA = ""
+    changeYear = ""
 
     constructor(props) {
         super(props)
-        const { changeRCA } = props
+        const { changeRCA, changeYear } = props
 
         this.changeRCA = changeRCA
+        this.changeYear = changeYear
 
         this.state = {
             revenue: this.calcAvarege('revenue'),
             positivation: this.calcAvarege('positivation'),
             mix: this.calcAvarege('mix'),
             devolution: this.calcAvarege('devolution'),
+            year: this.props.year,
 
             ...initialState
         }
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.unfilteredData !== prevProps.unfilteredData) {
+        if (this.props.unfilteredData !== prevProps.unfilteredData
+            || this.props.year !== prevProps.year) {
 
             const revenue = this.calcAvarege('revenue')
             const positivation = this.calcAvarege('positivation')
@@ -43,7 +47,8 @@ export default class AsideLeft extends Component {
                 revenue: revenue,
                 positivation: positivation,
                 mix: mix,
-                devolution: devolution
+                devolution: devolution,
+                year: this.props.year
             })
         }
     }
@@ -54,12 +59,12 @@ export default class AsideLeft extends Component {
         const filtered = this.props.unfilteredData[filter]
 
         // filtra por ano [revenue, positivation, mix]
-        const allMonths = utils.getUpdateList(filtered, 2021)
+        const allMonths = utils.getUpdateList(filtered, this.props.year)
         if (!allMonths) return
 
 
         // valor inicial (total do ano inteiro)
-        const totalYear = utils.calcYearRevenue(filtered, 2021)
+        const totalYear = utils.calcYearRevenue(filtered, this.props.year)
 
 
         return totalYear / 12
@@ -73,6 +78,10 @@ export default class AsideLeft extends Component {
                         <select onChange={this.changeRCA} className='rca__name'>
                             <option className='rca' value="elias">Eliais Vieira Sobral</option>
                             <option className='rca' value="dina">Diná Maranhão</option>
+                        </select>
+                        <select onChange={this.changeYear} className='select__year'>
+                            <option className='year' value="2021">2021</option>
+                            <option className='year' value="2020">2020</option>
                         </select>
                     </div>
 

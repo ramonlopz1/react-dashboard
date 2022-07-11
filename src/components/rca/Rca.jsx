@@ -15,12 +15,14 @@ export class Rca extends Component {
             url: this.props.url,
             rca: "elias",
             unfilteredData: "",
+            year: 2021,
             monthID: ""
         }
 
         // permite que ao chamado o método changeRCA no componentChild
         // ele garantirá que será executado exatamente no componentFather
         this.changeRCA = this.changeRCA.bind(this)
+        this.changeYear = this.changeYear.bind(this)
         this.getMonthID = this.getMonthID.bind(this)
         this.load = this.load.bind(this)
     }
@@ -51,7 +53,8 @@ export class Rca extends Component {
         // retorna todos os dados do rca escolhido (this.state.rca)
         const unfilteredData = res?.[this.state.rca]
 
-        if(this.state.rca !== prevState.rca) {
+        if(this.state.rca !== prevState.rca
+            || this.state.year !== prevState.year) {
 
             this.setState({
                 unfilteredData: unfilteredData
@@ -91,15 +94,26 @@ export class Rca extends Component {
                 .innerHTML = fullName
     }
 
+    changeYear() {
+        const select = document.querySelector('.select__year')
+        const year = select.options[select.selectedIndex].value
+        
+        this.setState({
+            year: year
+        })
+    }
+
     renderMainSection() {
 
         return (
             <section className="section__rca">
                 <AsideLeft
                     changeRCA={this.changeRCA}
+                    changeYear={this.changeYear}
                     monthID={this.state.monthID}
                     unfilteredData={this.state.unfilteredData}
                     filteredData={this.state.filteredData}
+                    year={this.state.year}
                 />
                 <AsideRight
                     getMonthID={this.getMonthID}
@@ -109,6 +123,7 @@ export class Rca extends Component {
                     monthID={this.state.monthID}
                     unfilteredData={this.state.unfilteredData}
                     filteredData={this.state.filteredData}
+                    year={this.state.year}
                 />
             </section>
         )

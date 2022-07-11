@@ -25,7 +25,8 @@ export default class Graphic extends Component {
         this.state = {
             ...initialState,
             filteredData: this.props.filteredData,
-            url: this.props.url
+            url: this.props.url,
+            year: this.props.year
         }
     }
 
@@ -57,7 +58,7 @@ export default class Graphic extends Component {
     }
 
     renderGraphicColumn() {
-        const [filteredData, year] = [this.props.filteredData, this.state.year]
+        const [filteredData, year] = [this.props.filteredData, this.props.year]
 
         const arrayValues = utils.getUpdateList(filteredData, year);
 
