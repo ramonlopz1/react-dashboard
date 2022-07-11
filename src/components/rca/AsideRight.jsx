@@ -107,7 +107,7 @@ export default class AsideRight extends Component {
 
                     <Link className='btn' to="/rca/devolution">Devolução</Link>
                     <Link className='btn' to="/rca/profit">Lucro</Link>
-                    <Link className='btn' to="/">Cidades</Link>
+                    <Link className='btn' to="/cities">Cidades</Link>
                     <Link className='btn' to="/">Clientes</Link>
                 </nav>
 

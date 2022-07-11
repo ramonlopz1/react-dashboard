@@ -2,7 +2,8 @@ import { Routes, Route } from 'react-router-dom';
 
 import Home from '../components/home/Home';
 import Graphic from '../components/graphics/Graphic';
-import { Rca } from '../components/rca/Rca';
+import Rca from '../components/rca/Rca';
+import Cities from '../components/cities/Cities';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default props => (
@@ -53,6 +54,10 @@ export default props => (
 
         <Route path="/rca/profit" element={
             <Rca url="profit" title="Lucro" />
+        } />
+
+        <Route path="/cities" element={
+            <Cities title="Cidades" />
         } />
 
         <Route path="*" element={<Home />} />

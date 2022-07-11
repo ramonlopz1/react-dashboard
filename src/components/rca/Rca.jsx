@@ -5,7 +5,7 @@ import Main from '../templates/main/Main';
 import AsideLeft from './AsideLeft';
 import AsideRight from './AsideRight';
 
-export class Rca extends Component {
+export default class Rca extends Component {
 
     constructor(props) {
         super(props)
