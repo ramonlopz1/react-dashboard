@@ -120,19 +120,33 @@ export default class AsideRight extends Component {
                             <h5>Média</h5>
                             <div className='graphic'>
                                 <div className="circle">
-                                    
+
+                                </div>
+                                <div className='circle_percents'>
+                                    <div className='percent'>
+                                        <div className='square'>
+
+                                        </div>
+                                        <span>64%</span>
+                                    </div>
+                                    <div className='percent'>
+                                        <div className='square' style={{backgroundColor: 'yellow'}}>
+
+                                        </div>
+                                        <span>36%</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div className='aside__infos'>
                             <div className="minibox">
-                            <h5>Mix</h5>
+                                <h5>Mix</h5>
                                 <span>
                                     R$ {utils.formatNumbers(this.state.mix)}
                                 </span>
                             </div>
                             <div className="minibox">
-                            <h5>Devolução</h5>
+                                <h5>Devolução</h5>
                                 <span>
                                     R$ {utils.formatNumbers(this.state.devolution)}
                                 </span>
