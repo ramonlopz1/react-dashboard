@@ -476,5 +476,21 @@
         }
       ]
     }
+    }, "customers": {
+      "list": [
+        {"code": 1234, "name": "Pedro Camargo Silva", "city":"Buique", "rca": "elias"},
+        {"code": 134, "name": "Abc Camargo Silva", "city":"Buique", "rca": "elias"},
+        {"code": 1534, "name": "Efd Camargo Silva", "city":"Buique", "rca": "elias"},
+        {"code": 1264, "name": "GHee Camargo Silva", "city":"Buique", "rca": "elias"},
+        {"code": 1284, "name": "PedAsro Camargo Silva", "city":"Buique", "rca": "elias"},
+        {"code": 334, "name": "DD Camargo Silva", "city":"Buique", "rca": "elias"},
+        {"code": 1734, "name": "PedEero Camargo Silva", "city":"Buique", "rca": "elias"},
+        {"code": 1204, "name": "FFfff Camargo Silva", "city":"Buique", "rca": "elias"},
+        {"code": 194, "name": "ASd Camargo Silva", "city":"Buique", "rca": "elias"},
+        {"code": 1284, "name": "Ffds Camargo Silva", "city":"Buique", "rca": "elias"},
+        {"code": 184, "name": "ASdd Camargo Silva", "city":"Buique", "rca": "elias"},
+        {"code": 1274, "name": "DDas Camargo Silva", "city":"Buique", "rca": "elias"},
+        {"code": 164, "name": "DAs Camargo Silva", "city":"Buique", "rca": "elias"}
+      ]
+    }
   }
-}
