@@ -37,6 +37,18 @@
     width: 200px;
 }
 
+.aside__left .container__top .select__year {
+    height: 20px;
+    background-color: lightgray;
+    border-radius: 0px 5px 5px 0px;
+    border: none;
+    outline: none;
+    text-indent: 5px;
+    height: 25px;
+    margin-left: 10px;
+    width: 70px;
+}
+
 
 .aside__left .container__top .circle {
     background-image: url('../../assets//imgs//rca__perfil//profile_pic__elias.jpg');

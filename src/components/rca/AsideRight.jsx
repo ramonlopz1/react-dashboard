@@ -37,7 +37,8 @@ export default class AsideRight extends Component {
             const positivation = this.calcTotal('positivation')
             const mix = this.calcTotal('mix')
             const devolution = this.calcTotal('devolution')
-
+            
+            
             const res = await fetch(`http://localhost:3000/rca`)
             let data = await res.json()
 
@@ -56,6 +57,8 @@ export default class AsideRight extends Component {
             })
 
             this.calcProfit()
+            this.calcGrowthly()
+            this.calcG()
         }
     }
 
@@ -97,6 +100,32 @@ export default class AsideRight extends Component {
 
     }
 
+    calcGrowthly() {
+        const filtered = this.props.unfilteredData[this.props.url]
+
+        const totGrowthly = utils.calcYearGrowthly(filtered, this.props.year)
+        const avgGrowthly = (totGrowthly / 12).toFixed(2)
+        return avgGrowthly
+    }
+
+    calcG() {
+        const filtered = this.props.unfilteredData[this.props.url]
+        const g = utils.calcGreaterMonthly(filtered, this.props.year)
+
+        const arrayValues = utils.getUpdateList(filtered, this.props.year);
+
+        let percentOf = 0
+
+        const n = arrayValues.map(mounthValue => {
+            percentOf = (mounthValue * 100 / g) - 100
+
+            return percentOf
+        })
+        
+        console.log(n)
+    }
+    
+
     render() {
         return (
             <aside className='aside__right'>
@@ -121,6 +150,10 @@ export default class AsideRight extends Component {
                             year={this.props.year}
                             title={this.props.title}
                         />
+                        <div className='growthly__avarage'>
+                            <span>Crescimento médio </span>
+                            <span>{this.calcGrowthly()}%</span>
+                        </div>
                     </div>
                     <div className='container'>
                         <div className='aside__infos'>
