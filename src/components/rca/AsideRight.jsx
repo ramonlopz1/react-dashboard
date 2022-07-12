@@ -25,13 +25,15 @@ export default class AsideRight extends Component {
     }
 
     // se a props for alterada, o elemento será rerenderizado
+
+    // this.props.url !== prevProps.url
+    //         || this.props.rca !== prevProps.rca
+    //         || this.props.filteredData !== prevProps.filteredData
+    //         || this.props.unfilteredData !== prevProps.unfilteredData
+    //         || this.props.monthID !== prevProps.monthID
+    //         || this.props.year !== prevProps.year
     async componentDidUpdate(prevProps, prevState) {
-        if (this.props.url !== prevProps.url
-            || this.props.rca !== prevProps.rca
-            || this.props.filteredData !== prevProps.filteredData
-            || this.props.unfilteredData !== prevProps.unfilteredData
-            || this.props.monthID !== prevProps.monthID
-            || this.props.year !== prevProps.year) {
+        if (this.props !== prevProps) {
 
             const revenue = this.calcTotal('revenue')
             const positivation = this.calcTotal('positivation')
@@ -127,10 +129,6 @@ export default class AsideRight extends Component {
                             year={this.props.year}
                             title={this.props.title}
                         />
-                        <div className='growthly__avarage'>
-                            <span>Crescimento médio </span>
-                            {/* <span>{this.calcGrowthly()}%</span> */}
-                        </div>
                     </div>
                     <div className='container'>
                         <div className='aside__infos'>
