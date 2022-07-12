@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from '../components/home/Home';
 import Graphic from '../components/graphics/Graphic';
 import Rca from '../components/rca/Rca';
-import Cities from '../components/customer/Customer';
+import Customer from '../components/customer/Customer';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default props => (
@@ -56,8 +56,8 @@ export default props => (
             <Rca url="profit" title="Lucro" />
         } />
 
-        <Route path="/cities" element={
-            <Cities title="Cidades" />
+        <Route path="/customers" element={
+            <Customer title="Clientes" />
         } />
 
         <Route path="*" element={<Home />} />

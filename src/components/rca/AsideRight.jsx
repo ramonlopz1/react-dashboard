@@ -101,9 +101,6 @@ export default class AsideRight extends Component {
 
     }
 
-    
-
-
     render() {
         return (
             <aside className='aside__right'>

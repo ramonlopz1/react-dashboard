@@ -1,0 +1,29 @@
+.section__customer {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 95%;
+}
+
+.section__customer .container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.section__customer .container:nth-of-type(1) {
+    width: 20%;
+}
+
+.section__customer .container:nth-of-type(2) {
+    width: 80%;
+}
+
+.section__customer .container:nth-of-type(1) .boxes {
+    height: 150px;
+    width: 250px;
+    background-color: blue;
+}

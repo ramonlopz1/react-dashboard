@@ -8,7 +8,7 @@ const NavBottom = props =>
             <Link to="/rca/revenue" className='link'>
                 <i className="fa fa-folder"></i> RCA
             </Link>
-            <Link to="/" className='link'>
+            <Link to="/customers" className='link'>
                 <i className="fa fa-user"></i> Cliente
             </Link>
             <Link to="/" className='link'>
