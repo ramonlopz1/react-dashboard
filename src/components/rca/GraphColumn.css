@@ -1,4 +1,4 @@
-.valor {
+.value {
     font-size: 12px;
     text-align: center;
     margin-bottom: 7px;
@@ -18,9 +18,17 @@
 }
 
 .rca__graphic .column {
+   
     background-color: crimson;
     cursor: pointer;
-    width: 60%;
+    width: 80%;
+}
+
+.rca__graphic .grow {
+    color: red;
+    font-size: 10.5px;
+    font-weight: bold;
+    text-align: center;
 }
 
 

@@ -18,10 +18,10 @@ export default class AsideRight extends Component {
 
         this.state = {
             filteredData: this.props.filteredData,
+            unfilteredData: this.props.unfilteredData,
             url: this.props.url,
             year: this.props.year
         }
-
     }
 
     // se a props for alterada, o elemento será rerenderizado
@@ -48,6 +48,7 @@ export default class AsideRight extends Component {
 
             this.setState({
                 filteredData: data,
+                unfilteredData: this.props.unfilteredData,
                 url: this.props.url,
                 revenue: revenue,
                 positivation: positivation,
@@ -57,8 +58,6 @@ export default class AsideRight extends Component {
             })
 
             this.calcProfit()
-            this.calcGrowthly()
-            this.calcG()
         }
     }
 
@@ -100,31 +99,8 @@ export default class AsideRight extends Component {
 
     }
 
-    calcGrowthly() {
-        const filtered = this.props.unfilteredData[this.props.url]
-
-        const totGrowthly = utils.calcYearGrowthly(filtered, this.props.year)
-        const avgGrowthly = (totGrowthly / 12).toFixed(2)
-        return avgGrowthly
-    }
-
-    calcG() {
-        const filtered = this.props.unfilteredData[this.props.url]
-        const g = utils.calcGreaterMonthly(filtered, this.props.year)
-
-        const arrayValues = utils.getUpdateList(filtered, this.props.year);
-
-        let percentOf = 0
-
-        const n = arrayValues.map(mounthValue => {
-            percentOf = (mounthValue * 100 / g) - 100
-
-            return percentOf
-        })
-        
-        console.log(n)
-    }
     
+
 
     render() {
         return (
@@ -145,6 +121,7 @@ export default class AsideRight extends Component {
                         <Graphic
                             getMonthID={this.getMonthID}
                             filteredData={this.state.filteredData}
+                            unfilteredData={this.state.unfilteredData}
                             url={this.state.url}
                             rca={this.props.rca}
                             year={this.props.year}
@@ -152,7 +129,7 @@ export default class AsideRight extends Component {
                         />
                         <div className='growthly__avarage'>
                             <span>Crescimento médio </span>
-                            <span>{this.calcGrowthly()}%</span>
+                            {/* <span>{this.calcGrowthly()}%</span> */}
                         </div>
                     </div>
                     <div className='container'>

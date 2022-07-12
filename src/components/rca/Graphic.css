@@ -4,21 +4,22 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    height: 230px;
+    width: 100%;
 }
 
 .content_children.rca__graphic h1 {
     margin: 0px;
-    margin-top: 15px;
 }
 .graphic__section {
     grid-area: graphic__section;
 }
 
-.wrapper__container {
+.rca__graphic .wrapper__container {
     background-color: var;
     box-sizing: border-box;
     height: 100%;
-    padding: 10px 10px;
+    padding: 0px;
     width: 100%;
 }
 

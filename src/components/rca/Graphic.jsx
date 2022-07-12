@@ -57,17 +57,27 @@ export default class Graphic extends Component {
         )
     }
 
+    calcGrowthly() {
+        const filtered = this.props.unfilteredData[this.props.url]
+
+        const totGrowthlyArr = utils.calcYearGrowthly(filtered, this.props.year, true)
+        // const avgGrowthly = (totGrowthly / 12).toFixed(2)
+        
+        return totGrowthlyArr
+    }
+
     renderGraphicColumn() {
         const [filteredData, year] = [this.props.filteredData, this.props.year]
 
         const arrayValues = utils.getUpdateList(filteredData, year);
 
         let greaterColumn = utils.calcGreaterMonthly(filteredData, year);
-
+        const calcGrowthly = this.calcGrowthly()
         
         let k = 0
         let id = 0
         let columnSize = 0
+
         if (arrayValues) {
             return arrayValues.map((monthValue, idx) => {
                 
@@ -78,6 +88,7 @@ export default class Graphic extends Component {
 
                 return (
                     <GraphColumn 
+                        monthGrowthly={calcGrowthly[idx]}
                         getMonthID={this.getMonthID}
                         id={id++} 
                         key={k++} 

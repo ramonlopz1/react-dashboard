@@ -42,7 +42,7 @@ const calcYearRevenue = (list, year) => {
 }
 
 // calcula a taxa de crescimento total anual
-const calcYearGrowthly = (list, year) => {
+const calcYearGrowthly = (list, year, getArr) => {
     if (!list) return
 
     let monthlyGrowthlyAverage = 0
@@ -57,11 +57,18 @@ const calcYearGrowthly = (list, year) => {
         // cria Array com todas as taxas de crescimento mensais
         monthlyGrowthlyArray.push(monthlyGrowthlyAverage)
 
+
         // retorna o valor atual do Array, para o reduce
         const lastValueOperated = MonthlyAverage[index]
 
         return lastValueOperated
     })
+
+    
+    if (getArr) {
+        monthlyGrowthlyArray.unshift(100)
+        return monthlyGrowthlyArray
+    }
 
     // soma todos os valores do Array de taxas de crescimento mensais
     monthlyGrowthlyArray.forEach(avarege => {
