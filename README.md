@@ -7,5 +7,4 @@ ______________________________________________________
 Para inicializar o app:
 npm i;
 json-server --watch db.json;
-npm start
-http://localhost:3001
+npm start;
