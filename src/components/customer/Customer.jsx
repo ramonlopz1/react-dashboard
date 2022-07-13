@@ -15,6 +15,47 @@ export default class Customer extends Component {
         this.setState({
             customers: customers
         })
+
+        this.filterName()
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if(this.state.customers !== prevState.customers) {
+
+            this.setState({
+                customers: this.state.customers
+            })
+        }
+    }
+
+    filterName() {
+        const filter = document.querySelector('.input__byname')
+
+        filter.addEventListener('input', (event) => {
+            const input = event.target
+
+            const allNames = document.querySelectorAll(".tdName")
+
+            if(input.value.length > 0) {
+                for(let i = 0; i < allNames.length; i++) {
+                    let name = allNames[i]
+                    let nameText = name.textContent
+                    let letterInputed = input.value
+                    let exp = new RegExp(letterInputed, "i")
+
+                    if(!exp.test(nameText)) {
+                        name.parentNode.style.display = "none"
+                    } else {
+                        name.parentNode.style.display = "table-row"
+                    }
+                }
+            } else {
+                for(let i = 0; i < allNames.length; i++) {
+                    let name = allNames[i]
+                    name.parentNode.style.display = "table-row"
+                }
+            }
+        })
     }
 
     renderTableRow() {
@@ -28,7 +69,7 @@ export default class Customer extends Component {
             return (
                 <tr key={customer.code}>
                     <td>{customer.code}</td>
-                    <td>{customer.name}</td>
+                    <td className='tdName'>{customer.name}</td>
                     <td>{customer.city}</td>
                     <td>{customer.rca}</td>
                     <td><button>Consultar</button></td>
