@@ -1,24 +1,16 @@
 import './CustomerProfile.css'
 import React from 'react'
 import Main from '../../templates/main/Main'
-//import { useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
-export default class CustomerProfile extends React.Component {
+export default function CustomerProfile(props) {
 
-    // componentDidMount() {
-    //    // this.getParams()
-    // }
+    let { code } = useParams()
+    console.log(code)
 
-    // getParams() {
-    //     const { code } = useParams
-       
-    // }
+    return (
+        <Main title={props.code}>
 
-    render() {
-        return (
-            <Main title={this.props.code}>
-                
-            </Main>
-        )
-    }
+        </Main>
+    )
 }

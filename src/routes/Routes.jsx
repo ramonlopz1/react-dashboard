@@ -61,7 +61,7 @@ export default props => (
             <Customer title="Clientes" />
         } />
 
-        <Route path="/customers/profile/:code/" element={
+        <Route path="/customers/profile/:code" element={
             <CustomerProfile/>
         } />
 
