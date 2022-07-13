@@ -34,13 +34,13 @@
     color: white;
     justify-content: space-evenly;
     padding: 20px;
-    height: 150px;
+    height: 130px;
     width: 90%;
 
 }
 
 .section__customer .container:nth-of-type(1) i {
-    font-size: 80px;
+    font-size: 60px;
 }
 
 .section__customer .container:nth-of-type(1) .customer__info {
@@ -53,7 +53,7 @@
 }
 
 .section__customer .container:nth-of-type(1) .customer__info h4 {
-    font-size: 18px;
+    font-size: 16px;
     margin: 0px;
 }
 
