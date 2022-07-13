@@ -16,7 +16,7 @@ export default class Customer extends Component {
             customers: customers
         })
 
-        this.filterName()
+        this.filterCustomer()
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -28,22 +28,31 @@ export default class Customer extends Component {
         }
     }
 
-    filterName() {
+    filterCustomer() {
         const filter = document.querySelector('.input__byname')
 
         filter.addEventListener('input', (event) => {
             const input = event.target
 
             const allNames = document.querySelectorAll(".tdName")
+            const allCodes = document.querySelectorAll(".tdCode")
+            const allRcas = document.querySelectorAll(".tdRca")
 
             if(input.value.length > 0) {
                 for(let i = 0; i < allNames.length; i++) {
                     let name = allNames[i]
+                    let code = allCodes[i]
+                    let rca = allRcas[i]
+                    
                     let nameText = name.textContent
+                    let codeText = code.textContent
+                    let rcaText = rca.textContent
+
                     let letterInputed = input.value
+                    
                     let exp = new RegExp(letterInputed, "i")
 
-                    if(!exp.test(nameText)) {
+                    if(!exp.test(nameText) && !exp.test(codeText) && !exp.test(rcaText)) {
                         name.parentNode.style.display = "none"
                     } else {
                         name.parentNode.style.display = "table-row"
@@ -68,10 +77,10 @@ export default class Customer extends Component {
         return customersList.map(customer => {
             return (
                 <tr key={customer.code}>
-                    <td>{customer.code}</td>
+                    <td className='tdCode'>{customer.code}</td>
                     <td className='tdName'>{customer.name}</td>
-                    <td>{customer.city}</td>
-                    <td>{customer.rca}</td>
+                    <td >{customer.city}</td>
+                    <td className='tdRca'>{customer.rca}</td>
                     <td><button>Consultar</button></td>
                 </tr>
             )
@@ -125,8 +134,7 @@ export default class Customer extends Component {
                             <option value="Elias">Elias</option>
                             <option value="Dina">Dina</option>
                         </select>
-                        <input type="text" name="" id="" className='input__bycode' placeholder='Código' />
-                        <input type="text" name="" id="" className='input__byname' placeholder='Nome' />
+                        <input type="text" name="" id="" className='input__byname' placeholder='Insira o nome ou código.' />
 
                     </div>
                     <div className='wrap__table'>
