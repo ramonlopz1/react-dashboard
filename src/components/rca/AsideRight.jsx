@@ -102,6 +102,16 @@ export default class AsideRight extends Component {
     }
 
     render() {
+
+        const m = [
+            'Janeiro', 'Fevereiro', 
+            'Março', 'Abril', 
+            'Maio', 'Junho',
+            'Julho', 'Agosto',
+            'Setembro', 'Outubro',
+            'Novembro', 'Dezembro'
+        ]
+        
         return (
             <aside className='aside__right'>
                 <nav className='nav__filters'>
@@ -143,7 +153,7 @@ export default class AsideRight extends Component {
                             </div>
                         </div>
                         <div className="circle__graphic">
-                            <h5>Média</h5>
+                            <h5>{m[this.props.monthID] || 'Todos os meses'}</h5>
                             <div className='graphic'>
                                 <div 
                                     style={{

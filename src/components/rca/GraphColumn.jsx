@@ -25,7 +25,6 @@ export default class GraphColumn extends Component {
 
         if(monthGrowthly > 0) {
             clr = 'green'
-            console.log(clr)
         }
 
         return (
