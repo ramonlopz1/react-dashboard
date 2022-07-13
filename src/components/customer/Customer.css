@@ -70,36 +70,37 @@
     box-sizing: border-box;
     border-radius: 5px;
     display: flex;
-    justify-content: left;
-    gap: 30px;
+    justify-content: center;
     height: 50px;
-    padding-left: 15px;
     width: 97%;
 }
 
-.section__customer .container:nth-of-type(2) .search select,
-input {
+.section__customer .container:nth-of-type(2) .search label {
+    align-items: center;
+    background-color: var(--cor3);
+    border-radius: 5px 0px 0px 5px;
+    color: white;
+    display: flex;
+    font-size: 14px;
+    height: 27px;
+    justify-content: center;
+    width: 12%;
+}
+
+
+.section__customer .container:nth-of-type(2) .search .input__search {
     height: 25px;
     border: none;
+    border-radius: 0px 5px 5px 0px;
     outline: none;
-    text-indent: 6px
-}
-
-.section__customer .container:nth-of-type(2) .search .input__byrca {
-    width: 100px;
-}
-
-.section__customer .container:nth-of-type(2) .search .input__bycode {
-    width: 80px;
-}
-
-.section__customer .container:nth-of-type(2) .search .input__byname {
-    width: 81.87%;
+    text-indent: 6px;
+    width: 83%;
 }
 
 
 .wrap__table {
-    height: 630px;
+    height: 520px;
+    border-radius: 5px;
     width: 97%;
     overflow: auto;
 }
@@ -119,6 +120,10 @@ table tbody {
 
 table thead {
     color: white;
+}
+
+table thead tr th {
+    position: sticky;
 }
 
 table td {
@@ -143,7 +148,17 @@ td:nth-of-type(5) {
     width: 10%;
 }
 
+table .btn__consult {
+    font-size: 14px;
+    padding: 0px 5px;
+}
+
+table .btn__consult:hover {
+    background-color: var(--cor3);
+}
+
 table tr {
-    margin: 5px;
     border: 1px solid white;
+    font-size: 13px;
+    margin: 5px;
 }

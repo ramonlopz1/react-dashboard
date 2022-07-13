@@ -9,15 +9,14 @@ const NavBottom = props =>
                 <i className="fa fa-folder"></i> RCA
             </Link>
             <Link to="/customers" className='link'>
-                <i className="fa fa-user"></i> Cliente
+                <i className="fa fa-user"></i> Clientes
             </Link>
             <Link to="/" className='link'>
                 <i className="fa fa-boxes"></i> Produtos
             </Link>
             <Link to="/revenue" className='link'>
-                <i className="fa fa-boxes"></i> Gráficos
+                <i className="fa fa-boxes"></i> Analytics
             </Link>
-
         </div>
     </nav>
 

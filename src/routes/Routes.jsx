@@ -4,6 +4,7 @@ import Home from '../components/home/Home';
 import Graphic from '../components/graphics/Graphic';
 import Rca from '../components/rca/Rca';
 import Customer from '../components/customer/Customer';
+import CustomerProfile from '../components/customer/profile/CustomerProfile';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default props => (
@@ -58,6 +59,10 @@ export default props => (
 
         <Route path="/customers" element={
             <Customer title="Clientes" />
+        } />
+
+        <Route path="/customers/profile/:code/" element={
+            <CustomerProfile/>
         } />
 
         <Route path="*" element={<Home />} />

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './Customer.css'
 import Main from '../templates/main/Main'
+import { Link } from 'react-router-dom'
 
 export default class Customer extends Component {
 
@@ -29,7 +30,7 @@ export default class Customer extends Component {
     }
 
     filterCustomer() {
-        const filter = document.querySelector('.input__byname')
+        const filter = document.querySelector('.input__search')
 
         filter.addEventListener('input', (event) => {
             const input = event.target
@@ -81,13 +82,15 @@ export default class Customer extends Component {
                     <td className='tdName'>{customer.name}</td>
                     <td >{customer.city}</td>
                     <td className='tdRca'>{customer.rca}</td>
-                    <td><button>Consultar</button></td>
+                    <td>
+                        <Link code={customer.code} className='btn__consult' to={`/customers/profile/${customer.code}`}>
+                            Consultar
+                        </Link>
+                    </td>
                 </tr>
             )
         })
-
     }
-
 
     renderMainSection() {
 
@@ -129,12 +132,8 @@ export default class Customer extends Component {
                 </div>
                 <div className="container">
                     <div className="search">
-                        <select className='input__byrca' name="byrca" id="">
-                            <option value="Todos">Todos rcas</option>
-                            <option value="Elias">Elias</option>
-                            <option value="Dina">Dina</option>
-                        </select>
-                        <input type="text" name="" id="" className='input__byname' placeholder='Insira o nome ou código.' />
+                        <label htmlFor="input__search">Pesquisar Cliente</label>
+                        <input type="text" name="input__search" id="" className='input__search' placeholder='Insira o código, nome ou RCA do cliente.' />
 
                     </div>
                     <div className='wrap__table'>
