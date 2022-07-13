@@ -83,7 +83,8 @@ export default class Customer extends Component {
                     <td >{customer.city}</td>
                     <td className='tdRca'>{customer.rca}</td>
                     <td>
-                        <Link code={customer.code} className='btn__consult' to={`/customers/profile/${customer.code}`}>
+                        {/**pass state through router */}
+                        <Link state={{customer: customer}} className='btn__consult' to={`/customers/profile/${customer.code}`}>
                             Consultar
                         </Link>
                     </td>
