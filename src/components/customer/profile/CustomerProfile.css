@@ -67,6 +67,9 @@
 }
 
 .section__customerprofile .container:nth-of-type(2) {
+    align-items: center;
+    display: flex;
+    justify-content: center;
     height: 100%;
     width: 75%;
     background-color: var(--cor2);
@@ -79,12 +82,12 @@
     display: flex;
     justify-content: space-evenly;
     background-color: var(--cor1);
-    height: 91%;
+    height: 100%;
     width: 100%;
 }
 
 .section__customerprofile .container:nth-of-type(2) .boxes .box {
-    height: 95%;
+    height: 98%;
     width: 48%;
 }
 
@@ -99,7 +102,7 @@
     align-items: center;
     background-color: white;
     border-radius: 5px;
-    height: 30%;
+    height: 32%;
     width: 100%;
 }
 
@@ -113,8 +116,8 @@
     border-bottom: 1px solid lightgray;
     display: flex;
     justify-content: space-evenly;
-    gap: 10px;
     height: 65px;
+    
 }
 
 .section__customerprofile .container:nth-of-type(2) .boxes .box.right .tabs 
@@ -126,6 +129,8 @@
     background-color: white;
     color: gray;
     font-weight: bold;
+    font-size: 15px;
+    padding: 0px;
     height: 75%;
 }
 
