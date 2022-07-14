@@ -56,12 +56,10 @@
     padding: 8px 10px;
 }
 
-
 .section__customerprofile .container:nth-of-type(1) .spanlabel {
     font-weight: bold;
     color: white;
 }
-
 
 .section__customerprofile .container:nth-of-type(1) .spaninfo {
     color: white;
@@ -72,4 +70,66 @@
     height: 100%;
     width: 75%;
     background-color: var(--cor2);
+}
+
+
+
+.section__customerprofile .container:nth-of-type(2) .boxes {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: var(--cor1);
+    height: 91%;
+    width: 100%;
+}
+
+.section__customerprofile .container:nth-of-type(2) .boxes .box {
+    height: 95%;
+    width: 48%;
+}
+
+.section__customerprofile .container:nth-of-type(2) .boxes .box.left  {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.section__customerprofile .container:nth-of-type(2) .boxes .box.left .boxinfos {
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    height: 30%;
+    width: 100%;
+}
+
+.section__customerprofile .container:nth-of-type(2) .boxes .box.right {
+    background-color: white;
+    border-radius: 5px;
+}
+
+.section__customerprofile .container:nth-of-type(2) .boxes .box.right .tabs {
+    align-items: flex-end;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+    height: 65px;
+}
+
+.section__customerprofile .container:nth-of-type(2) .boxes .box.right .tabs 
+.tab {
+    align-items: center;
+    display: flex;
+    border-radius: 0px;
+    border: none;
+    background-color: white;
+    color: gray;
+    font-weight: bold;
+    height: 75%;
+}
+
+.section__customerprofile .container:nth-of-type(2) .boxes .box.right .tabs 
+.tab:nth-of-type(2) {
+    border-bottom: 3px solid var(--cor1);
 }

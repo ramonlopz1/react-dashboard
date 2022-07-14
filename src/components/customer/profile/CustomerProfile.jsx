@@ -1,7 +1,7 @@
 import './CustomerProfile.css'
 import React from 'react'
 import Main from '../../templates/main/Main'
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 
 export default function CustomerProfile(props) {
 
@@ -45,6 +45,33 @@ export default function CustomerProfile(props) {
                 </div>
                 <div className="container">
 
+                    <div className="boxes">
+                        <div className="box left">
+                            <div className="boxinfos">
+
+                            </div>
+                            <div className="boxinfos">
+                                <div className='divleft'>
+
+                                </div>
+                                <div className='divright'>
+
+                                </div>
+                            </div>
+                            <div className="boxinfos">
+
+                            </div>
+                        </div>
+                        <div className="box right">
+                            <div className="tabs">
+                                <Link className='tab' to="/">Faturamento</Link>
+                                <Link className='tab' to="/">Devoluções</Link>
+                                <Link className='tab' to="/">Lucro</Link>
+                                <Link className='tab' to="/">Pagamentos</Link>
+                                <Link className='tab' to="/">Atrasos</Link>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         )
