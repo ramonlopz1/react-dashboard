@@ -106,6 +106,24 @@
     width: 100%;
 }
 
+.section__customerprofile .container:nth-of-type(2) .boxes .box.left .boxinfos:nth-of-type(2) {
+    align-items: center;
+    display: flex;
+    background-color: transparent;
+    justify-content: space-between;
+    flex-direction: row;
+    border-radius: 5px;
+    height: 32%;
+    width: 100%;
+}
+
+.section__customerprofile .container:nth-of-type(2) .boxes .box.left .boxinfos:nth-of-type(2) .divleft, .divright {
+    background-color: white;
+    height: 100%;
+    border-radius: 5px;
+    width: 49%;
+}
+
 .section__customerprofile .container:nth-of-type(2) .boxes .box.right {
     background-color: white;
     border-radius: 5px;
