@@ -98,15 +98,110 @@
     justify-content: space-between;
 }
 
-.section__customerprofile .container:nth-of-type(2) .boxes .box.left .boxinfos {
+.section__customerprofile .container:nth-of-type(2) .boxes .box.left .box__infos {
     align-items: center;
+    display: flex;
     background-color: white;
     border-radius: 5px;
     height: 32%;
     width: 100%;
+}   
+
+
+.section__customerprofile 
+.container:nth-of-type(2) 
+.boxes .box.left 
+.box__infos:nth-of-type(1) {
+    justify-content: space-evenly;
 }
 
-.section__customerprofile .container:nth-of-type(2) .boxes .box.left .boxinfos:nth-of-type(2) {
+
+.box.left .box__infos:nth-of-type(1) .rank {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 30%;
+}
+
+.box.left .box__infos:nth-of-type(1) .rank .circle {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border: 7px solid var(--cor2);
+    background-color: none;
+    border-radius: 100px;
+    font-size: 50px;
+    height: 120px;
+    width: 120px;
+}
+
+.box.left .box__infos:nth-of-type(1) .rank span {
+    font-size: 35px;
+    font-weight: bolder;
+}
+
+.box.left .box__infos:nth-of-type(1) .data__resume   {
+    height: 100%;
+    width: 68%;
+}
+
+.box.left .box__infos:nth-of-type(1) .data__resume  h2 {
+    margin: 5px 0px;
+}
+
+.box.left .box__infos:nth-of-type(1) .data__resume .points {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(1fr, 3);
+    grid-template-areas: 
+    "box box"
+    "box box"
+    "box box";
+    height: 70%;
+    width: 100%;
+}
+
+.box.left .box__infos:nth-of-type(1) .data__resume .points .box {
+    align-items: center;
+    grid-area: "box";
+    display: flex;
+    justify-content: left;
+    gap: 20px;
+    padding-left: 15px;
+    width: 92%;
+    
+}
+
+.box.left .box__infos:nth-of-type(1) .data__resume .points .box i {
+    font-size: 50px;
+}
+
+.box.left .box__infos:nth-of-type(1) .data__resume .points .box .point {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+}
+
+.box.left .box__infos:nth-of-type(1) .data__resume .points .box .point
+.bar__loading {
+    background-color: red;
+    height: 20px;
+    width: 70%;
+}
+
+.box.left .box__infos:nth-of-type(1) .data__resume .points .box .point
+.bar__loading .loading {
+    background-color: rgb(125, 255, 125);
+    height: 100%;
+    width: 84%;
+}
+
+.section__customerprofile .container:nth-of-type(2) .boxes .box.left .box__infos:nth-of-type(2) {
     align-items: center;
     display: flex;
     background-color: transparent;
@@ -117,7 +212,7 @@
     width: 100%;
 }
 
-.section__customerprofile .container:nth-of-type(2) .boxes .box.left .boxinfos:nth-of-type(2) .divleft, .divright {
+.section__customerprofile .container:nth-of-type(2) .boxes .box.left .box__infos:nth-of-type(2) .divleft, .divright {
     background-color: white;
     height: 100%;
     border-radius: 5px;

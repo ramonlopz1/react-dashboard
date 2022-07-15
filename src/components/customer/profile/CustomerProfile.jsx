@@ -47,18 +47,121 @@ export default function CustomerProfile(props) {
 
                     <div className="boxes">
                         <div className="box left">
-                            <div className="boxinfos">
+                            <div className="box__infos">
+                                <div className="rank">
+                                    <div className="circle">
+                                        38
+                                    </div>
+                                    <span>Rank</span>
+                                </div>
+                                <div className="data__resume">
+                                    <h2>Pontuação</h2>
+                                    <div className="points">
+                                        <div className="box">
+                                            <i className="fa fa-cubes"></i>
 
+                                            <div className="point">
+                                                <span className="label">
+                                                    Pedidos
+                                                </span>
+                                                <div className="bar__loading">
+                                                    <div className="loading">
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="box">
+                                            <i className="fa fa-cart-arrow-down"></i>
+                                            <div className="point">
+                                                <span className="label">
+                                                    Mix
+                                                </span>
+                                                <div className="bar__loading">
+                                                    <div className="loading">
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="box">
+                                            <i className="fa fa-home"></i>
+                                            <div className="point">
+                                                <span className="label">
+                                                    Mix
+                                                </span>
+                                                <div className="bar__loading">
+                                                    <div className="loading">
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="box">
+                                            <i className="fa fa-home"></i>
+                                            <div className="point">
+                                                <span className="label">
+                                                    Mix
+                                                </span>
+                                                <div className="bar__loading">
+                                                    <div className="loading">
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="box">
+                                            <i className="fa fa-home"></i>
+                                            <div className="point">
+                                                <span className="label">
+                                                    Mix
+                                                </span>
+                                                <div className="bar__loading">
+                                                    <div className="loading">
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="box">
+                                            <i className="fa fa-home"></i>
+                                            <div className="point">
+                                                <span className="label">
+                                                    Mix
+                                                </span>
+                                                <div className="bar__loading">
+                                                    <div className="loading">
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
                             </div>
-                            <div className="boxinfos">
+                            <div className="box__infos">
                                 <div className='divleft'>
-
+                                    <div className="revenue greater ">
+                                        <h3>Maior compra</h3>
+                                        <span>R$ 9.893,23</span>
+                                    </div>
+                                    <div className="revenue worst">
+                                        <h3>Menor compra</h3>
+                                        <span>R$ 893,23</span>
+                                    </div>
                                 </div>
                                 <div className='divright'>
 
                                 </div>
                             </div>
-                            <div className="boxinfos">
+                            <div className="box__infos">
 
                             </div>
                         </div>
