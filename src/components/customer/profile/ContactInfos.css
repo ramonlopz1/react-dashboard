@@ -1,0 +1,19 @@
+.section__customerprofile .container:nth-of-type(1) .bottom__infos {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    border-top: 1px solid var(--cor2);
+    border-bottom: 1px solid var(--cor2);
+    height: 400px;
+    width: 90%;
+}
+
+.section__customerprofile .container:nth-of-type(1) .bottom__infos .info {
+    box-sizing: border-box;
+    background-color: var(--cor1);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    padding: 8px 10px;
+}

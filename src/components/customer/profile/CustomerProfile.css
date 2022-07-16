@@ -10,61 +10,6 @@
     box-shadow: 0px 0px 15px 4px #00000040;
 }
 
-.section__customerprofile .container:nth-of-type(1) {
-    align-items: center;
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    background-color: whitesmoke;
-    height: 100%;
-    width: 22%;
-}
-
-.section__customerprofile .container:nth-of-type(1) .top__infos {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.section__customerprofile .container:nth-of-type(1) .top__infos .profilepic {
-    background-image: url('../../../../public/customer__profilepic/male.png');
-    background-size: cover;
-    height: 150px;
-    margin-bottom: 20px;
-    width: 150px;
-}
-
-
-.section__customerprofile .container:nth-of-type(1) .bottom__infos {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    border-top: 1px solid var(--cor2);
-    border-bottom: 1px solid var(--cor2);
-    height: 400px;
-    width: 90%;
-}
-
-.section__customerprofile .container:nth-of-type(1) .bottom__infos .info {
-    box-sizing: border-box;
-    background-color: var(--cor1);
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    padding: 8px 10px;
-}
-
-.section__customerprofile .container:nth-of-type(1) .spanlabel {
-    font-weight: bold;
-    color: white;
-}
-
-.section__customerprofile .container:nth-of-type(1) .spaninfo {
-    color: white;
-    font-size: 19px;
-}
 
 .section__customerprofile .container:nth-of-type(2) {
     align-items: center;
@@ -74,7 +19,6 @@
     width: 75%;
     background-color: var(--cor2);
 }
-
 
 
 .section__customerprofile .container:nth-of-type(2) .boxes {
@@ -150,8 +94,7 @@
     width: 100%;
 }
 
-.section__customerprofile .container:nth-of-type(2) .boxes .box.left .box__infos:nth-of-type(2) .divleft,
-.divright {
+.section__customerprofile .container:nth-of-type(2) .boxes .box.left .box__infos:nth-of-type(2) .subcontainer {
     align-items: center;
     display: flex;
     background-color: white;
@@ -162,15 +105,7 @@
     width: 49%;
 }
 
-.section__customerprofile .container:nth-of-type(2) .boxes .box.left .box__infos:nth-of-type(2) .greater,
-.worst {
-    height: 40%;
-    width: 85%;
-}
 
-.section__customerprofile .container:nth-of-type(2) .boxes .box.left .box__infos:nth-of-type(2) .greater {
-    border-bottom: 1px solid var(--cor2);
-}
 
 .section__customerprofile .container:nth-of-type(2) .boxes .box.left .box__infos:nth-of-type(3) {
     background-color: transparent;

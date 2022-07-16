@@ -1,0 +1,9 @@
+.section__customerprofile .container:nth-of-type(2) .boxes .box.left .box__infos:nth-of-type(2) .greater,
+.worst {
+    height: 40%;
+    width: 85%;
+}
+
+.section__customerprofile .container:nth-of-type(2) .boxes .box.left .box__infos:nth-of-type(2) .greater {
+    border-bottom: 1px solid var(--cor2);
+}
