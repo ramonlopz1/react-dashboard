@@ -5,6 +5,7 @@ import Graphic from '../components/graphics/Graphic';
 import Rca from '../components/rca/Rca';
 import Customer from '../components/customer/Customer';
 import CustomerProfile from '../components/customer/profile/CustomerProfile';
+import TabContainer from '../components/customer/profile/TabContainer';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default props => (
@@ -62,8 +63,23 @@ export default props => (
         } />
 
         <Route path="/customers/profile/:code" element={
-            <CustomerProfile/>
+            <CustomerProfile />
         } />
+
+
+        <Route path="/customers/profile/revenue" element={
+            <CustomerProfile>
+                <TabContainer title="Faturamento" />
+            </CustomerProfile>
+        } />
+
+        <Route path="/customers/profile/devolution" element={
+            <CustomerProfile>
+                <TabContainer title="Devolução"/>
+            </CustomerProfile>
+        } />
+
+
 
         <Route path="*" element={<Home />} />
     </Routes>

@@ -1,0 +1,14 @@
+.section__customerprofile .container:nth-of-type(2) .boxes .box.left .box__infos:nth-of-type(3) .minicards {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 5px;
+    height: 100%;
+    width: 23.5%;
+}
+
+.section__customerprofile .container:nth-of-type(2) .boxes .box.left .box__infos:nth-of-type(3) .minicards i {
+    font-size: 40px;
+}
