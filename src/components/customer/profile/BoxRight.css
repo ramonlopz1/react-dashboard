@@ -1,0 +1,30 @@
+.section__customerprofile .container:nth-of-type(2) .boxes .box.right .tabs {
+    align-items: flex-end;
+    
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    justify-content: space-evenly;
+    height: 65px;
+
+}
+
+.section__customerprofile .container:nth-of-type(2) .boxes .box.right .tabs .tab {
+    align-items: center;
+    display: flex;
+    border-radius: 0px;
+    border: none;
+    background-color: white;
+    color: gray;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 0px;
+    height: 75%;
+}
+
+.section__customerprofile .container:nth-of-type(2) .boxes .box.right .tabs .tab {
+    border-bottom: 3px solid var(--cor1);
+}
+
+.section__customerprofile .container:nth-of-type(2) .boxes .box.right .tabs .tab.unactived {
+    border-bottom: 0;
+}
