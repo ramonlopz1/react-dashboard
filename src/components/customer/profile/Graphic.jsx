@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { useState } from 'react';
 import utils from '../../graphics/util/utils';
 
 import GraphColumn from './GraphColumn';
@@ -13,14 +12,10 @@ export default function Graphic(props) {
 
     const customerInfos = props.allData
     const filteredData = customerInfos?.graphicData
-
-    console.log(filteredData)
    
     useEffect(() => {
         
     }, [props.graphicData])
-
-   
 
     const renderGraphic = () => {
 

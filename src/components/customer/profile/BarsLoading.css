@@ -24,15 +24,22 @@
     align-items: center;
     grid-area: "box";
     display: flex;
-    justify-content: left;
-    gap: 20px;
+    justify-content: space-evenly;
+    gap: 5px;
     padding-left: 15px;
     width: 92%;
 
 }
+.box.left .box__infos:nth-of-type(1) .data__resume .points .box .icons {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 47px;
+}
 
 .box.left .box__infos:nth-of-type(1) .data__resume .points .box i {
-    font-size: 50px;
+    font-size: 37px;
 }
 
 .box.left .box__infos:nth-of-type(1) .data__resume .points .box .point {
@@ -40,14 +47,14 @@
     flex-direction: column;
     justify-content: space-evenly;
     background-color: white;
-    width: 100%;
+    width: 150px;
     height: 100%;
 }
 
 .box.left .box__infos:nth-of-type(1) .data__resume .points .box .point .bar__loading {
     background-color: red;
     height: 20px;
-    width: 70%;
+    width: 120px;
 }
 
 .box.left .box__infos:nth-of-type(1) .data__resume .points .box .point .bar__loading .loading {
