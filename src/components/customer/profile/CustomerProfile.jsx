@@ -19,6 +19,8 @@ export default function CustomerProfile(props) {
 
     }, [])
 
+    
+
     const renderMainSection = () => {
         return (
             <section className='section__customerprofile'>
@@ -42,7 +44,7 @@ export default function CustomerProfile(props) {
                 <div className="container">
                     <div className="boxes">
                         <BoxLeft />
-                        <BoxRight childs={props.children} />
+                        <BoxRight childs={props.children} customer={customer} />
                     </div>
                 </div>
             </section>

@@ -478,7 +478,20 @@
     }
     }, "customers": {
       "list": [
-        {"code": 1234, "name": "Pedro Camargo Silva", "city":"Buique", "rca": "elias"},
+        {"code": 1234, "name": "Pedro Camargo Silva", "city":"Buique", "rca": "elias", "revenue": {
+          "jan": 2000,
+          "fev": 2000,
+          "mar": 2000,
+          "abr": 2000,
+          "mai": 2000,
+          "jun": 2000,
+          "jul": 2000,
+          "ago": 2000,
+          "set": 2000,
+          "out": 2000,
+          "nov": 2000,
+          "dez": 2000
+        }},
         {"code": 134, "name": "Abc Camargo Silva", "city":"Buique", "rca": "elias"},
         {"code": 1534, "name": "Efd Camargo Silva", "city":"Buique", "rca": "elias"},
         {"code": 1264, "name": "GHee Camargo Silva", "city":"Buique", "rca": "elias"},
