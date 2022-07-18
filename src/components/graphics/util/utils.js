@@ -12,7 +12,16 @@ const formatNumbers = (number) => {
 const getUpdateList = (list, year) => {
     if (!list) return
     // objectJSON[0] contém o array de anos 
-    const objectWithYears = list[0];
+
+    let objectWithYears = ""
+
+    // se vier array de anos, senão, se vier objeto de anos
+    if (list[0]) {
+        objectWithYears = list[0];
+    } else {
+        objectWithYears = list
+    }
+
     if (!objectWithYears?.[year.toString()]) return
 
     const arrayValues = Object.values(objectWithYears[year.toString()]);
@@ -64,7 +73,7 @@ const calcYearGrowthly = (list, year, getArr) => {
         return lastValueOperated
     })
 
-    
+
     if (getArr) {
         monthlyGrowthlyArray.unshift(100)
         return monthlyGrowthlyArray

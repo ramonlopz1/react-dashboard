@@ -1,5 +1,5 @@
 
-.content_children.rca__graphic {
+.content_children.customer__graphic {
     align-items: center;
     display: flex;
     justify-content: center;
@@ -8,14 +8,11 @@
     width: 100%;
 }
 
-.content_children.rca__graphic h1 {
-    margin: 0px;
-}
 .graphic__section {
     grid-area: graphic__section;
 }
 
-.rca__graphic .wrapper__container {
+.customer__graphic .wrapper__container {
     background-color: var;
     box-sizing: border-box;
     height: 100%;

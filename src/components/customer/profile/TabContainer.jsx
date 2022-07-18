@@ -6,22 +6,28 @@ import { useEffect, useState } from 'react'
 export default function TabContainer(props) {
 
     const location = useLocation()
-    const [customer, setCustomer] = useState([])
-    const [type, setType] = useState([])
-    const [graphicData, setGraphicData] = useState([])
+    const [state, setState] = useState([])
+    
 
     useEffect(() => {
-        setCustomer(location.state?.customer)
-        setType(location.state?.type)
-        setGraphicData(customer?.datas)
-    }, [customer?.datas, location.state?.customer, location.state?.type])
+        const customer = location.state?.customer
+        const type = location.state?.type
 
-    // o primeiro render as props estão indo undefined
+        setState({
+            customer: customer,
+            graphicData: customer?.datas[type]
+        })
 
-    return (
-        <div className='tab__container'>
-            {props.title}
-            {/* <Graphic customer={customer} graphicData={graphicData} year={2021} type={type} /> */}
-        </div>
-    )
+
+    }, [location.state?.customer, location.state?.type])
+
+    if(state?.customer)
+        // o primeiro render as props estão indo undefined
+
+        return (
+            <div className='tab__container'>
+                {props.title}
+                <Graphic allData={state} year={2021}/>
+            </div>
+        )
 }

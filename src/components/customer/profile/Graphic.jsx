@@ -11,14 +11,16 @@ export default function Graphic(props) {
 
     // ta dando erro pq ta vindo undefinied no primeiro render
 
-    const [filteredData, setFilteredData] = useState([])
+    const customerInfos = props.allData
+    const filteredData = customerInfos?.graphicData
 
+    console.log(filteredData)
+   
     useEffect(() => {
-        setFilteredData(props.graphicData)
         
     }, [props.graphicData])
 
-    
+   
 
     const renderGraphic = () => {
 
@@ -48,7 +50,7 @@ export default function Graphic(props) {
     }
 
     const calcGrowthly = () => {
-        
+        if(!filteredData) return
 
         const totGrowthlyArr = utils.calcYearGrowthly(filteredData, props.year, true)
         // const avgGrowthly = (totGrowthly / 12).toFixed(2)
@@ -91,7 +93,7 @@ export default function Graphic(props) {
 
 
         return (
-            <section className='content_children rca__graphic'>
+            <section className='content_children customer__graphic'>
                 {renderGraphic()}
             </section>
         )
