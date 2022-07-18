@@ -17,9 +17,7 @@ export default function CustomerProfile(props) {
     useEffect(() => {
         setCustomer(location.state?.customer)
 
-    }, [])
-
-    
+    }, [location.state?.customer])
 
     const renderMainSection = () => {
         return (

@@ -1,49 +1,32 @@
-import React, { Component } from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import utils from '../../graphics/util/utils';
 
 import GraphColumn from './GraphColumn';
 
 import './Graphic.css'
 
-const initialState = {
-    filteredData: [],
-    unfilteredData: [],
-    year: 2021,
-    url: "revenue",
-    rca: "elias"
-}
 
-export default class Graphic extends Component {
+export default function Graphic(props) {
 
+    // ta dando erro pq ta vindo undefinied no primeiro render
 
-    constructor(props) {
-        super(props)
+    const [filteredData, setFilteredData] = useState([])
 
+    useEffect(() => {
+        setFilteredData(props.graphicData)
+        
+    }, [props.graphicData])
 
-        this.state = {
-            ...initialState,
-            url: 'revenue',
-            year: 2020
-        }
-    }
+    
 
-    async componentDidMount() {
-        let data = await fetch('http://localhost:3000/revenue')
-        data = await data.json()
-        this.setState({
-            unfilteredData: data,
-            filteredData: data?.['revenue']
-        })
-    }
-
-
-    renderGraphic() {
+    const renderGraphic = () => {
 
         return (
             <div className="wrapper__container">
                 <div className='graph__container'>
                     <div className='columns'>
-                        {this.renderGraphicColumn()}
+                        {renderGraphicColumn()}
                     </div>
                     <div className="meses">
                         <span className="mes">Jan</span>
@@ -64,22 +47,22 @@ export default class Graphic extends Component {
         )
     }
 
-    calcGrowthly() {
-        const filtered = this.state.unfilteredData[this.state.url]
+    const calcGrowthly = () => {
+        
 
-        const totGrowthlyArr = utils.calcYearGrowthly(filtered, this.state.year, true)
+        const totGrowthlyArr = utils.calcYearGrowthly(filteredData, props.year, true)
         // const avgGrowthly = (totGrowthly / 12).toFixed(2)
-
         return totGrowthlyArr
     }
 
-    renderGraphicColumn() {
-        const [filteredData, year] = [this.state.filteredData, this.state.year]
+    const renderGraphicColumn = () => {
+        const [filtered, year] = [filteredData, props.year]
 
-        const arrayValues = utils.getUpdateList(filteredData, year);
+        const arrayValues = utils.getUpdateList(filtered, year);
 
-        let greaterColumn = utils.calcGreaterMonthly(filteredData, year);
-        const calcGrowthly = this.calcGrowthly()
+        let greaterColumn = utils.calcGreaterMonthly(filtered, year);
+
+        const totGrowthlyArr = calcGrowthly()
 
         let k = 0
         let id = 0
@@ -95,7 +78,7 @@ export default class Graphic extends Component {
 
                 return (
                     <GraphColumn
-                        monthGrowthly={calcGrowthly[idx]}
+                        monthGrowthly={totGrowthlyArr[idx]}
                         id={id++}
                         key={k++}
                         columnsize={columnSize}
@@ -107,12 +90,10 @@ export default class Graphic extends Component {
     }
 
 
-    render() {
         return (
             <section className='content_children rca__graphic'>
-                {this.renderGraphic()}
+                {renderGraphic()}
             </section>
         )
-    }
 }
 

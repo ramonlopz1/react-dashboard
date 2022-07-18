@@ -192,7 +192,8 @@
             "dez": 599923
           }
         }
-      ], "positivation": [
+      ],
+      "positivation": [
         {
           "2020": {
             "jan": "2832",
@@ -223,7 +224,8 @@
             "dez": "4832"
           }
         }
-      ], "mix": [
+      ],
+      "mix": [
         {
           "2020": {
             "jan": "532",
@@ -254,7 +256,8 @@
             "dez": "232"
           }
         }
-      ], "devolution": [
+      ],
+      "devolution": [
         {
           "2020": {
             "jan": "132",
@@ -285,7 +288,8 @@
             "dez": "422"
           }
         }
-      ], "profit": [
+      ],
+      "profit": [
         {
           "2020": {
             "jan": "6132",
@@ -350,7 +354,8 @@
             "dez": 299923
           }
         }
-      ],  "positivation": [
+      ],
+      "positivation": [
         {
           "2020": {
             "jan": "2832",
@@ -381,7 +386,8 @@
             "dez": "1832"
           }
         }
-      ], "mix": [
+      ],
+      "mix": [
         {
           "2020": {
             "jan": "632",
@@ -412,7 +418,8 @@
             "dez": "422"
           }
         }
-      ], "devolution": [
+      ],
+      "devolution": [
         {
           "2020": {
             "jan": "632",
@@ -443,7 +450,8 @@
             "dez": "422"
           }
         }
-      ], "profit": [
+      ],
+      "profit": [
         {
           "2020": {
             "jan": "2132",
@@ -476,40 +484,141 @@
         }
       ]
     }
-    }, "customers": {
-      "list": [
-        {"code": 1234, "name": "Pedro Camargo Silva", "city":"Buique", "rca": "elias", "revenue": {
-          "jan": 2000,
-          "fev": 2000,
-          "mar": 2000,
-          "abr": 2000,
-          "mai": 2000,
-          "jun": 2000,
-          "jul": 2000,
-          "ago": 2000,
-          "set": 2000,
-          "out": 2000,
-          "nov": 2000,
-          "dez": 2000
-        }},
-        {"code": 134, "name": "Abc Camargo Silva", "city":"Buique", "rca": "elias"},
-        {"code": 1534, "name": "Efd Camargo Silva", "city":"Buique", "rca": "elias"},
-        {"code": 1264, "name": "GHee Camargo Silva", "city":"Buique", "rca": "elias"},
-        {"code": 1283, "name": "PedAsro Camargo Silva", "city":"Buique", "rca": "elias"},
-        {"code": 3354, "name": "DD Camargo Silva", "city":"Buique", "rca": "elias"},
-        {"code": 1734, "name": "PedEero Camargo Silva", "city":"Buique", "rca": "elias"},
-        {"code": 1204, "name": "FFfff Camargo Silva", "city":"Buique", "rca": "elias"},
-        {"code": 194, "name": "ASd Camargo Silva", "city":"Buique", "rca": "elias"},
-        {"code": 1284, "name": "Ffds Camargo Silva", "city":"Buique", "rca": "elias"},
-        {"code": 184, "name": "ASdd Camargo Silva", "city":"Buique", "rca": "elias"},
-        {"code": 1274, "name": "DDas Camargo Silva", "city":"Buique", "rca": "elias"},
-        {"code": 164, "name": "DAs Camargo Silva", "city":"Manaria", "rca": "dina"},
-        {"code": 334, "name": "FFfff Camargo Silva", "city":"Manaria", "rca": "dina"},
-        {"code": 1444, "name": "ASd Camargo Silva", "city":"Manaria", "rca": "dina"},
-        {"code": 1554, "name": "Ffds Camargo Silva", "city":"Manaria", "rca": "dina"},
-        {"code": 166, "name": "ASdd Camargo Silva", "city":"Manaria", "rca": "dina"},
-        {"code": 1777, "name": "DDas Camargo Silva", "city":"Manaria", "rca": "dina"},
-        {"code": 8888, "name": "DAs Camargo Silva", "city":"Manaria", "rca": "dina"}
-      ]
-    }
+  },
+  "customers": {
+    "list": [
+      {
+        "code": 1234,
+        "name": "Pedro Camargo Silva",
+        "city": "Buique",
+        "rca": "elias",
+        "datas": {
+          "revenue": {
+            "2021": {
+              "jan": 2000,
+              "fev": 2000,
+              "mar": 2000,
+              "abr": 2000,
+              "mai": 2000,
+              "jun": 2000,
+              "jul": 2000,
+              "ago": 2000,
+              "set": 2000,
+              "out": 2000,
+              "nov": 2000,
+              "dez": 2000
+            }
+          }
+        }
+      },
+      {
+        "code": 134,
+        "name": "Abc Camargo Silva",
+        "city": "Buique",
+        "rca": "elias"
+      },
+      {
+        "code": 1534,
+        "name": "Efd Camargo Silva",
+        "city": "Buique",
+        "rca": "elias"
+      },
+      {
+        "code": 1264,
+        "name": "GHee Camargo Silva",
+        "city": "Buique",
+        "rca": "elias"
+      },
+      {
+        "code": 1283,
+        "name": "PedAsro Camargo Silva",
+        "city": "Buique",
+        "rca": "elias"
+      },
+      {
+        "code": 3354,
+        "name": "DD Camargo Silva",
+        "city": "Buique",
+        "rca": "elias"
+      },
+      {
+        "code": 1734,
+        "name": "PedEero Camargo Silva",
+        "city": "Buique",
+        "rca": "elias"
+      },
+      {
+        "code": 1204,
+        "name": "FFfff Camargo Silva",
+        "city": "Buique",
+        "rca": "elias"
+      },
+      {
+        "code": 194,
+        "name": "ASd Camargo Silva",
+        "city": "Buique",
+        "rca": "elias"
+      },
+      {
+        "code": 1284,
+        "name": "Ffds Camargo Silva",
+        "city": "Buique",
+        "rca": "elias"
+      },
+      {
+        "code": 184,
+        "name": "ASdd Camargo Silva",
+        "city": "Buique",
+        "rca": "elias"
+      },
+      {
+        "code": 1274,
+        "name": "DDas Camargo Silva",
+        "city": "Buique",
+        "rca": "elias"
+      },
+      {
+        "code": 164,
+        "name": "DAs Camargo Silva",
+        "city": "Manaria",
+        "rca": "dina"
+      },
+      {
+        "code": 334,
+        "name": "FFfff Camargo Silva",
+        "city": "Manaria",
+        "rca": "dina"
+      },
+      {
+        "code": 1444,
+        "name": "ASd Camargo Silva",
+        "city": "Manaria",
+        "rca": "dina"
+      },
+      {
+        "code": 1554,
+        "name": "Ffds Camargo Silva",
+        "city": "Manaria",
+        "rca": "dina"
+      },
+      {
+        "code": 166,
+        "name": "ASdd Camargo Silva",
+        "city": "Manaria",
+        "rca": "dina"
+      },
+      {
+        "code": 1777,
+        "name": "DDas Camargo Silva",
+        "city": "Manaria",
+        "rca": "dina"
+      },
+      {
+        "code": 8888,
+        "name": "DAs Camargo Silva",
+        "city": "Manaria",
+        "rca": "dina"
+      }
+    ]
   }
+}
