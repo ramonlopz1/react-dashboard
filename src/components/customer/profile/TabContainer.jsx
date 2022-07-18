@@ -26,7 +26,6 @@ export default function TabContainer(props) {
 
         return (
             <div className='tab__container'>
-                {props.title}
                 <Graphic allData={state} year={2021}/>
             </div>
         )

@@ -8,11 +8,11 @@
     width: 100%;
 }
 
-.graphic__section {
+.customer__graphic .graphic__section {
     grid-area: graphic__section;
 }
 
-.customer__graphic .wrapper__container {
+.customer__graphic .customer__graphic .wrapper__container {
     background-color: var;
     box-sizing: border-box;
     height: 100%;
@@ -20,14 +20,8 @@
     width: 100%;
 }
 
-.buttons__filter {
-    align-items: center;
-    justify-content: space-evenly;
-    display: flex;
-    width: 100%;
-}
 
-.graph__container {
+.customer__graphic .graph__container {
     box-sizing: border-box;
     align-items: center;
     display: flex;
@@ -38,18 +32,18 @@
     
 }
 
-.graph__container .graph__column {
-    width: 54px;
+.customer__graphic .graph__container .graph__column {
+    width: 34px;
 }
 
-.meses, .columns {
+.customer__graphic .meses, .columns {
     align-items: center;
     display: flex;
     justify-content: space-evenly;
     height: 60%;
 }
 
-.meses {
+.customer__graphic .meses {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -58,12 +52,12 @@
     height: 5%;
 }
 
-.mes {
+.customer__graphic .mes {
     text-align: center;
-    width: 54px;
+    width: 34px;
 }
 
-.buttons__filter .btns__graphic__data {
+.customer__graphic .buttons__filter .btns__graphic__data {
     align-items: center;
     display: flex;
     justify-content: center;
@@ -72,7 +66,7 @@
     padding: 3px 15px
 }
 
-.buttons__filter .filter__by__year {
+.customer__graphic .buttons__filter .filter__by__year {
     outline: none;
     border: none;
     border-radius: 4px;
