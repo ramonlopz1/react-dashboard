@@ -16,7 +16,7 @@ const NavTop = props =>
                 <BotaoMenu to="" label="Site"/>
             </li>
             <li className='link'>
-            <BotaoMenu to="" label="Sair"/>
+            <BotaoMenu to="/login" label="Sair"/>
             </li>
         </ul>
     </nav>

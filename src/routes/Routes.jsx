@@ -6,6 +6,7 @@ import Rca from '../components/rca/Rca';
 import Customer from '../components/customer/Customer';
 import CustomerProfile from '../components/customer/profile/CustomerProfile';
 import TabContainer from '../components/customer/profile/TabContainer';
+import Login from '../components/login/Login';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default props => (
@@ -75,11 +76,18 @@ export default props => (
 
         <Route path="/customers/profile/:code/devolution" element={
             <CustomerProfile>
-                <TabContainer title="Devolução"/>
+                <TabContainer title="Devolução" />
             </CustomerProfile>
         } />
 
 
+        <Route path="/login" element={
+            <Login headerON={false} />
+        } />
+
+        <Route path="/auth" element={
+            <Home headerON={true}/>
+        } />
 
         <Route path="*" element={<Home />} />
     </Routes>

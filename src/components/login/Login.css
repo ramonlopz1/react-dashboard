@@ -1,0 +1,28 @@
+.main__section.main__login {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+
+}
+
+.section__login {
+    align-items: center;
+    background: rgb(14, 0, 255);
+    background: linear-gradient(177deg, rgba(14, 0, 255, 1) 0%, rgb(6, 122, 255) 100%);
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.section__login .container__auth {
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 350px;
+    width: 280px;
+}
