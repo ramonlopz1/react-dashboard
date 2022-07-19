@@ -31,7 +31,7 @@ export default function Login(props) {
     }
 
     return (
-        <Main className='main__login'>
+        <Main myclass="main__login">
             {renderMainSection()}
         </Main>
     )
