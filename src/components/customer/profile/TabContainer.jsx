@@ -11,7 +11,7 @@ export default function TabContainer(props) {
 
     useEffect(() => {
         const customer = location.state?.customer
-        const type = location.state?.type
+        const type = location.state?.type 
 
         setState({
             customer: customer,
@@ -22,7 +22,6 @@ export default function TabContainer(props) {
     }, [location.state?.customer, location.state?.type])
 
     if(state?.customer)
-        // o primeiro render as props estão indo undefined
 
         return (
             <div className='tab__container'>

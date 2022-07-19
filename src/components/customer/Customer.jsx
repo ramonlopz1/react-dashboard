@@ -76,6 +76,8 @@ export default class Customer extends Component {
         if(customersList)
 
         return customersList.map(customer => {
+            const code = customer.code
+            
             return (
                 <tr key={customer.code}>
                     <td className='tdCode'>{customer.code}</td>
@@ -84,7 +86,11 @@ export default class Customer extends Component {
                     <td className='tdRca'>{customer.rca}</td>
                     <td>
                         {/**pass state through router */}
-                        <Link state={{customer: customer}} className='btn__consult' to={`/customers/profile/${customer.code}`}>
+                        <Link 
+                            state={{customer: customer, type: 'revenue'}} className='btn__consult' 
+                            to={`/customers/profile/${code}/revenue`}
+                            
+                        >
                             Consultar
                         </Link>
                     </td>

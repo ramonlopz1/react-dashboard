@@ -26,7 +26,6 @@
     display: flex;
     justify-content: space-evenly;
     gap: 5px;
-    padding-left: 15px;
     width: 92%;
 
 }
@@ -45,9 +44,8 @@
 .box.left .box__infos:nth-of-type(1) .data__resume .points .box .point {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     background-color: white;
-    width: 150px;
     height: 100%;
 }
 
@@ -62,3 +60,25 @@
     height: 100%;
     width: 84%;
 }
+
+/*TEMPORÁRIO*/
+.box.left .box__infos:nth-of-type(1) .data__resume .points .box:nth-of-type(1) .point .loading {
+    width: 54%;
+}
+
+.box.left .box__infos:nth-of-type(1) .data__resume .points .box:nth-of-type(2) .point .loading {
+    width: 34%;
+}
+
+.box.left .box__infos:nth-of-type(1) .data__resume .points .box:nth-of-type(3) .point .loading {
+    width: 69%;
+}
+
+.box.left .box__infos:nth-of-type(1) .data__resume .points .box:nth-of-type(5) .point .loading {
+    width: 29%;
+}
+
+.box.left .box__infos:nth-of-type(1) .data__resume .points .box:nth-of-type(6) .point .loading {
+    width: 9%;
+}
+

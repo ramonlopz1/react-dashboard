@@ -7,9 +7,7 @@ import './Graphic.css'
 
 
 export default function Graphic(props) {
-
-    // ta dando erro pq ta vindo undefinied no primeiro render
-
+    
     const customerInfos = props.allData
     const filteredData = customerInfos?.graphicData
    

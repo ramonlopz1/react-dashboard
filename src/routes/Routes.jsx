@@ -67,13 +67,13 @@ export default props => (
         } />
 
 
-        <Route path="/customers/profile/revenue" element={
+        <Route path="/customers/profile/:code/revenue" element={
             <CustomerProfile>
                 <TabContainer title="Faturamento" />
             </CustomerProfile>
         } />
 
-        <Route path="/customers/profile/devolution" element={
+        <Route path="/customers/profile/:code/devolution" element={
             <CustomerProfile>
                 <TabContainer title="Devolução"/>
             </CustomerProfile>
