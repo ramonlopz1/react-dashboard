@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Rca.css';
-
+import Header from '../templates/header/Header';
 import Main from '../templates/main/Main';
 import AsideLeft from './AsideLeft';
 import AsideRight from './AsideRight';
@@ -34,7 +34,7 @@ export default class Rca extends Component {
 
         // retorna todos os dados do rca escolhido (this.state.rca)
         const unfilteredData = res?.[this.state.rca]
-        
+
         // retorna os dados filtrados do rca escolhido (revenue, positivation...)
         let filteredData = unfilteredData?.[this.props.url]
 
@@ -53,7 +53,7 @@ export default class Rca extends Component {
         // retorna todos os dados do rca escolhido (this.state.rca)
         const unfilteredData = res?.[this.state.rca]
 
-        if(this.state.rca !== prevState.rca
+        if (this.state.rca !== prevState.rca
             || this.state.year !== prevState.year) {
 
             this.setState({
@@ -62,7 +62,7 @@ export default class Rca extends Component {
         }
     }
 
-   
+
 
     load() {
         this.setState({
@@ -90,14 +90,14 @@ export default class Rca extends Component {
         document.querySelector('.section__rca .circle')
             .style.backgroundImage = `url('http://localhost:3001/rca__perfil/profile_pic__${rca}.jpg')`
 
-            document.querySelector('.section__rca h4')
-                .innerHTML = fullName
+        document.querySelector('.section__rca h4')
+            .innerHTML = fullName
     }
 
     changeYear() {
         const select = document.querySelector('.select__year')
         const year = select.options[select.selectedIndex].value
-        
+
         this.setState({
             year: year
         })
@@ -129,13 +129,16 @@ export default class Rca extends Component {
         )
     }
 
-    
+
 
     render() {
         return (
-            <Main title="Representante Comercial Autônomo" >
-                {this.renderMainSection()}
-            </Main>
+            <>
+                <Header />
+                <Main title="Representante Comercial Autônomo" >
+                    {this.renderMainSection()}
+                </Main>
+            </>
         )
     }
 }

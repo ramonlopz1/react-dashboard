@@ -1,3 +1,4 @@
+
 .main__section.main__login {
     align-items: center;
     display: flex;
@@ -25,4 +26,8 @@
     justify-content: space-evenly;
     height: 350px;
     width: 280px;
+}
+
+.container__auth .container__inputs {
+    height: 80%;
 }

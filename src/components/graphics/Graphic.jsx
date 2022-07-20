@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import utils from './util/utils.js';
 
 import Main from '../templates/main/Main'
-
+import Header from '../templates/header/Header.jsx';
 import LeftResume from './LeftResume';
 import RightResume from './RightResume';
 import GraphColumn from './GraphColumn';
@@ -26,8 +26,8 @@ export default class Graphic extends Component {
     async componentDidMount() {
         const res = await fetch(`http://localhost:3000/${this.props.url}`)
         const data = await res.json()
-        
-        
+
+
 
         this.setState({
             list: data
@@ -44,7 +44,7 @@ export default class Graphic extends Component {
 
         document.querySelector('.buttons__filter .btns__graphic__data:nth-of-type(1)').classList.remove('focus')
 
-        
+
     }
 
     // método para alterar o ano de filtro através do select
@@ -178,16 +178,19 @@ export default class Graphic extends Component {
 
     render() {
         return (
-            <Main title={this.props.title}>
-                <section className='content_children graphic'>
-                    {this.renderLeftResume()}
-                    {this.renderGraphic()}
-                    {this.renderRightResume()}
-                </section>
+            <>
+                <Header />
+                <Main title={this.props.title}>
+                    <section className='content_children graphic'>
+                        {this.renderLeftResume()}
+                        {this.renderGraphic()}
+                        {this.renderRightResume()}
+                    </section>
 
-                {this.renderPainel()}
+                    {this.renderPainel()}
 
-            </Main>
+                </Main>
+            </>
         )
     }
 }

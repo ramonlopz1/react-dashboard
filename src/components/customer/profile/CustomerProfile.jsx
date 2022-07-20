@@ -1,5 +1,7 @@
 import './CustomerProfile.css'
 import React, { useEffect, useState } from 'react'
+
+import Header from '../../templates/header/Header'
 import Main from '../../templates/main/Main'
 
 import ContactInfos from './ContactInfos'
@@ -50,8 +52,11 @@ export default function CustomerProfile(props) {
     }
 
     return (
-        <Main title={customer?.code}>
-            {renderMainSection()}
-        </Main>
+        <>
+            <Header />
+            <Main title={customer?.code}>
+                {renderMainSection()}
+            </Main>
+        </>
     )
 }

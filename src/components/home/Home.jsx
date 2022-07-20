@@ -1,22 +1,25 @@
 import React from 'react';
 import Main from '../templates/main/Main'
+import Header from '../templates/header/Header';
 
 
-export default function Home (props) {
+export default function Home(props) {
 
-    if(props.headerON) {
+    if (props.headerON) {
         document.querySelector('.header.header')
-        .style.display = 'flex'
+            .style.display = 'flex'
     }
 
     return (
-    <Main title="Início">
-        
-    </Main>
+        <>
+            <Header />
+            <Main title="Início">
 
+            </Main>
+        </>
     )
 }
 
-    
+
 
 

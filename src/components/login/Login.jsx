@@ -1,14 +1,16 @@
 import './Login.css'
 import { Link } from 'react-router-dom'
 import Main from '../templates/main/Main'
+import Footer from '../templates/footer/Footer'
+
+
 export default function Login(props) {
 
-    if (!props.HeaderON) {
-        document.querySelector('header.header')
-            .style.display = 'none'
-    }
+
 
     const renderMainSection = () => {
+
+
         return (
             <section className='section__login'>
                 <div className="container__auth">
@@ -24,15 +26,18 @@ export default function Login(props) {
                         </div>
                     </div>
 
-                    <Link to="/auth">Auth</Link>
+                    <Link to="/homne">Auth</Link>
                 </div>
             </section>
         )
     }
 
     return (
-        <Main myclass="main__login">
-            {renderMainSection()}
-        </Main>
+        <>
+            <Main myclass="main__login">
+                {renderMainSection()}
+            </Main>
+            <Footer />
+        </>
     )
 }

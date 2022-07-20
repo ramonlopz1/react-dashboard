@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import './Customer.css'
+
+import Header from '../templates/header/Header'
 import Main from '../templates/main/Main'
+
 import { Link } from 'react-router-dom'
 
 export default class Customer extends Component {
@@ -9,7 +12,7 @@ export default class Customer extends Component {
         customers: ""
     }
 
-    async componentDidMount(){
+    async componentDidMount() {
         let data = await fetch('http://localhost:3000/customers')
         let customers = await data.json()
 
@@ -21,7 +24,7 @@ export default class Customer extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if(this.state.customers !== prevState.customers) {
+        if (this.state.customers !== prevState.customers) {
 
             this.setState({
                 customers: this.state.customers
@@ -39,28 +42,28 @@ export default class Customer extends Component {
             const allCodes = document.querySelectorAll(".tdCode")
             const allRcas = document.querySelectorAll(".tdRca")
 
-            if(input.value.length > 0) {
-                for(let i = 0; i < allNames.length; i++) {
+            if (input.value.length > 0) {
+                for (let i = 0; i < allNames.length; i++) {
                     let name = allNames[i]
                     let code = allCodes[i]
                     let rca = allRcas[i]
-                    
+
                     let nameText = name.textContent
                     let codeText = code.textContent
                     let rcaText = rca.textContent
 
                     let letterInputed = input.value
-                    
+
                     let exp = new RegExp(letterInputed, "i")
 
-                    if(!exp.test(nameText) && !exp.test(codeText) && !exp.test(rcaText)) {
+                    if (!exp.test(nameText) && !exp.test(codeText) && !exp.test(rcaText)) {
                         name.parentNode.style.display = "none"
                     } else {
                         name.parentNode.style.display = "table-row"
                     }
                 }
             } else {
-                for(let i = 0; i < allNames.length; i++) {
+                for (let i = 0; i < allNames.length; i++) {
                     let name = allNames[i]
                     name.parentNode.style.display = "table-row"
                 }
@@ -73,30 +76,30 @@ export default class Customer extends Component {
 
         const customersList = this.state.customers.list
 
-        if(customersList)
+        if (customersList)
 
-        return customersList.map(customer => {
-            const code = customer.code
-            
-            return (
-                <tr key={customer.code}>
-                    <td className='tdCode'>{customer.code}</td>
-                    <td className='tdName'>{customer.name}</td>
-                    <td >{customer.city}</td>
-                    <td className='tdRca'>{customer.rca}</td>
-                    <td>
-                        {/**pass state through router */}
-                        <Link 
-                            state={{customer: customer, type: 'revenue'}} className='btn__consult' 
-                            to={`/customers/profile/${code}/revenue`}
-                            
-                        >
-                            Consultar
-                        </Link>
-                    </td>
-                </tr>
-            )
-        })
+            return customersList.map(customer => {
+                const code = customer.code
+
+                return (
+                    <tr key={customer.code}>
+                        <td className='tdCode'>{customer.code}</td>
+                        <td className='tdName'>{customer.name}</td>
+                        <td >{customer.city}</td>
+                        <td className='tdRca'>{customer.rca}</td>
+                        <td>
+                            {/**pass state through router */}
+                            <Link
+                                state={{ customer: customer, type: 'revenue' }} className='btn__consult'
+                                to={`/customers/profile/${code}/revenue`}
+
+                            >
+                                Consultar
+                            </Link>
+                        </td>
+                    </tr>
+                )
+            })
     }
 
     renderMainSection() {
@@ -166,9 +169,12 @@ export default class Customer extends Component {
 
     render() {
         return (
-            <Main title="Clientes">
-                {this.renderMainSection()}
-            </Main>
+            <>
+                <Header />
+                <Main title="Clientes">
+                    {this.renderMainSection()}
+                </Main>
+            </>
         )
     }
 }
