@@ -69,11 +69,14 @@
 
 .buttons__filter .btns__graphic__data {
     align-items: center;
+    color: white;
+    background-color: var(--cor3);
+    border-radius: 4px;
     display: flex;
     justify-content: center;
-    background-color: var(--cor3);
+    text-decoration: none;
+    padding: 3px 15px;
     width: 12%;
-    padding: 3px 15px
 }
 
 .buttons__filter .btns__graphic__data:focus {
@@ -86,8 +89,9 @@
 
 .buttons__filter .filter__by__year {
     outline: none;
+    background-color: lightblue;
     border: none;
     border-radius: 4px;
-    padding: 3px 0px;
+    padding: 4.5px 0px;
     width: 100px;
 }
