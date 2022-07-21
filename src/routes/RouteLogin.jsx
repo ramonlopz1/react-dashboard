@@ -7,11 +7,11 @@ export default function RouteLogin() {
     return (
         <Routes>
             <Route path="/login" element={
-                <Login headerON={false} />
+                <Login />
             } />
 
             <Route path="/auth" element={
-                <Home headerON={true} />
+                <Home  />
             } />
         </Routes>
     )

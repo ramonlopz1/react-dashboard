@@ -1,10 +1,7 @@
-import 'font-awesome/css/font-awesome.min.css'
-
 import './App.css';
 import React from 'react';
+import 'font-awesome/css/font-awesome.min.css'
 
-
-// permite as rotas
 import { BrowserRouter } from 'react-router-dom'
 import Routes from '../routes/Routes';
 import RouteLogin from '../routes/RouteLogin';

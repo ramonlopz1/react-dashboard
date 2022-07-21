@@ -1,18 +1,17 @@
 import './Login.css'
 import { Link } from 'react-router-dom'
 import Main from '../templates/main/Main'
+import WelcomeContainer from './WelcomeContainer'
 import Footer from '../templates/footer/Footer'
 
 
 export default function Login(props) {
 
-
-
     const renderMainSection = () => {
-
 
         return (
             <section className='section__login'>
+                <WelcomeContainer/>
                 <div className="container__auth">
                     <h1>Credenciais</h1>
                     <div className="container__inputs">
