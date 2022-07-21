@@ -1,9 +1,9 @@
-import './WelcomeContainer.css'
+import styles from './WelcomeContainer.module.css'
 
 export default function WelcomeContainer() {
 
     return (
-        <div className="container_welcome">
+        <div className={styles.container_welcome}>
             <h1>Olá!</h1>
             <p>Seja bem vindo, aqui você tem em mãos uma ferramenta que vai te proporcionar uma melhor análise, tomada de decisão e ciência dos dados da sua empresa.</p>
 
