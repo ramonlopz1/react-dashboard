@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './Customer.css'
+import './CustomerList.css'
 
 import Header from '../templates/header/Header'
 import Main from '../templates/main/Main'
@@ -90,7 +90,8 @@ export default class Customer extends Component {
                         <td>
                             {/**pass state through router */}
                             <Link
-                                state={{ customer: customer, type: 'revenue' }} className='btn__consult'
+                                state={{ customer: customer, type: 'revenue' }} 
+                                className='btn__consult'
                                 to={`/customers/profile/${code}/revenue`}
 
                             >

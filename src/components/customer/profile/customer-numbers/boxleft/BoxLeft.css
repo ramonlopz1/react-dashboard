@@ -17,14 +17,12 @@
 }
 
 .section__customerprofile .container:nth-of-type(1) .top__infos .profilepic {
-    background-image: url('../../../../public/customer__profilepic/male.png');
+    background-image: url('../../../../../../public/customer__profilepic/male.png');
     background-size: cover;
     height: 150px;
     margin-bottom: 20px;
     width: 150px;
 }
-
-
 
 
 .section__customerprofile .container:nth-of-type(1) .spanlabel {
@@ -36,3 +34,4 @@
     color: white;
     font-size: 19px;
 }
+

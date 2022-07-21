@@ -1,0 +1,24 @@
+.rank {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 30%;
+}
+.rank .circle {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border: 7px solid var(--cor2);
+    background-color: none;
+    border-radius: 100px;
+    font-size: 50px;
+    height: 120px;
+    width: 120px;
+}
+
+.rank span {
+    font-size: 35px;
+    font-weight: bolder;
+}

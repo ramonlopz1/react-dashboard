@@ -1,0 +1,37 @@
+
+.section__customerprofile .container:nth-of-type(1) {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    background-color: whitesmoke;
+    height: 100%;
+    width: 22%;
+}
+
+.section__customerprofile .container:nth-of-type(1) .top__infos {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.section__customerprofile .container:nth-of-type(1) .top__infos .profilepic {
+    background-image: url('../../../../../public/customer__profilepic/male.png');
+    background-size: cover;
+    height: 150px;
+    margin-bottom: 20px;
+    width: 150px;
+}
+
+
+.section__customerprofile .container:nth-of-type(1) .spanlabel {
+    font-weight: bold;
+    color: white;
+}
+
+.section__customerprofile .container:nth-of-type(1) .spaninfo {
+    color: white;
+    font-size: 19px;
+}
+

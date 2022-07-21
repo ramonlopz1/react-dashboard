@@ -1,7 +1,7 @@
 import './BoxLeft.css'
-import BarsLoading from './BarsLoading'
-import GreatWorst from './GreatWorst'
-import MiniCards from './MiniCards'
+import BarsLoading from './box-points/BarsLoading'
+import GreatWorst from './box-greatworst/GreatWorst'
+import MiniCards from './box-minicards/MiniCards'
 
 export default function BoxLeft(props) {
     return (

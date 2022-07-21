@@ -1,11 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
 
 import Home from '../components/home/Home';
-import Graphic from '../components/graphics/Graphic';
 import Rca from '../components/rca/Rca';
-import Customer from '../components/customer/Customer';
+import Customer from '../components/customer/CustomerList';
 import CustomerProfile from '../components/customer/profile/CustomerProfile';
-import TabContainer from '../components/customer/profile/TabContainer';
+import TabContainer from '../components/customer/profile/customer-numbers/boxright/tab-graphics/TabContainer';
+import Graphic from '../components/graphics/Graphic';
 import Login from '../components/login/Login';
 
 // eslint-disable-next-line import/no-anonymous-default-export

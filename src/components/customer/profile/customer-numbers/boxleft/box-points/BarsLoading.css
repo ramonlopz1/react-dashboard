@@ -52,7 +52,7 @@
 .box.left .box__infos:nth-of-type(1) .data__resume .points .box .point .bar__loading {
     background-color: red;
     height: 20px;
-    width: 120px;
+    width: 100px;
 }
 
 .box.left .box__infos:nth-of-type(1) .data__resume .points .box .point .bar__loading .loading {

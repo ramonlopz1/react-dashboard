@@ -7,7 +7,6 @@ export default function TabContainer(props) {
 
     const location = useLocation()
     const [state, setState] = useState([])
-    
 
     useEffect(() => {
         const customer = location.state?.customer

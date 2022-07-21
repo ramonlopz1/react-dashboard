@@ -149,13 +149,18 @@ td:nth-of-type(5) {
     width: 10%;
 }
 
-table .btn__consult {
+table a.btn__consult {
+    color: black;
+    background-color: white;
+    border-radius: 4px;
     font-size: 14px;
+    text-decoration: none;
     padding: 0px 5px;
 }
 
 table .btn__consult:hover {
-    background-color: var(--cor3);
+    transition: .5s;
+    background-color: rgb(164, 164, 164);
 }
 
 table tr {
