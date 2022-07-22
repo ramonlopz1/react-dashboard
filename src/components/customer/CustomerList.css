@@ -27,11 +27,11 @@
 
 .section__customer .container:nth-of-type(1) .boxes {
     align-items: center;
-    background-color: var(--cor2);
+    background-color: white;
     border-radius: 5px;
     box-sizing: border-box;
     display: flex;
-    color: white;
+    color: black;
     justify-content: space-between;
     padding: 20px;
     height: 110px;
@@ -65,7 +65,7 @@
 
 .section__customer .container:nth-of-type(2) .search {
     align-items: center;
-    background-color: var(--cor2);
+    background-color: white;
     box-sizing: border-box;
     border-radius: 5px;
     display: flex;
@@ -90,6 +90,9 @@
 .section__customer .container:nth-of-type(2) .search .input__search {
     height: 25px;
     border: none;
+    background-color: var(--cor1);
+    color: white;
+    height: 27px;
     border-radius: 0px 5px 5px 0px;
     outline: none;
     text-indent: 6px;
@@ -98,29 +101,29 @@
 
 
 .wrap__table {
-    background-color: red;
     height: 84vh;
     border-radius: 5px;
     width: 100%;
+    background-color: white;
     overflow: auto;
 }
 
 table {
     border-collapse: separate;
     border-spacing: 0 1em;
-    background-color: var(--cor2);
-    height: 100%;
+    color: var(--cor5);
+    background-color: white;
     width: 100%;
 
 }
 
 table tbody {
-    color: white;
+    color: var(--cor5);;
     overflow: scroll;
 }
 
 table thead {
-    color: white;
+    color: var(--cor5);;
 }
 
 table thead tr th {
@@ -150,12 +153,9 @@ td:nth-of-type(5) {
 }
 
 table a.btn__consult {
-    color: black;
-    background-color: white;
-    border-radius: 4px;
-    font-size: 14px;
+    color: var(--cor2);
+    font-size: 23px;
     text-decoration: none;
-    padding: 0px 5px;
 }
 
 table .btn__consult:hover {
@@ -164,7 +164,7 @@ table .btn__consult:hover {
 }
 
 table tr {
-    border: 1px solid white;
+    border: 1px solid var(--cor5);;
     font-size: 13px;
     margin: 5px;
 }

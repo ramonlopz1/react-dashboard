@@ -99,7 +99,7 @@ export default class Customer extends Component {
                                 to={`/customers/profile/${code}/revenue`}
 
                             >
-                                Consultar
+                                <i className='fa fa-address-book'></i>
                             </Link>
                         </td>
                     </tr>
