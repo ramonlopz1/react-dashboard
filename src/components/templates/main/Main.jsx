@@ -5,7 +5,6 @@ const Main = props =>
     <main className={
         props.myclass ? `main__section ${props.myclass}` : `main__section`
     }>
-        <h1>{props.title}</h1>
         {props.children}
     </main>
 

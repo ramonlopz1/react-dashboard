@@ -3,18 +3,17 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 95%;
+    height: 100%;
     width: 100%;
     padding: 10px;
 }
 
 .section__customer .container {
     align-items: center;
-    box-shadow: 0px 0px 15px 4px #00000040;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     height: 100%;
 }
 
@@ -33,15 +32,15 @@
     box-sizing: border-box;
     display: flex;
     color: white;
-    justify-content: space-evenly;
+    justify-content: space-between;
     padding: 20px;
-    height: 130px;
+    height: 110px;
     width: 90%;
 
 }
 
 .section__customer .container:nth-of-type(1) i {
-    font-size: 60px;
+    font-size: 50px;
 }
 
 .section__customer .container:nth-of-type(1) .customer__info {
@@ -54,16 +53,15 @@
 }
 
 .section__customer .container:nth-of-type(1) .customer__info h4 {
-    font-size: 16px;
+    font-size: 15px;
     margin: 0px;
 }
 
 .section__customer .container:nth-of-type(1) .customer__info .quantity {
 
-    font-size: 25px;
+    font-size: 21px;
 }
 
-.section__customer .container:nth-of-type(2) {}
 
 .section__customer .container:nth-of-type(2) .search {
     align-items: center;
@@ -73,7 +71,7 @@
     display: flex;
     justify-content: center;
     height: 50px;
-    width: 97%;
+    width: 100%;
 }
 
 .section__customer .container:nth-of-type(2) .search label {
@@ -100,9 +98,9 @@
 
 
 .wrap__table {
-    height: 520px;
+    height: 460px;
     border-radius: 5px;
-    width: 97%;
+    width: 100%;
     overflow: auto;
 }
 
