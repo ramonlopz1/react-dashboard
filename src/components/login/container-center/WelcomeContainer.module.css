@@ -1,20 +1,28 @@
 .container_welcome {
-    background: linear-gradient(177deg, rgba(14, 0, 255, 1) 0%, rgb(6, 122, 255) 100%);
     border-radius: 5px 0px 0px 5px;
     box-sizing: border-box;
-    color: white;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    height: 380px;
+    justify-content: center;
+    height: 100%;
     padding: 7px 10px;
-    width: 380px;
+    width: 520px;
 }
 
-.container_welcome p {
+h1 {
+    margin: 0px;
+}
+
+p {
     margin: 5px 0px;
 }
 
-.container_welcome ul {
+ul {
     align-self: left;
+}
+
+.img_welcome {
+    align-self: center;
+    height: 220px;
+    width: 220px;
 }
