@@ -16,7 +16,7 @@ export default function WelcomeContainer() {
                 <li>Produtos</li>
             </ul>
 
-            <span>Em breve novas funcionalidades estarão disponíveis.</span>
+            <p>Em breve novas funcionalidades estarão disponíveis.</p>
             
         </div>
     )
