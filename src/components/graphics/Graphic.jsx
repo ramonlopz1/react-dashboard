@@ -24,14 +24,16 @@ export default class Graphic extends Component {
     }
 
     async componentDidMount() {
-        const res = await fetch(`http://localhost:3000/${this.props.url}`)
-        const data = await res.json()
+        try {
+            const res = await fetch(`http://localhost:3000/${this.props.url}`)
+            const data = await res.json()
 
-
-
-        this.setState({
-            list: data
-        })
+            this.setState({
+                list: data
+            })
+        } catch(e) {
+            console.log("Erro encontrado: " + e)
+        }
     }
 
     async load(url) {
@@ -43,8 +45,6 @@ export default class Graphic extends Component {
         })
 
         document.querySelector('.buttons__filter .btns__graphic__data:nth-of-type(1)').classList.remove('focus')
-
-
     }
 
     // método para alterar o ano de filtro através do select

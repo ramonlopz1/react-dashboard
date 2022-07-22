@@ -13,12 +13,16 @@ export default class Customer extends Component {
     }
 
     async componentDidMount() {
-        let data = await fetch('http://localhost:3000/customers')
-        let customers = await data.json()
+        try {
+            let data = await fetch('http://localhost:3000/customers')
+            let customers = await data.json()
 
-        this.setState({
-            customers: customers
-        })
+            this.setState({
+                customers: customers
+            })
+        } catch(e) {
+            console.log("Erro encontrado: " + e)
+        }
 
         this.filterCustomer()
     }
@@ -90,7 +94,7 @@ export default class Customer extends Component {
                         <td>
                             {/**pass state through router */}
                             <Link
-                                state={{ customer: customer, type: 'revenue' }} 
+                                state={{ customer: customer, type: 'revenue' }}
                                 className='btn__consult'
                                 to={`/customers/profile/${code}/revenue`}
 
