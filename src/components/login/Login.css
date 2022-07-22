@@ -1,5 +1,6 @@
 .main__section.main__login {
     align-items: center;
+    border-radius: 6px;
     display: flex;
     justify-content: center;
     padding: 0px;
