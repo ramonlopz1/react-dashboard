@@ -98,7 +98,8 @@
 
 
 .wrap__table {
-    height: 460px;
+    background-color: red;
+    height: 84vh;
     border-radius: 5px;
     width: 100%;
     overflow: auto;
@@ -108,6 +109,7 @@ table {
     border-collapse: separate;
     border-spacing: 0 1em;
     background-color: var(--cor2);
+    height: 100%;
     width: 100%;
 
 }
