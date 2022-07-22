@@ -1,3 +1,7 @@
+.main__section.main__analytics {
+    flex-direction: column;
+    justify-content: center;
+}
 
 .content_children.graphic {
     display: grid;
@@ -5,8 +9,9 @@
     border: 1px solid var(--cor2);
     background-color: white;
     border-radius: 7px;
-    grid-template-columns: 280px 1fr 280px;
-    grid-template-rows: 240px 1fr;
+    grid-template-columns: 330px 1fr 330px;
+    grid-template-rows: 300px 1fr;
+    width: 100%;
     grid-template-areas: "aside__content__left graphic__section aside__content__right";
 }
 

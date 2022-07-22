@@ -6,7 +6,7 @@ export default function Nav(props) {
     return (
         <nav className='nav'>
 
-                <Link className='link' to="/home">
+                <Link className='link' to="/">
                     Início
                 </Link>
                 <Link to="/rca/revenue" className='link'>

@@ -180,7 +180,7 @@ export default class Graphic extends Component {
         return (
             <>
                 <Header />
-                <Main title={this.props.title}>
+                <Main myclass="main__analytics">
                     <section className='content_children graphic'>
                         {this.renderLeftResume()}
                         {this.renderGraphic()}
