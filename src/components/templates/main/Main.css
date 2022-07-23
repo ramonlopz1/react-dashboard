@@ -4,7 +4,8 @@
     justify-content: space-evenly;
     width: 100%;
     box-sizing: border-box;
-    padding: 10px 15px;background-image: repeating-radial-gradient(circle at 0 0, #123357 0, #12335738 795px), repeating-linear-gradient(var(--cor0), var(--cor2));
+    padding: 10px 15px;
+    background-image: repeating-radial-gradient(circle at 0 0, #123357 0, #12335738 795px), repeating-linear-gradient(var(--cor0), var(--cor2));
 }
 
 h1 {

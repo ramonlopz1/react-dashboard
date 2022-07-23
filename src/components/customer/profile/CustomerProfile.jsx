@@ -11,7 +11,6 @@ import CustomerNumbers from './customer-numbers/CustomerNumbers'
 import { useLocation } from 'react-router-dom'
 
 export default function CustomerProfile(props) {
-
     const location = useLocation()
     const [customer, setCustomer] = useState([]);
 
@@ -22,10 +21,8 @@ export default function CustomerProfile(props) {
     const renderMainSection = () => {
         return (
             <section className='section__customerprofile'>
-                <CustomerAbout customer={customer}/>
-
+                <CustomerAbout/>
                 <CustomerNumbers childs={props.children} customer={customer} />
-            
             </section>
         )
     }
@@ -33,7 +30,7 @@ export default function CustomerProfile(props) {
     return (
         <>
             <Header />
-            <Main title={customer?.code}>
+            <Main myclass="main__customerprofile">
                 {renderMainSection()}
             </Main>
         </>
