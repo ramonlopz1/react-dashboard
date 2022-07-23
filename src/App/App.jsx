@@ -8,6 +8,7 @@ import RouteLogin from '../routes/RouteLogin';
 import RouteCustomer from '../routes/RouteCustomer';
 import RouteRCA from '../routes/RouteRCA';
 import RouteAnalytics from '../routes/RouteAnalytics';
+import RouteProduct from '../routes/RouteProduct';
 
 const App = props =>
     <BrowserRouter>
@@ -17,6 +18,7 @@ const App = props =>
             <RouteCustomer/>
             <RouteRCA/>
             <RouteAnalytics/>
+            <RouteProduct/>
         </div>
     </BrowserRouter>
 

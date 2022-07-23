@@ -1,0 +1,17 @@
+.section__product {
+    display: grid;
+    grid-template-columns: 2fr;
+    grid-template-rows: 2fr;
+    grid-template-areas: 
+    "box box"
+    "box box";
+    background-color: white;
+    height: 95%;
+    width: 100%;
+}
+
+.box {
+    background-color: red;
+    height: 400px;
+    width: 400px;
+}

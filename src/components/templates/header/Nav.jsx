@@ -15,7 +15,7 @@ export default function Nav(props) {
                 <Link to="/customers" className='link'>
                     Clientes
                 </Link>
-                <Link to="/" className='link'>
+                <Link to="/product" className='link'>
                     Produtos
                 </Link>
                 <Link to="/revenue" className='link'>

@@ -1,14 +1,12 @@
-import React from 'react';
-import styles from './Home.module.css'
+import styles from './Product.module.css'
 import Main from '../templates/main/Main'
-import Header from '../templates/header/Header';
+import Header from '../templates/header/Header'
 
-
-export default function Home(props) {
+export default function Product() {
 
     const renderMainSection = () => {
         return (
-            <section className={styles.section__home}>
+            <section className={styles.section__product}>
                 <div className={styles.box}></div>
                 <div className={styles.box}></div>
                 <div className={styles.box}></div>
@@ -20,13 +18,9 @@ export default function Home(props) {
     return (
         <>
             <Header />
-            <Main myclass="main__home">
+            <Main myclass="main__product">
                 {renderMainSection()}
             </Main>
         </>
     )
 }
-
-
-
-
