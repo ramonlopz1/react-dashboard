@@ -1,4 +1,5 @@
 import './BoxLeft.css'
+import Rank from './box-points/Rank'
 import BarsLoading from './box-points/BarsLoading'
 import GreatWorst from './box-greatworst/GreatWorst'
 import MiniCards from './box-minicards/MiniCards'
@@ -13,13 +14,14 @@ export default function BoxLeft(props) {
         const list = customerDatas?.[type]
         const updatedList = await utils.getUpdateList(list, 2021)
         
-        let tot
         const sumAll = updatedList.reduce((last, current) => {
             last+= current
             return last
         })
 
-        console.log(sumAll)
+        if (sumAll) console.log(sumAll)
+
+        console.log("awaiting...")
         
     }
 
@@ -28,12 +30,7 @@ export default function BoxLeft(props) {
     return (
         <div className="box left">
                             <div className="box__infos">
-                                <div className="rank">
-                                    <div className="circle">
-                                        38
-                                    </div>
-                                    <span>Rank</span>
-                                </div>
+                               <Rank/>
                                 <div className="data__resume">
                                     <h2>Pontuação</h2>
                                     <div className="points">

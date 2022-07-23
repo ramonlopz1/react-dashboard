@@ -64,32 +64,6 @@
 }
 
 
-.box.left .box__infos:nth-of-type(1) .rank {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    height: 100%;
-    width: 30%;
-}
-
-.box.left .box__infos:nth-of-type(1) .rank .circle {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    border: 7px solid var(--cor2);
-    background-color: none;
-    border-radius: 100px;
-    font-size: 50px;
-    height: 120px;
-    width: 120px;
-}
-
-.box.left .box__infos:nth-of-type(1) .rank span {
-    font-size: 35px;
-    font-weight: bolder;
-}
-
 .section__customerprofile .container:nth-of-type(2) .boxes .box.left .box__infos:nth-of-type(2) {
     align-items: center;
     display: flex;
