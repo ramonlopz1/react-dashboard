@@ -3,7 +3,6 @@ import styles from './Home.module.css'
 import Main from '../templates/main/Main'
 import Header from '../templates/header/Header';
 
-
 export default function Home(props) {
 
     const renderMainSection = () => {
