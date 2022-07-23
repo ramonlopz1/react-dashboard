@@ -1,6 +1,9 @@
 import './BarsLoading.css'
 
 export default function BarsLoading(props) {
+
+    
+
     return (
         <div className="box">
             <div className="icons">

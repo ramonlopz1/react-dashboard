@@ -2,8 +2,29 @@ import './BoxLeft.css'
 import BarsLoading from './box-points/BarsLoading'
 import GreatWorst from './box-greatworst/GreatWorst'
 import MiniCards from './box-minicards/MiniCards'
+import utils from '../../../../graphics/util/utils'
 
 export default function BoxLeft(props) {
+
+    const customerDatas = props.customer.datas
+
+
+    const getPoints = async (type) => {
+        const list = customerDatas?.[type]
+        const updatedList = await utils.getUpdateList(list, 2021)
+        
+        let tot
+        const sumAll = updatedList.reduce((last, current) => {
+            last+= current
+            return last
+        })
+
+        console.log(sumAll)
+        
+    }
+
+    getPoints('mix')
+
     return (
         <div className="box left">
                             <div className="box__infos">

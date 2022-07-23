@@ -8,7 +8,7 @@ export default function CustomerNumbers(props) {
     return (
         <div className="container">
             <div className="boxes">
-                <BoxLeft />
+                <BoxLeft customer={props.customer}/>
                 <BoxRight childs={props.childs} customer={props.customer} />
             </div>
         </div>
