@@ -1,0 +1,19 @@
+.wrap {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}
+
+.aside__right {
+    background-color: white;
+    height: 100%;
+    width: 70%;
+}
+
+.aside__left {
+    background-color: white;
+    height: 100%;
+    width: 28%;
+}

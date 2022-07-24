@@ -1,0 +1,29 @@
+.wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}
+
+.miniboxes, .bigbox {
+    height: 100%;
+    width: 49%;
+}
+
+.miniboxes {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.mbox {
+    background-color: white;
+    height: 30%;
+    width: 100%;
+}
+
+.bigbox {
+    background-color: white;
+}

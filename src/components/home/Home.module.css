@@ -5,7 +5,6 @@
     grid-template-areas: 
     "box box"
     "box box";
-
     height: 95%;
     width: 100%;
 }
@@ -18,4 +17,11 @@
     background-color: white;
     height: 95%;
     width: 98%;
+}
+
+/*retirar dps*/
+
+.box:nth-of-type(2), .box:nth-of-type(1) {
+    background-color: transparent;
+    box-shadow: none;
 }
