@@ -20,10 +20,12 @@
 
 .mbox {
     background-color: white;
+    border-radius: 4px;
     height: 30%;
     width: 100%;
 }
 
 .bigbox {
+    border-radius: 4px;
     background-color: white;
 }

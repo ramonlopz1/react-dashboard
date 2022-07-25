@@ -1,0 +1,49 @@
+
+.box {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    width: 100%;
+}
+
+.info {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+.label {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 4px 0px 0px 4px;
+    border: 1px solid var(--cor2);
+    background-color: var(--cor2);
+    height: 100%;
+    width: 120px;
+    color: white;
+}
+
+.data {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border: 1px solid var(--cor2);
+    width: 180px;
+    height: 100%;
+}
+
+.percent {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border: 1px solid var(--cor2);
+    border-radius: 0px 4px 4px 0px;
+    background-color: var(--cor2);
+    font-weight: bold;
+    color: white;
+    width: 80px;
+    height: 100%;
+}

@@ -33,6 +33,7 @@
 
 .container__infos .infos__data {
     background-color: rgba(255, 255, 255, 0.376);
+    font-size: 14px;
     border-radius: 0px 4px 4px 0px;
     color: white;
     width: 160px;

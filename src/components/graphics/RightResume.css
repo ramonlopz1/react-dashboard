@@ -16,17 +16,21 @@
 }
 
 .aside__content.right .container__infos {
+    align-items: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     background-color: var(--cor1);
     border-radius: 5px;
     box-sizing: border-box;
     color: white;
-    height: 90px;
-    padding: 10px;
+    height: 110px;
+    padding-left: 10px;
     width: 90%;
 }
 
 .info__data {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: bold;
 }
 

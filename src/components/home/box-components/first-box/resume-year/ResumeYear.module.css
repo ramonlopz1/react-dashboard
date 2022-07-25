@@ -1,0 +1,9 @@
+.resumes {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 85%;
+    width: 100%;
+    box-sizing: border-box;
+}
