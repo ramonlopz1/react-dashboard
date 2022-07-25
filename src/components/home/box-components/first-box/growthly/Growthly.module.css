@@ -1,0 +1,13 @@
+.growthly {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+}
+
+.circle {
+    height: 200px;
+    width: 200px;
+}
