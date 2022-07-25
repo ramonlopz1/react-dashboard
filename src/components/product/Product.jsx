@@ -4,6 +4,7 @@ import Header from '../templates/header/Header'
 
 export default function Product() {
 
+
     const renderMainSection = () => {
         return (
             <section className={styles.section__product}>

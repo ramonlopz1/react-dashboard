@@ -8,6 +8,15 @@
 }
 
 .circle {
-    height: 200px;
-    width: 200px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
+    border: 20px solid var(--cor4)
+}
+
+.percent {
+    font-size: 35px;
 }
