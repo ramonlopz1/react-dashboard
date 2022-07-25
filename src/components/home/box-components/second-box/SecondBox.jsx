@@ -1,6 +1,8 @@
 import styles from './SecondBox.module.css'
 import MBox from './top3/MBox'
 
+import Rank from './rank-rca/Rank'
+
 export default function SecondBox() {
     return (
         <div className={styles.wrap}>
@@ -19,7 +21,7 @@ export default function SecondBox() {
                     data="93"/>
             </div>
             <div className={styles.bigbox}>
-                abc
+                <Rank/>
             </div>
         </div>
     )
