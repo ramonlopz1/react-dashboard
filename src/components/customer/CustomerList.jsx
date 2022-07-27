@@ -97,7 +97,6 @@ export default class Customer extends Component {
                                 state={{ customer: customer, type: 'revenue' }}
                                 className='btn__consult'
                                 to={`/customers/profile/${code}/revenue`}
-
                             >
                                 <i className='fa fa-address-book'></i>
                             </Link>
