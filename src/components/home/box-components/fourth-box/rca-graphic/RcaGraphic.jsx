@@ -13,7 +13,7 @@ export default function RcaGraphic(props) {
 
     useEffect(() => {
         const getData = async () => {
-            const data = await fetch('http://localhost:3000/revenue')
+            const data = await fetch('http://localhost:3000/positivation')
             const datajson = await data.json()
 
             const currYear = utils.getUpdateList(datajson, 2021)
@@ -26,7 +26,7 @@ export default function RcaGraphic(props) {
         getData()
     }, [])
 
-   const months = [
+    const months = [
         'Jan', 'Fev', 'Mar', 'Abr', 'Mai',
         'Jun', 'Jul', 'Ago', 'Set', 'Out',
         'Nov', 'Dez'
@@ -37,15 +37,17 @@ export default function RcaGraphic(props) {
         datasets: [{
             label: 'Ano atual',
             data: [...currentYear],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.5)',
-                'rgba(53, 162, 235, 0.5)'
-            ],
+            backgroundColor: 'rgba(255, 99, 132, 0.5)'
+
+        }, {
+            label: 'Ano passado',
+            data: [...previousYear],
+            backgroundColor: 'rgba(53, 162, 235, 0.5)',
         }]
     }
 
     return (
-        
+
         <div className={styles.rca_graphic}>
             <Bar
                 data={data}

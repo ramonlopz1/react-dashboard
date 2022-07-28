@@ -4,7 +4,7 @@ import RcaGraphic from './rca-graphic/RcaGraphic'
 export default function FourthBox(props) {
     return(
         <div className={styles.wrap}>
-            <h3>Comparativo de RCA's</h3>
+            <h3>Comparativo de Positivações</h3>
             <RcaGraphic/>
         </div>
     )
