@@ -5,6 +5,7 @@ import Header from '../templates/header/Header';
 import FirstBox from './box-components/first-box/FirstBox';
 import SecondBox from './box-components/second-box/SecondBox';
 import ThirdBox from './box-components/third-box/ThirdBox';
+import FourthBox from './box-components/fourth-box/FourthBox';
 
 export default function Home(props) {
 
@@ -20,7 +21,9 @@ export default function Home(props) {
                 <div className={styles.box}>
                     <ThirdBox/>
                 </div>
-                <div className={styles.box}></div>
+                <div className={styles.box}>
+                    <FourthBox/>
+                </div>
             </section>
         )
     }
