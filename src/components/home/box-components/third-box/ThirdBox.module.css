@@ -1,8 +1,16 @@
 .wrap {
     align-items: center;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100%;
+    padding: 0px 10px;
+    width: 100%;
+}
+
+/*div do chart*/
+.wrap div {
+    height: 180px;
     width: 100%;
 }
