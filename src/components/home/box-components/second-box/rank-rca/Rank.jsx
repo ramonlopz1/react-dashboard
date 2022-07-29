@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 export default function Rank(props) {
 
     const [state, setState] = useState([])
+    const [winColor, setWinColor] = useState({})
 
     useEffect(() => {
         fetch('http://localhost:3000/rca')
@@ -12,35 +13,40 @@ export default function Rank(props) {
                 const ranks = rankUtils.bestNumbers(data)
                 setState(ranks)
             })
+            colors()
     }, [])
 
-
-
-
+    
+    // o colors n está sendo chamado imediatamente
+    // logo, as cores n estao sendo setas
+    // e quando são, estão preenchendo todas Wins.
+    const colors = () => {
+        // filtra apenas os nomes do rankRevenue
+        const rcaRank = Object.keys(state[0] || {})
+        const winsByRcas = state[1]
+        
+        rcaRank.forEach(rcaRank => {
+            winsByRcas.forEach((rca, idx) => {
+                if (rcaRank === rca) {
+                    
+                    setWinColor({
+                        color: "green"
+                    })
+                } else {
+                    console.log(rca)
+                    setWinColor({
+                        color: "red"
+                    })
+                }
+            })
+        })
+    }
+    
 
 
     const renderRow = () => {
         // filtra apenas os nomes do rankRevenue
         const rcaRank = Object.keys(state[0] || {})
-        const winsByRcas = state[1]
-        let winColor;
-
-        rcaRank.forEach(rcaRank => {
-            winsByRcas.forEach((rca, idx) => {
-                if (rcaRank === rca) {
-                    console.log(rcaRank, rca)
-                    winColor = {
-                        color: "green"
-                    }
-                } else {
-                    winColor = {
-                        color: "red"
-                    }
-                }
-            })
-        })
-
-
 
         return rcaRank.map((rca, idx) => {
             return (
