@@ -22,12 +22,16 @@ const bestNumbers = (data) => {
     const rankPositivation = orderByDesc(totalPositivation)
     const rankMix = orderByDesc(totalMix)
 
-    console.log(rankRevenue)
-    console.log("\n")
-    console.log(rankPositivation)
-    console.log("\n")
-    console.log(rankMix)
+    const winRevenue = getFirstPos(rankRevenue)
+    const winPositivation = getFirstPos(rankPositivation)
+    const winMix = getFirstPos(rankMix)
+
+    const arrayWins = [winRevenue, winPositivation, winMix]
+
+    return [rankRevenue, arrayWins]
+
 }
+
 
 const createRank = (rca, typeRank) => {
     const name = rca[0]
@@ -48,6 +52,7 @@ const orderByDesc = (value) => {
     return sortable
 }
 
+const getFirstPos = (obj) => Object.keys(obj)[0]
 
 const rankUtils = {
     bestNumbers

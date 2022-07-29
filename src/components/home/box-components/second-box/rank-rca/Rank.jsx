@@ -8,10 +8,56 @@ export default function Rank(props) {
 
     useEffect(() => {
         fetch('http://localhost:3000/rca')
-            .then(data => data.json()).then(data => rankUtils.bestNumbers(data))
-
+            .then(data => data.json()).then(data => {
+                const ranks = rankUtils.bestNumbers(data)
+                setState(ranks)
+            })
     }, [])
 
+
+
+
+
+
+    const renderRow = () => {
+        // filtra apenas os nomes do rankRevenue
+        const rcaRank = Object.keys(state[0] || {})
+        const winsByRcas = state[1]
+        let winColor;
+
+        rcaRank.forEach(rcaRank => {
+            winsByRcas.forEach((rca, idx) => {
+                if (rcaRank === rca) {
+                    console.log(rcaRank, rca)
+                    winColor = {
+                        color: "green"
+                    }
+                } else {
+                    winColor = {
+                        color: "red"
+                    }
+                }
+            })
+        })
+
+
+
+        return rcaRank.map((rca, idx) => {
+            return (
+                <tr key={idx}>
+                    <td>{idx}</td>
+                    <td>{rca}</td>
+                    <td className={styles.wins}>
+                        <span style={{ ...winColor }} className={styles.win} >F</span>
+                        <span style={{ ...winColor }} className={styles.win}>P</span>
+                        <span style={{ ...winColor }} className={styles.win}>M</span>
+                    </td>
+                </tr>
+            )
+        })
+
+
+    }
 
     return (
         <div className={styles.wrap__table}>
@@ -24,24 +70,8 @@ export default function Rank(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Dina</td>
-                        <td className={styles.wins}>
-                            <span>F</span>
-                            <span>M</span>
-                            <span>P</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Daniel</td>
-                        <td className={styles.wins}>
-                            <span>F</span>
-                            <span>M</span>
-                            <span>P</span>
-                        </td>
-                    </tr>
+                    {renderRow()}
+
                 </tbody>
             </table>
         </div>
