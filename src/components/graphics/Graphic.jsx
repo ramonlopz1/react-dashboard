@@ -136,7 +136,7 @@ export default class Graphic extends Component {
 
     renderLeftResume() {
         const [list, year] = [this.state.list, this.state.year]
-        const formatTotal = utils.formatNumbers(utils.calcYearRevenue(list, year));
+        const formatTotal = utils.formatNumbers(utils.calcYearTotal(list, year));
         const formatGreater = utils.formatNumbers(utils.calcGreaterMonthly(list, year));
         const formatWorst = utils.formatNumbers(utils.calcWorstMonthly(list, year));
 
@@ -158,7 +158,7 @@ export default class Graphic extends Component {
         if (MonthlyAverage) {
 
             // calcula a média de faturamento mensal e formata dezenas, centenas e milhares
-            monthlyRevenueAverage = utils.formatNumbers((utils.calcYearRevenue(list, year) / 12))
+            monthlyRevenueAverage = utils.formatNumbers((utils.calcYearTotal(list, year) / 12))
 
             // finalmente define a taxa média de crescimento
             taxAvarege = (utils.calcYearGrowthly(list, year) / 12).toFixed(2)

@@ -64,7 +64,7 @@ export default class AsideLeft extends Component {
 
 
         // valor inicial (total do ano inteiro)
-        const totalYear = utils.calcYearRevenue(filtered, this.props.year)
+        const totalYear = utils.calcYearTotal(filtered, this.props.year)
 
 
         return totalYear / 12

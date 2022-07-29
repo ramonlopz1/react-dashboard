@@ -31,7 +31,7 @@ const getUpdateList = (list, year) => {
 
 
 // calcula o faturamento total anual
-const calcYearRevenue = (list, year) => {
+const calcYearTotal = (list, year) => {
     if (!list) return
 
     // array com faturamento mensal, que servirá de base para comparar os valores
@@ -116,7 +116,7 @@ const calcWorstMonthly = (list, year) => {
 const utils = {
     formatNumbers,
     getUpdateList,
-    calcYearRevenue,
+    calcYearTotal,
     calcYearGrowthly,
     calcGreaterMonthly,
     calcWorstMonthly

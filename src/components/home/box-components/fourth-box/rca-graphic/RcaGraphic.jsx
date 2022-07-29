@@ -37,12 +37,12 @@ export default function RcaGraphic(props) {
         datasets: [{
             label: 'Ano atual',
             data: [...currentYear],
-            backgroundColor: 'rgba(255, 99, 132, 0.5)'
+            backgroundColor: 'rgba(255, 99, 132, 0.8)'
 
         }, {
             label: 'Ano passado',
             data: [...previousYear],
-            backgroundColor: 'rgba(53, 162, 235, 0.5)',
+            backgroundColor: 'rgba(53, 162, 235, 0.8)',
         }]
     }
 

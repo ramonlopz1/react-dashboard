@@ -70,7 +70,7 @@ export default class AsideRight extends Component {
 
 
         // valor inicial (total do ano inteiro)
-        const totalYear = utils.calcYearRevenue(filtered, this.props.year)
+        const totalYear = utils.calcYearTotal(filtered, this.props.year)
 
         if (filterByMonth) return filterByMonth
 
