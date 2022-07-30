@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react'
 export default function Rank(props) {
 
     const [state, setState] = useState([])
-    const [winColor, setWinColor] = useState({})
 
     useEffect(() => {
         fetch('http://localhost:3000/rca')
@@ -13,40 +12,38 @@ export default function Rank(props) {
                 const ranks = rankUtils.bestNumbers(data)
                 setState(ranks)
             })
-            colors()
     }, [])
 
-    
-    // o colors n está sendo chamado imediatamente
-    // logo, as cores n estao sendo setas
-    // e quando são, estão preenchendo todas Wins.
-    const colors = () => {
+   
+    function getColors() {
         // filtra apenas os nomes do rankRevenue
         const rcaRank = Object.keys(state[0] || {})
         const winsByRcas = state[1]
-        
+    
+        let colors = [];
+
         rcaRank.forEach(rcaRank => {
+            
             winsByRcas.forEach((rca, idx) => {
                 if (rcaRank === rca) {
-                    
-                    setWinColor({
-                        color: "green"
-                    })
+                    colors.push("green")
                 } else {
-                    console.log(rca)
-                    setWinColor({
-                        color: "red"
-                    })
+                    colors.push("red")
                 }
             })
         })
-    }
-    
 
+        // ['green', 'green', 'red', 'red', 'red', 'green']
+        return colors
+    }
 
     const renderRow = () => {
         // filtra apenas os nomes do rankRevenue
         const rcaRank = Object.keys(state[0] || {})
+        let colors = getColors()
+        // ta aqui o erro. o getColors ta vindo undefined
+
+        console.log(colors)
 
         return rcaRank.map((rca, idx) => {
             return (
@@ -54,15 +51,13 @@ export default function Rank(props) {
                     <td>{idx}</td>
                     <td>{rca}</td>
                     <td className={styles.wins}>
-                        <span style={{ ...winColor }} className={styles.win} >F</span>
-                        <span style={{ ...winColor }} className={styles.win}>P</span>
-                        <span style={{ ...winColor }} className={styles.win}>M</span>
+                        <span style={{ color: getColors()[0] }} className={styles.win} >F</span>
+                        <span style={{ color: getColors()[1] }} className={styles.win}>P</span>
+                        <span style={{ color: getColors()[2] }} className={styles.win}>M</span>
                     </td>
                 </tr>
             )
         })
-
-
     }
 
     return (
@@ -77,7 +72,6 @@ export default function Rank(props) {
                 </thead>
                 <tbody>
                     {renderRow()}
-
                 </tbody>
             </table>
         </div>

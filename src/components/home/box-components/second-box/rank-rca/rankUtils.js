@@ -32,7 +32,6 @@ const bestNumbers = (data) => {
 
 }
 
-
 const createRank = (rca, typeRank) => {
     const name = rca[0]
     const list = rca[1]?.[typeRank]
