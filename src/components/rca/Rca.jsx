@@ -52,12 +52,14 @@ export default class Rca extends Component {
 
         // retorna todos os dados do rca escolhido (this.state.rca)
         const unfilteredData = res?.[this.state.rca]
+        let filteredData = unfilteredData?.[this.props.url]
 
         if (this.state.rca !== prevState.rca
             || this.state.year !== prevState.year) {
 
             this.setState({
-                unfilteredData: unfilteredData
+                unfilteredData: unfilteredData,
+                filteredData: filteredData
             })
         }
     }
@@ -96,7 +98,7 @@ export default class Rca extends Component {
 
     changeYear() {
         const select = document.querySelector('.select__year')
-        const year = select.options[select.selectedIndex].value
+        const year = select.options[select.selectedIndex].value || select.options[0].value
 
         this.setState({
             year: year

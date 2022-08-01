@@ -9,9 +9,10 @@ const formatNumbers = (number) => {
     return formattedNumber;
 }
 
-const getUpdateList = (list, year) => {
+const getUpdateList = (list, year = 2021) => {
     if (!list) return
     // objectJSON[0] contém o array de anos 
+
 
     let objectWithYears = ""
 
@@ -24,19 +25,20 @@ const getUpdateList = (list, year) => {
 
     if (!objectWithYears?.[year.toString()]) return
 
-    const arrayValues = Object.values(objectWithYears[year.toString()]);
-
+    
+    const arrayValues = Object.values(objectWithYears[year.toString() ?? '2021']);
+    
     return arrayValues;
 }
 
 
 // calcula o faturamento total anual
-const calcYearTotal = (list, year) => {
+const calcYearTotal = (list, year = 2021) => {
     if (!list) return
 
     // array com faturamento mensal, que servirá de base para comparar os valores
     // e obter as taxas percentuais de crescimento, mês a mês.
-    const MonthlyAverage = utils.getUpdateList(list, year)
+    const MonthlyAverage = utils.getUpdateList(list, year) || utils.getUpdateList(list, 2021)
 
     // variáveis temporária do faturamento total anual
     let totalRevenue = 0 //
@@ -51,14 +53,16 @@ const calcYearTotal = (list, year) => {
 }
 
 // calcula a taxa de crescimento total anual
-const calcYearGrowthly = (list, year, getArr) => {
+const calcYearGrowthly = (list, year = 2021, getArr) => {
     if (!list) return
 
     let monthlyGrowthlyAverage = 0
     let totalTaxAvarege = 0
+    
+    const MonthlyAverage = utils.getUpdateList(list, year) || utils.getUpdateList(list, 2021) 
 
-    const MonthlyAverage = utils.getUpdateList(list, year)
     let monthlyGrowthlyArray = []
+
     MonthlyAverage.reduce((prev, curr, index) => {
         // calcula a taxa de crescimento entre o mês anterior e o atual
         monthlyGrowthlyAverage = ((curr / prev) * 100) - 100
@@ -88,8 +92,8 @@ const calcYearGrowthly = (list, year, getArr) => {
 }
 
 // calcula o melhor mês
-const calcGreaterMonthly = (list, year) => {
-    const MonthlyAverage = utils.getUpdateList(list, year)
+const calcGreaterMonthly = (list, year = 2021) => {
+    const MonthlyAverage = utils.getUpdateList(list, year) || utils.getUpdateList(list, 2021)
 
     if (!MonthlyAverage) return
 
@@ -101,8 +105,8 @@ const calcGreaterMonthly = (list, year) => {
 }
 
 // calcula o pior mês
-const calcWorstMonthly = (list, year) => {
-    const MonthlyAverage = utils.getUpdateList(list, year)
+const calcWorstMonthly = (list, year = 2021) => {
+    const MonthlyAverage = utils.getUpdateList(list, year) || utils.getUpdateList(list, 2021)
 
     if (!MonthlyAverage) return
 

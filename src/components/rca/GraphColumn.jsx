@@ -23,7 +23,7 @@ export default class GraphColumn extends Component {
         const monthGrowthly = (+this.props.monthGrowthly).toFixed(2)
         let clr = ""
 
-        if(monthGrowthly > 0) {
+        if (monthGrowthly > 0) {
             clr = 'green'
         }
 
@@ -34,20 +34,17 @@ export default class GraphColumn extends Component {
                     {this.props.value}
                 </span>
 
-                <div 
+                <div
                     onClick={() => {
-                            this.getMonthID(this.props.id)
+                        this.getMonthID(this.props.id)
                     }}
-                    monthGrowthly={this.props.monthGrowthly}
-                    columnsize={this.props.columnsize} 
-                    className='column' 
+                    className='column'
                     style={{ height: this.props.columnsize + "%" }}
-                    
-                    >
-                        
-                    
+                >
+
+
                 </div>
-                <span className='grow' style={{color: clr}}>{monthGrowthly}%</span>
+                <span className='grow' style={{ color: clr }}>{monthGrowthly}%</span>
             </div>
         )
     }

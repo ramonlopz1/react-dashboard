@@ -62,7 +62,7 @@ export default class AsideRight extends Component {
         const filtered = this.props.unfilteredData[filter]
 
         // filtra por ano [revenue, positivation, mix]
-        const allMonths = utils.getUpdateList(filtered, this.props.year)
+        const allMonths = utils.getUpdateList(filtered, this.props.year) || utils.getUpdateList(filtered, 2021)
         if (!allMonths) return
 
         // filtra por mês

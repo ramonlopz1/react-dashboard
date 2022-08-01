@@ -18,7 +18,7 @@ export default function ComparativeGraphics(props) {
 
             const currYear = utils.getUpdateList(datajson, 2021)
             const prevYear = utils.getUpdateList(datajson, 2020)
-
+            
             setCurrentYear(currYear)
             setPreviousYear(prevYear)
         }

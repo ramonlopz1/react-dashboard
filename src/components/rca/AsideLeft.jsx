@@ -64,7 +64,7 @@ export default class AsideLeft extends Component {
         const filtered = this.props.unfilteredData[filter]
 
         // filtra por ano [revenue, positivation, mix]
-        const allMonths = utils.getUpdateList(filtered, this.props.year)
+        const allMonths = utils.getUpdateList(filtered, this.props.year) || utils.getUpdateList(filtered, 2021)
         if (!allMonths) return
 
         // valor inicial (total do ano inteiro)
@@ -77,8 +77,15 @@ export default class AsideLeft extends Component {
         
         const years = Object.values(this.props.filteredData)[0]
 
+        
         if (years) {
-            return Object.keys(years)
+            // array de string-anos
+            const yearsString = Object.keys(years)
+
+            // array de int-anos
+            return yearsString.map(year => {
+                return parseInt(year)
+            }) 
         }
     }
 
@@ -86,7 +93,13 @@ export default class AsideLeft extends Component {
         
         // ta vindo apenas os anos de elias
         if (this.state.avaibleYears) {
-            return this.state.avaibleYears.map((year, idx) => {
+
+            const years = this.state.avaibleYears
+
+            // ordena desc: 2022, 2021, 2020
+            const orderYears = years.sort((a, b) => b - a)
+
+            return orderYears.map((year, idx) => {
                 return (
                     <option key={idx} className='year' value={year}>{year}</option>
                 )
@@ -100,7 +113,7 @@ export default class AsideLeft extends Component {
                 <div className="container__top">
                     <div className="search__rca">
                         <select onChange={this.changeRCA} className='rca__name'>
-                            <option className='rca' value="elias">Eliais Vieira Sobral</option>
+                            <option className='rca' value="elias">Elias Vieira Sobral</option>
                             <option className='rca' value="dina">Diná Maranhão</option>
                             <option className='rca' value="joao paulo">João Paulo</option>
                         </select>

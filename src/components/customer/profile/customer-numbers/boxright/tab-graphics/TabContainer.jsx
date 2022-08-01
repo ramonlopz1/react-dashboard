@@ -16,8 +16,6 @@ export default function TabContainer(props) {
             customer: customer,
             graphicData: customer?.datas[type]
         })
-
-
     }, [location.state?.customer, location.state?.type])
 
     if(state?.customer)

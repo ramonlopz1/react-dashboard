@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import utils from '../../../../../graphics/util/utils';
 
+
 import GraphColumn from './GraphColumn';
 
 import './Graphic.css'
