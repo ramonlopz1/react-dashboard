@@ -14,7 +14,8 @@ export default function Rank(props) {
             })
     }, [])
 
-   
+    
+    let cont = -1
     function getColors() {
         // filtra apenas os nomes do rankRevenue
         const rcaRank = Object.keys(state[0] || {})
@@ -34,26 +35,23 @@ export default function Rank(props) {
         })
 
         // ['green', 'green', 'red', 'red', 'red', 'green']
-        return colors
+        
+        return colors[++cont]
     }
 
     const renderRow = () => {
         // filtra apenas os nomes do rankRevenue
         const rcaRank = Object.keys(state[0] || {})
-        let colors = getColors()
-        // ta aqui o erro. o getColors ta vindo undefined
-
-        console.log(colors)
 
         return rcaRank.map((rca, idx) => {
             return (
                 <tr key={idx}>
                     <td>{idx}</td>
-                    <td>{rca}</td>
+                    <td>{rca.toLocaleUpperCase()}</td>
                     <td className={styles.wins}>
-                        <span style={{ color: getColors()[0] }} className={styles.win} >F</span>
-                        <span style={{ color: getColors()[1] }} className={styles.win}>P</span>
-                        <span style={{ color: getColors()[2] }} className={styles.win}>M</span>
+                        <span style={{ color: getColors() }} className={styles.win} >F</span>
+                        <span style={{ color: getColors() }} className={styles.win}>P</span>
+                        <span style={{ color: getColors() }} className={styles.win}>M</span>
                     </td>
                 </tr>
             )
