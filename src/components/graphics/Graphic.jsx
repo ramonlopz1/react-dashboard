@@ -105,6 +105,8 @@ export default class Graphic extends Component {
                 <select onChange={() => { this.changeYear() }} className='filter__by__year'>
                     <option className='year' value="2021">2021</option>
                     <option className='year' value="2020">2020</option>
+                    <option className='year' value="2019">2019</option>
+                    <option className='year' value="2018">2018</option>
                 </select>
             </div>
         )

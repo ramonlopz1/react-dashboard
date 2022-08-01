@@ -29,26 +29,31 @@ export default class AsideLeft extends Component {
             mix: this.calcAvarege('mix'),
             devolution: this.calcAvarege('devolution'),
             year: this.props.year,
-
+            rca: this.props.rca,
             ...initialState
         }
     }
 
-    componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps, prevState) {
         if (this.props.unfilteredData !== prevProps.unfilteredData
-            || this.props.year !== prevProps.year) {
+            || this.props.year !== prevProps.year
+            || this.props.filteredData !== prevProps.filteredData
+            || this.props.rca !== prevProps.rca) {
 
             const revenue = this.calcAvarege('revenue')
             const positivation = this.calcAvarege('positivation')
             const mix = this.calcAvarege('mix')
             const devolution = this.calcAvarege('devolution')
-
+            const avaibleYears = this.avaibleYears()
+            
             this.setState({
                 revenue: revenue,
                 positivation: positivation,
                 mix: mix,
                 devolution: devolution,
-                year: this.props.year
+                avaibleYears: avaibleYears,
+                year: this.props.year,
+                rca: this.props.rca,
             })
         }
     }
@@ -62,12 +67,31 @@ export default class AsideLeft extends Component {
         const allMonths = utils.getUpdateList(filtered, this.props.year)
         if (!allMonths) return
 
-
         // valor inicial (total do ano inteiro)
         const totalYear = utils.calcYearTotal(filtered, this.props.year)
 
-
         return totalYear / 12
+    }
+
+    avaibleYears() {
+        
+        const years = Object.values(this.props.filteredData)[0]
+
+        if (years) {
+            return Object.keys(years)
+        }
+    }
+
+    renderOptions() {
+        
+        // ta vindo apenas os anos de elias
+        if (this.state.avaibleYears) {
+            return this.state.avaibleYears.map((year, idx) => {
+                return (
+                    <option key={idx} className='year' value={year}>{year}</option>
+                )
+            })
+        }
     }
 
     render() {
@@ -78,10 +102,10 @@ export default class AsideLeft extends Component {
                         <select onChange={this.changeRCA} className='rca__name'>
                             <option className='rca' value="elias">Eliais Vieira Sobral</option>
                             <option className='rca' value="dina">Diná Maranhão</option>
+                            <option className='rca' value="joao paulo">João Paulo</option>
                         </select>
                         <select onChange={this.changeYear} className='select__year'>
-                            <option className='year' value="2021">2021</option>
-                            <option className='year' value="2020">2020</option>
+                            {this.renderOptions()}
                         </select>
                     </div>
 
@@ -139,7 +163,7 @@ export default class AsideLeft extends Component {
                                 Mix
                             </span>
                             <div className="data">
-                            {utils.formatNumbers(this.state.mix)}
+                                {utils.formatNumbers(this.state.mix)}
                             </div>
                         </div>
                         <div className="info">
@@ -147,7 +171,7 @@ export default class AsideLeft extends Component {
                                 Devolução
                             </span>
                             <div className="data">
-                            {utils.formatNumbers(this.state.devolution)}
+                                {utils.formatNumbers(this.state.devolution)}
                             </div>
                         </div>
                         <div className="info">

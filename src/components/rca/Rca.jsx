@@ -34,10 +34,10 @@ export default class Rca extends Component {
 
         // retorna todos os dados do rca escolhido (this.state.rca)
         const unfilteredData = res?.[this.state.rca]
-
+        
         // retorna os dados filtrados do rca escolhido (revenue, positivation...)
         let filteredData = unfilteredData?.[this.props.url]
-
+        
         this.setState({
             filteredData: filteredData,
             url: this.props.url,
@@ -82,7 +82,7 @@ export default class Rca extends Component {
         const select = document.querySelector('.rca__name')
         const rca = select.options[select.selectedIndex].value
         const fullName = select.options[select.selectedIndex].innerHTML
-
+        
         this.setState({
             rca: rca
         })
@@ -114,6 +114,7 @@ export default class Rca extends Component {
                     unfilteredData={this.state.unfilteredData}
                     filteredData={this.state.filteredData}
                     year={this.state.year}
+                    rca={this.state.rca}
                 />
                 <AsideRight
                     getMonthID={this.getMonthID}

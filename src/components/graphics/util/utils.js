@@ -2,7 +2,7 @@
 const formatNumbers = (number) => {
     const formattedNumber =
         parseFloat(number)
-            .toFixed(2)
+            .toFixed(0)
             .toString()
             .replace(/\B(?=(\d{3})+(?!\d))/g, ".")
 
