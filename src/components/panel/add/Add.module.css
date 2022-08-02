@@ -1,0 +1,15 @@
+a.link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: white;
+    border-radius: 4px;
+    height: 150px;
+    width: 150px;
+    text-decoration: none;
+}
+
+i.icon {
+    font-size: 45px;
+}
