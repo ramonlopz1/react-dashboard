@@ -2,12 +2,20 @@ a.link {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: white;
     justify-content: space-evenly;
-    background-color: white;
+    background-color: var(--cor1);
     border-radius: 4px;
-    height: 150px;
+    height: 200px;
     width: 150px;
     text-decoration: none;
+    margin: 0px 10px;
+}
+
+a.link:hover {
+    background-color: var(--cor2);
+    transition: .4s;
+    transform: scale(105%);
 }
 
 i.icon {

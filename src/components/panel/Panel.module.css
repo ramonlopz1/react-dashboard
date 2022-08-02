@@ -7,10 +7,28 @@
 
 .section__panel {
     align-items: center;
-    box-shadow: 0px 0px 13px 4px #00000070;
-    border-radius: 4px;
-    height: 96%;
-    width: 98%;
     display: flex;
     justify-content: space-evenly;
+    height: 96%;
+    width: 98%;
+}
+
+.container:nth-of-type(1) {
+    align-items: center;
+    display: flex;
+    background-color: white;
+    box-shadow: 0px 0px 13px 4px #00000070;
+    border-radius: 4px;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100%;
+    width: 59%;
+}
+
+.container:nth-of-type(2) {
+    background-color: white;
+    box-shadow: 0px 0px 13px 4px #00000070;
+    border-radius: 4px;
+    height: 100%;
+    width: 38%;
 }

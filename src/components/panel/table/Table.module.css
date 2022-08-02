@@ -1,0 +1,12 @@
+.panel__table {
+    text-align: center;
+    width: 100%;
+}
+
+.panel__table tr {
+    text-align: center;
+}
+
+.panel__table tr td {
+    width: 48%;
+}
